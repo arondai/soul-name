@@ -181,167 +181,729 @@
 // ===================================================================================
 // I. SAJU NAMER ENGINE - KNOWLEDGE BASE
 // ===================================================================================
+
+// This database contains detailed information for each Hanja character.
+// ===================================================================================
+// I. SAJU NAMER ENGINE - KNOWLEDGE BASE
+// ===================================================================================
+
+// This database contains detailed information for each Hanja character.
+// It MUST contain every unique Hanja used in the NameDB below.
 const HanjaInfo = [
-    // --- Water Element (水) - 30 ---
-    { hanja: '河', hangul: '하', jawon: 'water', strokes: 8, gender: 'male', meaning: { en: 'river', ko: '강', es: 'río' }, keywords: { en: ['flow', 'grand'], ko: ['흐름', '웅장함'], es: ['flujo', 'grandeza'] } },
-    { hanja: '潤', hangul: '윤', jawon: 'water', strokes: 15, gender: 'female', meaning: { en: 'to enrich', ko: '윤택하다', es: 'enriquecer' }, keywords: { en: ['prosperity', 'softness'], ko: ['번영', '부드러움'], es: ['prosperidad', 'suavidad'] } },
-    { hanja: '海', hangul: '해', jawon: 'water', strokes: 10, gender: 'neutral', meaning: { en: 'sea, ocean', ko: '바다', es: 'mar, océano' }, keywords: { en: ['vastness', 'potential'], ko: ['광활함', '잠재력'], es: ['inmensidad', 'potencial'] } },
-    { hanja: '澤', hangul: '택', jawon: 'water', strokes: 16, gender: 'male', meaning: { en: 'marsh, benefit', ko: '못, 혜택', es: 'pantano, beneficio' }, keywords: { en: ['grace', 'abundance'], ko: ['은혜', '풍요'], es: ['gracia', 'abundancia'] } },
-    { hanja: '泉', hangul: '천', jawon: 'water', strokes: 9, gender: 'female', meaning: { en: 'spring, fountain', ko: '샘', es: 'fuente, manantial' }, keywords: { en: ['freshness', 'origin'], ko: ['신선함', '근원'], es: ['frescura', 'origen'] } },
-    { hanja: '浩', hangul: '호', jawon: 'water', strokes: 10, gender: 'male', meaning: { en: 'vast, great', ko: '넓다, 크다', es: 'vasto, grande' }, keywords: { en: ['generosity', 'power'], ko: ['관대함', '힘'], es: ['generosidad', 'poder'] } },
-    { hanja: '源', hangul: '원', jawon: 'water', strokes: 13, gender: 'neutral', meaning: { en: 'source, origin', ko: '근원', es: 'fuente, origen' }, keywords: { en: ['beginning', 'wisdom'], ko: ['시작', '지혜'], es: ['comienzo', 'sabiduría'] } },
-    { hanja: '洛', hangul: '락', jawon: 'water', strokes: 9, gender: 'neutral', meaning: { en: 'river name', ko: '강 이름', es: 'nombre de río' }, keywords: { en: ['clarity', 'capital'], ko: ['명료함', '수도'], es: ['claridad', 'capital'] } },
-    { hanja: '泰', hangul: '태', jawon: 'water', strokes: 10, gender: 'male', meaning: { en: 'great, peaceful', ko: '크다, 평화롭다', es: 'grande, pacífico' }, keywords: { en: ['stability', 'calmness'], ko: ['안정', '평온'], es: ['estabilidad', 'calma'] } },
-    { hanja: '淳', hangul: '순', jawon: 'water', strokes: 11, gender: 'female', meaning: { en: 'pure, genuine', ko: '순수하다', es: 'puro, genuino' }, keywords: { en: ['sincerity', 'kindness'], ko: ['진실함', '친절'], es: ['sinceridad', 'amabilidad'] } },
-    { hanja: '淑', hangul: '숙', jawon: 'water', strokes: 11, gender: 'female', meaning: { en: 'pure, virtuous', ko: '맑다, 정숙하다', es: 'pura, virtuosa' }, keywords: { en: ['elegance', 'gentleness'], ko: ['우아함', '온화함'], es: ['elegancia', 'dulzura'] } },
-    { hanja: '涵', hangul: '함', jawon: 'water', strokes: 11, gender: 'female', meaning: { en: 'to contain, soak', ko: '포함하다, 젖다', es: 'contener, empapar' }, keywords: { en: ['tolerance', 'depth'], ko: ['관용', '깊이'], es: ['tolerancia', 'profundidad'] } },
-    { hanja: '淵', hangul: '연', jawon: 'water', strokes: 12, gender: 'neutral', meaning: { en: 'abyss, deep', ko: '못, 깊다', es: 'abismo, profundo' }, keywords: { en: ['wisdom', 'thoughtfulness'], ko: ['지혜', '사려깊음'], es: ['sabiduría', 'consideración'] } },
-    { hanja: '淇', hangul: '기', jawon: 'water', strokes: 11, gender: 'female', meaning: { en: 'river in China', ko: '강 이름', es: 'río en China' }, keywords: { en: ['vitality', 'cleanliness'], ko: ['활력', '깨끗함'], es: ['vitalidad', 'limpieza'] } },
-    { hanja: '洲', hangul: '주', jawon: 'water', strokes: 9, gender: 'male', meaning: { en: 'continent, island', ko: '대륙, 섬', es: 'continente, isla' }, keywords: { en: ['world', 'foundation'], ko: ['세계', '기반'], es: ['mundo', 'fundamento'] } },
-    { hanja: '波', hangul: '파', jawon: 'water', strokes: 8, gender: 'neutral', meaning: { en: 'wave', ko: '물결', es: 'ola' }, keywords: { en: ['influence', 'movement'], ko: ['영향력', '움직임'], es: ['influencia', 'movimiento'] } },
-    { hanja: '沛', hangul: '패', jawon: 'water', strokes: 7, gender: 'male', meaning: { en: 'abundant', ko: '성대하다', es: 'abundante' }, keywords: { en: ['energy', 'vigor'], ko: ['에너지', '활기'], es: ['energía', 'vigor'] } },
-    { hanja: '沃', hangul: '옥', jawon: 'water', strokes: 7, gender: 'neutral', meaning: { en: 'fertile', ko: '기름지다', es: 'fértil' }, keywords: { en: ['abundance', 'richness'], ko: ['풍요', '부유함'], es: ['abundancia', 'riqueza'] } },
-    { hanja: '泳', hangul: '영', jawon: 'water', strokes: 8, gender: 'neutral', meaning: { en: 'to swim', ko: '헤엄치다', es: 'nadar' }, keywords: { en: ['freedom', 'skill'], ko: ['자유', '기술'], es: ['libertad', 'habilidad'] } },
-    { hanja: '汛', hangul: '신', jawon: 'water', strokes: 6, gender: 'neutral', meaning: { en: 'high tide', ko: '조수', es: 'marea alta' }, keywords: { en: ['power', 'opportunity'], ko: ['힘', '기회'], es: ['poder', 'oportunidad'] } },
-    { hanja: '洗', hangul: '세', jawon: 'water', strokes: 9, gender: 'neutral', meaning: { en: 'to wash', ko: '씻다', es: 'lavar' }, keywords: { en: ['purity', 'renewal'], ko: ['순수', '쇄신'], es: ['pureza', 'renovación'] } },
-    { hanja: '法', hangul: '법', jawon: 'water', strokes: 8, gender: 'neutral', meaning: { en: 'law, method', ko: '법', es: 'ley, método' }, keywords: { en: ['principle', 'wisdom'], ko: ['원칙', '지혜'], es: ['principio', 'sabiduría'] } },
-    { hanja: '活', hangul: '활', jawon: 'water', strokes: 9, gender: 'male', meaning: { en: 'life, activity', ko: '살다, 활동', es: 'vida, actividad' }, keywords: { en: ['energy', 'liveliness'], ko: ['에너지', '활기'], es: ['energía', 'vivacidad'] } },
-    { hanja: '流', hangul: '류', jawon: 'water', strokes: 10, gender: 'neutral', meaning: { en: 'to flow', ko: '흐르다', es: 'fluir' }, keywords: { en: ['change', 'flexibility'], ko: ['변화', '유연성'], es: ['cambio', 'flexibilidad'] } },
-    { hanja: '濟', hangul: '제', jawon: 'water', strokes: 17, gender: 'male', meaning: { en: 'to save, cross', ko: '건너다, 구제하다', es: 'salvar, cruzar' }, keywords: { en: ['helpfulness', 'success'], ko: ['도움', '성공'], es: ['ayuda', 'éxito'] } },
-    { hanja: '漫', hangul: '만', jawon: 'water', strokes: 14, gender: 'neutral', meaning: { en: 'overflowing', ko: '넘치다', es: 'desbordante' }, keywords: { en: ['freedom', 'art'], ko: ['자유', '예술'], es: ['libertad', 'arte'] } },
-    { hanja: '漸', hangul: '점', jawon: 'water', strokes: 14, gender: 'neutral', meaning: { en: 'gradually', ko: '점차', es: 'gradualmente' }, keywords: { en: ['progress', 'patience'], ko: ['진전', '인내'], es: ['progreso', 'paciencia'] } },
-    { hanja: '馮', hangul: '풍', jawon: 'water', strokes: 12, gender: 'male', meaning: { en: 'to rely on', ko: '의지하다', es: 'confiar en' }, keywords: { en: ['support', 'strength'], ko: ['지원', '힘'], es: ['apoyo', 'fuerza'] } },
-    { hanja: '玄', hangul: '현', jawon: 'water', strokes: 5, gender: 'neutral', meaning: { en: 'deep, profound', ko: '깊다, 오묘하다', es: 'profundo, misterioso' }, keywords: { en: ['mystery', 'wisdom'], ko: ['신비', '지혜'], es: ['misterio', 'sabiduría'] } },
-    { hanja: '亨', hangul: '형', jawon: 'water', strokes: 7, gender: 'male', meaning: { en: 'smoothly, success', ko: '형통하다', es: 'sin problemas, éxito' }, keywords: { en: ['success', 'progress'], ko: ['성공', '진보'], es: ['éxito', 'progreso'] } },
+    // ㄱ
+    { hanja: '佳', meaning: { en: 'beautiful, good', ko: '아름답다, 좋다', es: 'hermoso, bueno' } },
+    { hanja: '健', meaning: { en: 'healthy, strong', ko: '건강하다, 굳세다', es: 'saludable, fuerte' } },
+    { hanja: '建', meaning: { en: 'to build, establish', ko: '세우다', es: 'construir, establecer' } },
+    { hanja: '景', meaning: { en: 'scenery, view', ko: '경치, 볕', es: 'paisaje, vista' } },
+    { hanja: '炅', meaning: { en: 'brilliant, hot', ko: '빛나다, 뜨겁다', es: 'brillante, caliente' } },
+    { hanja: '康', meaning: { en: 'comfortable, healthy', ko: '편안하다, 건강하다', es: 'cómodo, saludable' } },
+    { hanja: '江', meaning: { en: 'river', ko: '강', es: 'río' } },
+    { hanja: '綱', meaning: { en: 'main rope, principle', ko: '벼리, 강령', es: 'cuerda principal, principio' } },
+    { hanja: '岡', meaning: { en: 'ridge, mound', ko: '언덕, 산등성이', es: 'cresta, montículo' } },
+    { hanja: '奎', meaning: { en: 'star, stride', ko: '별, 걸음', es: 'estrella, zancada' } },
+    { hanja: '均', meaning: { en: 'even, balanced', ko: '고르다', es: 'uniforme, equilibrado' } },
+    { hanja: '基', meaning: { en: 'foundation, base', ko: '기초, 터', es: 'fundamento, base' } },
+    { hanja: '元', meaning: { en: 'first, origin', ko: '으뜸, 근원', es: 'primero, origen' } },
+    { hanja: '鏡', meaning: { en: 'mirror', ko: '거울', es: 'espejo' } },
+    { hanja: '潔', meaning: { en: 'clean, pure', ko: '깨끗하다', es: 'limpio, puro' } },
+    { hanja: '決', meaning: { en: 'to decide', ko: '결단하다', es: 'decidir' } },
+    { hanja: '卿', meaning: { en: 'high-ranking official', ko: '벼슬', es: 'alto funcionario' } },
 
-    // --- Wood Element (木) - 30 ---
-    { hanja: '林', hangul: '림', jawon: 'wood', strokes: 8, gender: 'neutral', meaning: { en: 'forest', ko: '숲', es: 'bosque' }, keywords: { en: ['growth', 'vitality'], ko: ['성장', '활력'], es: ['crecimiento', 'vitalidad'] } },
-    { hanja: '秀', hangul: '수', jawon: 'wood', strokes: 7, gender: 'female', meaning: { en: 'outstanding', ko: '빼어나다', es: 'sobresaliente' }, keywords: { en: ['excellence', 'beauty'], ko: ['탁월함', '아름다움'], es: ['excelencia', 'belleza'] } },
-    { hanja: '栽', hangul: '재', jawon: 'wood', strokes: 10, gender: 'male', meaning: { en: 'to plant', ko: '심다', es: 'plantar' }, keywords: { en: ['nurture', 'potential'], ko: ['양육', '잠재력'], es: ['nutrir', 'potencial'] } },
-    { hanja: '彬', hangul: '빈', jawon: 'wood', strokes: 11, gender: 'male', meaning: { en: 'refined', ko: '빛나다', es: 'refinado' }, keywords: { en: ['culture', 'harmony'], ko: ['문화', '조화'], es: ['cultura', 'armonía'] } },
-    { hanja: '根', hangul: '근', jawon: 'wood', strokes: 10, gender: 'male', meaning: { en: 'root', ko: '뿌리', es: 'raíz' }, keywords: { en: ['foundation', 'strength'], ko: ['기초', '힘'], es: ['fundamento', 'fuerza'] } },
-    { hanja: '植', hangul: '식', jawon: 'wood', strokes: 12, gender: 'male', meaning: { en: 'to plant', ko: '세우다', es: 'establecer' }, keywords: { en: ['establish', 'growth'], ko: ['설립', '성장'], es: ['establecer', 'crecimiento'] } },
-    { hanja: '材', hangul: '재', jawon: 'wood', strokes: 7, gender: 'male', meaning: { en: 'timber, talent', ko: '재목, 재능', es: 'madera, talento' }, keywords: { en: ['ability', 'resource'], ko: ['능력', '자원'], es: ['habilidad', 'recurso'] } },
-    { hanja: '東', hangul: '동', jawon: 'wood', strokes: 8, gender: 'male', meaning: { en: 'east', ko: '동쪽', es: 'este' }, keywords: { en: ['beginning', 'hope'], ko: ['시작', '희망'], es: ['comienzo', 'esperanza'] } },
-    { hanja: '采', hangul: '채', jawon: 'wood', strokes: 8, gender: 'female', meaning: { en: 'to gather, colorful', ko: '캐다, 채색', es: 'recoger, colorido' }, keywords: { en: ['art', 'variety'], ko: ['예술', '다채로움'], es: ['arte', 'variedad'] } },
-    { hanja: '芝', hangul: '지', jawon: 'wood', strokes: 6, gender: 'female', meaning: { en: 'iris', ko: '지초', es: 'iris' }, keywords: { en: ['beauty', 'nobility'], ko: ['아름다움', '고귀함'], es: ['belleza', 'nobleza'] } },
-    { hanja: '英', hangul: '영', jawon: 'wood', strokes: 8, gender: 'neutral', meaning: { en: 'flower, hero', ko: '꽃, 영웅', es: 'flor, héroe' }, keywords: { en: ['bravery', 'excellence'], ko: ['용기', '탁월함'], es: ['valentía', 'excelencia'] } },
-    { hanja: '蘭', hangul: '란', jawon: 'wood', strokes: 19, gender: 'female', meaning: { en: 'orchid', ko: '난초', es: 'orquídea' }, keywords: { en: ['elegance', 'purity'], ko: ['우아함', '순수'], es: ['elegancia', 'pureza'] } },
-    { hanja: '橋', hangul: '교', jawon: 'wood', strokes: 16, gender: 'male', meaning: { en: 'bridge', ko: '다리', es: 'puente' }, keywords: { en: ['connection', 'mediation'], ko: ['연결', '중재'], es: ['conexión', 'mediación'] } },
-    { hanja: '策', hangul: '책', jawon: 'wood', strokes: 12, gender: 'male', meaning: { en: 'plan, strategy', ko: '계책', es: 'plan, estrategia' }, keywords: { en: ['wisdom', 'planning'], ko: ['지혜', '계획'], es: ['sabiduría', 'planificación'] } },
-    { hanja: '君', hangul: '군', jawon: 'wood', strokes: 7, gender: 'male', meaning: { en: 'ruler, gentleman', ko: '임금', es: 'gobernante' }, keywords: { en: ['leadership', 'dignity'], ko: ['리더십', '품위'], es: ['liderazgo', 'dignidad'] } },
-    { hanja: '建', hangul: '건', jawon: 'wood', strokes: 9, gender: 'male', meaning: { en: 'to build', ko: '세우다', es: 'construir' }, keywords: { en: ['creation', 'start'], ko: ['창조', '시작'], es: ['creación', 'inicio'] } },
-    { hanja: '景', hangul: '경', jawon: 'wood', strokes: 12, gender: 'neutral', meaning: { en: 'scenery, view', ko: '경치', es: 'paisaje, vista' }, keywords: { en: ['beauty', 'brightness'], ko: ['아름다움', '밝음'], es: ['belleza', 'brillo'] } },
-    { hanja: '揆', hangul: '규', jawon: 'wood', strokes: 12, gender: 'male', meaning: { en: 'to deliberate', ko: '헤아리다', es: 'deliberar' }, keywords: { en: ['wisdom', 'principle'], ko: ['지혜', '원칙'], es: ['sabiduría', 'principio'] } },
-    { hanja: '起', hangul: '기', jawon: 'wood', strokes: 10, gender: 'male', meaning: { en: 'to rise, start', ko: '일어나다', es: 'levantarse, empezar' }, keywords: { en: ['beginning', 'energy'], ko: ['시작', '에너지'], es: ['comienzo', 'energía'] } },
-    { hanja: '吉', hangul: '길', jawon: 'wood', strokes: 6, gender: 'neutral', meaning: { en: 'auspicious, lucky', ko: '길하다', es: 'auspicioso, afortunado' }, keywords: { en: ['fortune', 'goodness'], ko: ['행운', '선함'], es: ['fortuna', 'bondad'] } },
-    { hanja: '琳', hangul: '림', jawon: 'wood', strokes: 12, gender: 'female', meaning: { en: 'beautiful jade', ko: '아름다운 옥', es: 'hermoso jade' }, keywords: { en: ['beauty', 'precious'], ko: ['아름다움', '귀함'], es: ['belleza', 'precioso'] } },
-    { hanja: '茂', hangul: '무', jawon: 'wood', strokes: 8, gender: 'male', meaning: { en: 'luxuriant, lush', ko: '무성하다', es: 'exuberante, frondoso' }, keywords: { en: ['prosperity', 'growth'], ko: ['번영', '성장'], es: ['prosperidad', 'crecimiento'] } },
-    { hanja: '樸', hangul: '박', jawon: 'wood', strokes: 16, gender: 'male', meaning: { en: 'simple, plain', ko: '순박하다', es: 'simple, sencillo' }, keywords: { en: ['honesty', 'nature'], ko: ['정직', '자연'], es: ['honestidad', 'naturaleza'] } },
-    { hanja: '笙', hangul: '생', jawon: 'wood', strokes: 11, gender: 'neutral', meaning: { en: 'a reed instrument', ko: '생황', es: 'instrumento de lengüeta' }, keywords: { en: ['harmony', 'art'], ko: ['조화', '예술'], es: ['armonía', 'arte'] } },
-    { hanja: '杓', hangul: '표', jawon: 'wood', strokes: 7, gender: 'male', meaning: { en: 'ladle, handle', ko: '자루', es: 'cucharón, mango' }, keywords: { en: ['standard', 'guidance'], ko: ['표준', '안내'], es: ['estándar', 'guía'] } },
-    { hanja: '榮', hangul: '영', jawon: 'wood', strokes: 14, gender: 'neutral', meaning: { en: 'glory, honor', ko: '영광', es: 'gloria, honor' }, keywords: { en: ['success', 'prosperity'], ko: ['성공', '번영'], es: ['éxito', 'prosperidad'] } },
-    { hanja: '苑', hangul: '원', jawon: 'wood', strokes: 8, gender: 'female', meaning: { en: 'garden, park', ko: '동산', es: 'jardín, parque' }, keywords: { en: ['art', 'beauty'], ko: ['예술', '아름다움'], es: ['arte', 'belleza'] } },
-    { hanja: '桂', hangul: '계', jawon: 'wood', strokes: 10, gender: 'female', meaning: { en: 'cassia tree', ko: '계수나무', es: 'árbol de casia' }, keywords: { en: ['nobility', 'fragrance'], ko: ['고귀함', '향기'], es: ['nobleza', 'fragancia'] } },
-    { hanja: '權', hangul: '권', jawon: 'wood', strokes: 22, gender: 'male', meaning: { en: 'to advise', ko: '권하다', es: 'aconsejar' }, keywords: { en: ['wisdom', 'guidance'], ko: ['지혜', '안내'], es: ['sabiduría', 'guía'] } },
-    { hanja: '楠', hangul: '남', jawon: 'wood', strokes: 13, gender: 'male', meaning: { en: 'tree', ko: '나무', es: 'árbol' }, keywords: { en: ['strength', 'life'], ko: ['힘', '생명'], es: ['fuerza', 'vida'] } },
 
-    // --- Fire Element (火) --- 
-    { hanja: '煥', hangul: '환', jawon: 'fire', strokes: 13, gender: 'male', meaning: { en: 'shining', ko: '빛나다', es: 'brillante' }, keywords: { en: ['passion', 'brightness'], ko: ['열정', '밝음'], es: ['pasión', 'brillo'] } },
-    { hanja: '映', hangul: '영', jawon: 'fire', strokes: 9, gender: 'female', meaning: { en: 'to reflect', ko: '비추다', es: 'reflejar' }, keywords: { en: ['light', 'influence'], ko: ['빛', '영향력'], es: ['luz', 'influencia'] } },
-    { hanja: '旭', hangul: '욱', jawon: 'fire', strokes: 6, gender: 'male', meaning: { en: 'rising sun', ko: '아침 해', es: 'sol naciente' }, keywords: { en: ['hope', 'energy'], ko: ['희망', '에너지'], es: ['esperanza', 'energía'] } },
-    { hanja: '夏', hangul: '하', jawon: 'fire', strokes: 10, gender: 'female', meaning: { en: 'summer', ko: '여름', es: 'verano' }, keywords: { en: ['vitality', 'activity'], ko: ['활력', '활동'], es: ['vitalidad', 'actividad'] } },
-    { hanja: '光', hangul: '광', jawon: 'fire', strokes: 6, gender: 'male', meaning: { en: 'light, glory', ko: '빛, 영광', es: 'luz, gloria' }, keywords: { en: ['honor', 'brightness'], ko: ['명예', '밝음'], es: ['honor', 'brillo'] } },
-    { hanja: '烈', hangul: '렬', jawon: 'fire', strokes: 10, gender: 'male', meaning: { en: 'ardent, fiery', ko: '맵다, 뜨겁다', es: 'ardiente, fogoso' }, keywords: { en: ['passion', 'strength'], ko: ['열정', '힘'], es: ['pasión', 'fuerza'] } },
-    { hanja: '然', hangul: '연', jawon: 'fire', strokes: 12, gender: 'female', meaning: { en: 'to be so, yes', ko: '그러하다', es: 'ser así, sí' }, keywords: { en: ['nature', 'affirmation'], ko: ['자연', '긍정'], es: ['naturaleza', 'afirmación'] } },
-    { hanja: '熹', hangul: '희', jawon: 'fire', strokes: 16, gender: 'female', meaning: { en: 'bright, warm', ko: '밝다, 따뜻하다', es: 'brillante, cálido' }, keywords: { en: ['kindness', 'hope'], ko: ['친절', '희망'], es: ['amabilidad', 'esperanza'] } },
-    { hanja: '昶', hangul: '창', jawon: 'fire', strokes: 9, gender: 'male', meaning: { en: 'bright, long day', ko: '밝다, 해가 길다', es: 'brillante, día largo' }, keywords: { en: ['endurance', 'clarity'], ko: ['인내', '명확함'], es: ['resistencia', 'claridad'] } },
-    { hanja: '燮', hangul: '섭', jawon: 'fire', strokes: 17, gender: 'male', meaning: { en: 'to blend, harmonize', ko: '화합하다', es: 'mezclar, armonizar' }, keywords: { en: ['cooperation', 'balance'], ko: ['협력', '균형'], es: ['cooperación', 'equilibrio'] } },
-    { hanja: '燈', hangul: '등', jawon: 'fire', strokes: 16, gender: 'neutral', meaning: { en: 'lamp, light', ko: '등불', es: 'lámpara, luz' }, keywords: { en: ['guidance', 'wisdom'], ko: ['안내', '지혜'], es: ['guía', 'sabiduría'] } },
-    { hanja: '炫', hangul: '현', jawon: 'fire', strokes: 9, gender: 'neutral', meaning: { en: 'to shine, glitter', ko: '빛나다, 자랑하다', es: 'brillar, relucir' }, keywords: { en: ['talent', 'expression'], ko: ['재능', '표현'], es: ['talento', 'expresión'] } },
-    { hanja: '煇', hangul: '휘', jawon: 'fire', strokes: 13, gender: 'male', meaning: { en: 'brilliance', ko: '빛', es: 'brillo' }, keywords: { en: ['leadership', 'glory'], ko: ['리더십', '영광'], es: ['liderazgo', 'gloria'] } },
-    { hanja: '炳', hangul: '병', jawon: 'fire', strokes: 9, gender: 'male', meaning: { en: 'bright, glorious', ko: '빛나다', es: 'brillante, glorioso' }, keywords: { en: ['achievement', 'fame'], ko: ['성취', '명성'], es: ['logro', 'fama'] } },
-    { hanja: '暖', hangul: '난', jawon: 'fire', strokes: 13, gender: 'female', meaning: { en: 'warm', ko: '따뜻하다', es: 'cálido' }, keywords: { en: ['comfort', 'affection'], ko: ['편안함', '애정'], es: ['comodidad', 'afecto'] } },
-    { hanja: '炅', hangul: '경', jawon: 'fire', strokes: 8, gender: 'neutral', meaning: { en: 'brilliant, hot', ko: '빛나다, 뜨겁다', es: 'brillante, caliente' }, keywords: { en: ['passion', 'light'], ko: ['열정', '빛'], es: ['pasión', 'luz'] } },
-    { hanja: '丹', hangul: '단', jawon: 'fire', strokes: 4, gender: 'female', meaning: { en: 'cinnabar, sincerity', ko: '붉다, 정성', es: 'cinabrio, sinceridad' }, keywords: { en: ['sincerity', 'energy'], ko: ['진심', '에너지'], es: ['sinceridad', 'energía'] } },
-    { hanja: '曜', hangul: '요', jawon: 'fire', strokes: 18, gender: 'male', meaning: { en: 'to shine, day of week', ko: '빛나다, 요일', es: 'brillar, día de la semana' }, keywords: { en: ['brightness', 'honor'], ko: ['밝음', '명예'], es: ['brillo', 'honor'] } },
-    { hanja: '旻', hangul: '민', jawon: 'fire', strokes: 8, gender: 'neutral', meaning: { en: 'autumn sky', ko: '가을 하늘', es: 'cielo de otoño' }, keywords: { en: ['clarity', 'vastness'], ko: ['명료함', '광대함'], es: ['claridad', 'inmensidad'] } },
-    { hanja: '晶', hangul: '정', jawon: 'fire', strokes: 12, gender: 'female', meaning: { en: 'crystal, bright', ko: '수정, 밝다', es: 'cristal, brillante' }, keywords: { en: ['purity', 'brilliance'], ko: ['순수', '총명'], es: ['pureza', 'brillantez'] } },
-    { hanja: '晴', hangul: '청', jawon: 'fire', strokes: 12, gender: 'female', meaning: { en: 'clear weather', ko: '맑다', es: 'tiempo despejado' }, keywords: { en: ['cheerfulness', 'clarity'], ko: ['쾌활함', '명료함'], es: ['alegría', 'claridad'] } },
-    { hanja: '晟', hangul: '성', jawon: 'fire', strokes: 11, gender: 'male', meaning: { en: 'bright light, splendor', ko: '밝은 빛, 번성', es: 'luz brillante, esplendor' }, keywords: { en: ['prosperity', 'vigor'], ko: ['번성', '활기'], es: ['prosperidad', 'vigor'] } },
-    { hanja: '寧', hangul: '녕', jawon: 'fire', strokes: 14, gender: 'neutral', meaning: { en: 'peaceful, rather', ko: '편안하다', es: 'pacífico' }, keywords: { en: ['comfort', 'stability'], ko: ['편안함', '안정'], es: ['comodidad', 'estabilidad'] } },
-    { hanja: '多', hangul: '다', jawon: 'fire', strokes: 6, gender: 'female', meaning: { en: 'many, much', ko: '많다', es: 'mucho' }, keywords: { en: ['abundance', 'talent'], ko: ['풍요', '재능'], es: ['abundancia', 'talento'] } },
-    { hanja: '同', hangul: '동', jawon: 'fire', strokes: 6, gender: 'neutral', meaning: { en: 'same, together', ko: '함께', es: 'mismo, juntos' }, keywords: { en: ['harmony', 'community'], ko: ['조화', '공동체'], es: ['armonía', 'comunidad'] } },
-    { hanja: '來', hangul: '래', jawon: 'fire', strokes: 7, gender: 'neutral', meaning: { en: 'to come', ko: '오다', es: 'venir' }, keywords: { en: ['future', 'hope'], ko: ['미래', '희망'], es: ['futuro', 'esperanza'] } },
-    { hanja: '知', hangul: '지', jawon: 'fire', strokes: 8, gender: 'neutral', meaning: { en: 'to know, wisdom', ko: '알다, 지혜', es: 'saber, sabiduría' }, keywords: { en: ['intellect', 'insight'], ko: ['지성', '통찰력'], es: ['intelecto', 'perspicacia'] } },
-    { hanja: '愷', hangul: '개', jawon: 'fire', strokes: 13, gender: 'male', meaning: { en: 'joyful, kind', ko: '즐겁다', es: 'alegre, amable' }, keywords: { en: ['happiness', 'harmony'], ko: ['행복', '조화'], es: ['felicidad', 'armonía'] } },
-    { hanja: '暢', hangul: '창', jawon: 'fire', strokes: 14, gender: 'male', meaning: { en: 'smooth, free', ko: '화창하다, 막힘없다', es: 'suave, libre' }, keywords: { en: ['expression', 'vitality'], ko: ['표현', '활력'], es: ['expresión', 'vitalidad'] } },
-    { hanja: '之', hangul: '지', jawon: 'fire', strokes: 3, gender: 'neutral', meaning: { en: 'to go, of', ko: '가다, ~의', es: 'ir, de' }, keywords: { en: ['progress', 'connection'], ko: ['진보', '연결'], es: ['progreso', 'conexión'] } },
+    // ㄴ
+    { hanja: '娜', meaning: { en: 'elegant, graceful', ko: '아리땁다', es: 'elegante, graciosa' } },
+    { hanja: '藍', meaning: { en: 'indigo plant', ko: '쪽', es: 'planta de índigo' } },
+
+    // ㄷ
+    { hanja: '多', meaning: { en: 'many, much', ko: '많다', es: 'mucho' } },
+    { hanja: '丹', meaning: { en: 'cinnabar, red', ko: '붉다, 정성', es: 'cinabrio, rojo' } },
+    { hanja: '道', meaning: { en: 'path, way', ko: '길, 도리', es: 'camino, sendero' } },
+    { hanja: '度', meaning: { en: 'degree, measure', ko: '법도, 정도', es: 'grado, medida' } },
+    { hanja: '東', meaning: { en: 'east', ko: '동쪽', es: 'este' } },
+    { hanja: '桐', meaning: { en: 'paulownia tree', ko: '오동나무', es: 'árbol de paulownia' } },
+
+    // ㄹ
+    { hanja: '朗', meaning: { en: 'clear, bright', ko: '밝다, 낭랑하다', es: 'claro, brillante' } },
+    { hanja: '羅', meaning: { en: 'net, silk', ko: '그물, 비단', es: 'red, seda' } },
+    { hanja: '蓮', meaning: { en: 'lotus', ko: '연꽃', es: 'loto' } },
+    { hanja: '玲', meaning: { en: 'sound of jade', ko: '옥 소리', es: 'sonido de jade' } },
+    { hanja: '璘', meaning: { en: 'luster of jade', ko: '옥빛', es: 'brillo de jade' } },
+    { hanja: '琳', meaning: { en: 'beautiful jade', ko: '아름다운 옥', es: 'hermoso jade' } },
+    { hanja: '律', meaning: { en: 'law, rule', ko: '법칙, 율', es: 'ley, regla' } },
+    { hanja: '理', meaning: { en: 'reason, principle', ko: '이치, 다스리다', es: 'razón, principio' } },
+    { hanja: '利', meaning: { en: 'benefit, advantage', ko: '이로움', es: 'beneficio, ventaja' } },
+    { hanja: '李', meaning: { en: 'plum tree', ko: '오얏나무', es: 'ciruelo' } },
+    { hanja: '麟', meaning: { en: 'kirin (mythical creature)', ko: '기린', es: 'kirin (criatura mítica)' } },
+    { hanja: '麗', meaning: { en: 'beautiful, magnificent', ko: '곱다, 아름답다', es: 'hermoso, magnífico' } },
+    { hanja: '路', meaning: { en: 'road, path', ko: '길', es: 'camino, sendero' } },
+
+
+    // ㅁ
+    { hanja: '敏', meaning: { en: 'agile, clever', ko: '민첩하다, 총명하다', es: 'ágil, inteligente' } },
+    { hanja: '珉', meaning: { en: 'stone resembling jade', ko: '옥돌', es: 'piedra parecida al jade' } },
+    { hanja: '旻', meaning: { en: 'autumn sky', ko: '가을 하늘', es: 'cielo de otoño' } },
+    { hanja: '旼', meaning: { en: 'gentle, peaceful', ko: '온화하다', es: 'gentil, pacífico' } },
+    { hanja: '美', meaning: { en: 'beauty', ko: '아름다움', es: 'belleza' } },
+    { hanja: '民', meaning: { en: 'people, citizen', ko: '백성', es: 'pueblo, ciudadano' } },
+    { hanja: '閔', meaning: { en: 'to mourn, pity', ko: '위문하다, 성씨', es: 'lamentar, apellido' } },
+
+
+    // ㅂ
+    { hanja: '彬', meaning: { en: 'refined, shining', ko: '빛나다, 세련되다', es: 'refinado, brillante' } },
+    { hanja: '凡', meaning: { en: 'all, ordinary', ko: '무릇, 평범함', es: 'todo, ordinario' } },
+    { hanja: '寶', meaning: { en: 'treasure', ko: '보배', es: 'tesoro' } },
+    { hanja: '普', meaning: { en: 'universal, wide', ko: '넓다', es: 'universal, amplio' } },
+
+    // ㅅ
+    { hanja: '思', meaning: { en: 'to think', ko: '생각하다', es: 'pensar' } },
+    { hanja: '瑞', meaning: { en: 'auspicious, lucky', ko: '상서롭다', es: 'auspicioso, afortunado' } },
+    { hanja: '書', meaning: { en: 'book, to write', ko: '책, 글씨', es: 'libro, escribir' } },
+    { hanja: '舒', meaning: { en: 'to unfold, relax', ko: '펴다, 느긋하다', es: 'desplegar, relajar' } },
+    { hanja: '曙', meaning: { en: 'dawn, daybreak', ko: '새벽', es: 'amanecer, alba' } },
+    { hanja: '碩', meaning: { en: 'great, large', ko: '크다', es: 'grande, amplio' } },
+    { hanja: '善', meaning: { en: 'good, virtuous', ko: '착하다, 좋다', es: 'bueno, virtuoso' } },
+    { hanja: '宣', meaning: { en: 'to declare, proclaim', ko: '베풀다, 펴다', es: 'declarar, proclamar' } },
+    { hanja: '星', meaning: { en: 'star', ko: '별', es: 'estrella' } },
+    { hanja: '成', meaning: { en: 'to accomplish, succeed', ko: '이루다, 완성하다', es: 'lograr, tener éxito' } },
+    { hanja: '誠', meaning: { en: 'sincerity, honesty', ko: '정성, 참됨', es: 'sinceridad, honestidad' } },
+    { hanja: '晟', meaning: { en: 'bright light, splendor', ko: '밝은 빛, 번성', es: 'luz brillante, esplendor' } },
+    { hanja: '世', meaning: { en: 'generation, world', ko: '세상, 인간', es: 'generación, mundo' } },
+    { hanja: '昭', meaning: { en: 'bright, clear', ko: '밝다', es: 'brillante, claro' } },
+    { hanja: '笑', meaning: { en: 'to laugh, smile', ko: '웃다', es: 'reír, sonreír' } },
+  	{ hanja: '松', meaning: { en: 'pine tree', ko: '소나무', es: 'pino' } },
+    { hanja: '秀', meaning: { en: 'outstanding, excellent', ko: '빼어나다', es: 'sobresaliente, excelente' } },
+    { hanja: '壽', meaning: { en: 'longevity, life', ko: '목숨, 오래 살다', es: 'longevidad, vida' } },
+    { hanja: '始', meaning: { en: 'to begin, start', ko: '시작하다', es: 'empezar, comenzar' } },
+    { hanja: '時', meaning: { en: 'time, season', ko: '때, 시절', es: 'tiempo, estación' } },
+    { hanja: '詩', meaning: { en: 'poem, poetry', ko: '시', es: 'poema, poesía' } },
+    { hanja: '信', meaning: { en: 'trust, faith', ko: '믿음', es: 'confianza, fe' } },
+    { hanja: '新', meaning: { en: 'new', ko: '새롭다', es: 'nuevo' } },
+    { hanja: '承', meaning: { en: 'to inherit, succeed', ko: '잇다, 계승하다', es: 'heredar, suceder' } },
+    { hanja: '昇', meaning: { en: 'to rise, ascend', ko: '오르다', es: 'elevarse, ascender' } },
+    { hanja: '率', meaning: { en: 'to lead, ratio', ko: '거느리다, 비율', es: 'liderar, proporción' } },
+    { hanja: '水', meaning: { en: 'water', ko: '물', es: 'agua' } },
+    { hanja: '瑟', meaning: { en: 'a type of zither', ko: '큰 거문고', es: 'un tipo de cítara' } },
+    { hanja: '相', meaning: { en: 'mutual, appearance, helper', ko: '서로, 모습, 돕다', es: 'mutuo, apariencia, ayudante' } },
+    { hanja: '燮', meaning: { en: 'to harmonize, blend', ko: '화합하다', es: 'armonizar, mezclar' } },
+    { hanja: '朔', meaning: { en: 'new moon, beginning', ko: '초하루, 처음', es: 'luna nueva, comienzo' } },
+    { hanja: '源', meaning: { en: 'source, origin', ko: '근원', es: 'fuente, origen' } },
     
-    // --- Earth Element (土) ---
-    { hanja: '均', hangul: '균', jawon: 'earth', strokes: 7, gender: 'male', meaning: { en: 'even, balanced', ko: '고르다', es: 'uniforme, equilibrado' }, keywords: { en: ['stability', 'fairness'], ko: ['안정성', '공정함'], es: ['estabilidad', 'justicia'] } },
-    { hanja: '祐', hangul: '우', jawon: 'earth', strokes: 9, gender: 'male', meaning: { en: 'divine help', ko: '도움', es: 'ayuda divina' }, keywords: { en: ['protection', 'fortune'], ko: ['보호', '행운'], es: ['protección', 'fortuna'] } },
-    { hanja: '信', hangul: '신', jawon: 'earth', strokes: 9, gender: 'neutral', meaning: { en: 'trust, faith', ko: '믿음', es: 'confianza, fe' }, keywords: { en: ['reliability', 'integrity'], ko: ['신뢰성', '성실'], es: ['fiabilidad', 'integridad'] } },
-    { hanja: '坤', hangul: '곤', jawon: 'earth', strokes: 8, gender: 'female', meaning: { en: 'earth principle', ko: '땅', es: 'principio de la tierra' }, keywords: { en: ['nurturing', 'receptivity'], ko: ['양육', '수용성'], es: ['crianza', 'receptividad'] } },
-    { hanja: '在', hangul: '재', jawon: 'earth', strokes: 6, gender: 'male', meaning: { en: 'to exist, in', ko: '있다', es: 'existir, en' }, keywords: { en: ['presence', 'foundation'], ko: ['존재', '기반'], es: ['presencia', 'fundamento'] } },
-    { hanja: '圭', hangul: '규', jawon: 'earth', strokes: 6, gender: 'male', meaning: { en: 'jade tablet', ko: '규', es: 'tableta de jade' }, keywords: { en: ['standard', 'nobility'], ko: ['표준', '고귀함'], es: ['estándar', 'nobleza'] } },
-    { hanja: '城', hangul: '성', jawon: 'earth', strokes: 9, gender: 'male', meaning: { en: 'castle, wall', ko: '성', es: 'castillo, muralla' }, keywords: { en: ['protection', 'sturdiness'], ko: ['보호', '견고함'], es: ['protección', 'robustez'] } },
-    { hanja: '垠', hangul: '은', jawon: 'earth', strokes: 9, gender: 'female', meaning: { en: 'boundary, bank', ko: '언덕, 경계', es: 'límite, orilla' }, keywords: { en: ['stability', 'expanse'], ko: ['안정', '광활함'], es: ['estabilidad', 'extensión'] } },
-    { hanja: '基', hangul: '기', jawon: 'earth', strokes: 11, gender: 'male', meaning: { en: 'foundation, base', ko: '기초, 터', es: 'fundamento, base' }, keywords: { en: ['principle', 'potential'], ko: ['원칙', '잠재력'], es: ['principio', 'potencial'] } },
-    { hanja: '培', hangul: '배', jawon: 'earth', strokes: 11, gender: 'male', meaning: { en: 'to cultivate', ko: '북돋우다', es: 'cultivar' }, keywords: { en: ['nurture', 'growth'], ko: ['양육', '성장'], es: ['nutrir', 'crecimiento'] } },
-    { hanja: '庸', hangul: '용', jawon: 'earth', strokes: 11, gender: 'neutral', meaning: { en: 'common, to use', ko: '쓰다, 평범하다', es: 'común, usar' }, keywords: { en: ['harmony', 'steadiness'], ko: ['조화', '꾸준함'], es: ['armonía', 'constancia'] } },
-    { hanja: '垣', hangul: '원', jawon: 'earth', strokes: 9, gender: 'male', meaning: { en: 'wall, fence', ko: '담', es: 'muro, valla' }, keywords: { en: ['support', 'protection'], ko: ['지원', '보호'], es: ['apoyo', 'protección'] } },
-    { hanja: '譽', hangul: '예', jawon: 'earth', strokes: 13, gender: 'female', meaning: { en: 'fame, reputation', ko: '명예', es: 'fama, reputación' }, keywords: { en: ['honor', 'respect'], ko: ['명예', '존경'], es: ['honor', 'respeto'] } },
-    { hanja: '陞', hangul: '승', jawon: 'earth', strokes: 8, gender: 'male', meaning: { en: 'to rise, advance', ko: '오르다', es: 'ascender, avanzar' }, keywords: { en: ['promotion', 'success'], ko: ['승진', '성공'], es: ['ascenso', 'éxito'] } },
-    { hanja: '亞', hangul: '아', jawon: 'earth', strokes: 8, gender: 'female', meaning: { en: 'second, Asia', ko: '버금, 아시아', es: 'segundo, Asia' }, keywords: { en: ['center', 'foundation'], ko: ['중심', '기반'], es: ['centro', 'fundamento'] } },
-    { hanja: '安', hangul: '안', jawon: 'earth', strokes: 6, gender: 'neutral', meaning: { en: 'peace, quiet', ko: '편안하다', es: 'paz, tranquilo' }, keywords: { en: ['safety', 'comfort'], ko: ['안전', '편안함'], es: ['seguridad', 'comodidad'] } },
-    { hanja: '恩', hangul: '은', jawon: 'earth', strokes: 10, gender: 'female', meaning: { en: 'grace, favor', ko: '은혜', es: 'gracia, favor' }, keywords: { en: ['kindness', 'gratitude'], ko: ['친절', '감사'], es: ['amabilidad', 'gratitud'] } },
-    { hanja: '完', hangul: '완', jawon: 'earth', strokes: 7, gender: 'male', meaning: { en: 'complete, whole', ko: '완전하다', es: 'completo, entero' }, keywords: { en: ['perfection', 'integrity'], ko: ['완벽', '온전함'], es: ['perfección', 'integridad'] } },
-    { hanja: '容', hangul: '용', jawon: 'earth', strokes: 10, gender: 'female', meaning: { en: 'to contain, appearance', ko: '얼굴, 담다', es: 'contener, apariencia' }, keywords: { en: ['tolerance', 'beauty'], ko: ['관용', '아름다움'], es: ['tolerancia', 'belleza'] } },
-    { hanja: '允', hangul: '윤', jawon: 'earth', strokes: 4, gender: 'neutral', meaning: { en: 'to permit, sincere', ko: '진실로', es: 'permitir, sincero' }, keywords: { en: ['sincerity', 'trust'], ko: ['진실', '신뢰'], es: ['sinceridad', 'confianza'] } },
-    { hanja: '懿', hangul: '의', jawon: 'earth', strokes: 22, gender: 'female', meaning: { en: 'virtuous, beautiful', ko: '아름답다', es: 'virtuoso, hermoso' }, keywords: { en: ['virtue', 'nobility'], ko: ['덕', '고귀함'], es: ['virtud', 'nobleza'] } },
-    { hanja: '仁', hangul: '인', jawon: 'earth', strokes: 4, gender: 'neutral', meaning: { en: 'benevolence', ko: '어질다', es: 'benevolencia' }, keywords: { en: ['kindness', 'humanity'], ko: ['친절', '인류애'], es: ['amabilidad', 'humanidad'] } },
-    { hanja: '廷', hangul: '정', jawon: 'earth', strokes: 7, gender: 'male', meaning: { en: 'royal court', ko: '조정', es: 'corte real' }, keywords: { en: ['justice', 'center'], ko: ['정의', '중심'], es: ['justicia', 'centro'] } },
-    { hanja: '準', hangul: '준', jawon: 'earth', strokes: 13, gender: 'male', meaning: { en: 'standard, to allow', ko: '준하다', es: 'estándar, permitir' }, keywords: { en: ['fairness', 'principle'], ko: ['공정', '원칙'], es: ['justicia', 'principio'] } },
-    { hanja: '中', hangul: '중', jawon: 'earth', strokes: 4, gender: 'male', meaning: { en: 'middle, center', ko: '가운데', es: 'medio, centro' }, keywords: { en: ['balance', 'harmony'], ko: ['균형', '조화'], es: ['equilibrio', 'armonía'] } },
-    { hanja: '山', hangul: '산', jawon: 'earth', strokes: 3, gender: 'male', meaning: { en: 'mountain', ko: '산', es: 'montaña' }, keywords: { en: ['stability', 'unwavering'], ko: ['안정', '굳건함'], es: ['estabilidad', 'firmeza'] } },
-    { hanja: '石', hangul: '석', jawon: 'earth', strokes: 5, gender: 'male', meaning: { en: 'stone', ko: '돌', es: 'piedra' }, keywords: { en: ['strength', 'foundation'], ko: ['힘', '기초'], es: ['fuerza', 'fundamento'] } },
-    { hanja: '田', hangul: '전', jawon: 'earth', strokes: 5, gender: 'neutral', meaning: { en: 'field', ko: '밭', es: 'campo' }, keywords: { en: ['abundance', 'production'], ko: ['풍요', '생산'], es: ['abundancia', 'producción'] } },
-    { hanja: '永', hangul: '영', jawon: 'earth', strokes: 5, gender: 'neutral', meaning: { en: 'eternal, long', ko: '길다', es: 'eterno, largo' }, keywords: { en: ['longevity', 'continuity'], ko: ['장수', '지속성'], es: ['longevidad', 'continuidad'] } },
-    { hanja: '玉', hangul: '옥', jawon: 'earth', strokes: 5, gender: 'female', meaning: { en: 'jade, gem', ko: '구슬', es: 'jade, gema' }, keywords: { en: ['precious', 'noble'], ko: ['귀함', '고귀함'], es: ['precioso', 'noble'] } },
 
-    // --- Metal Element (金) ---
-    { hanja: '瑞', hangul: '서', jawon: 'metal', strokes: 13, gender: 'female', meaning: { en: 'auspicious', ko: '상서롭다', es: 'auspicioso' }, keywords: { en: ['blessing', 'precious'], ko: ['축복', '귀중함'], es: ['bendición', 'precioso'] } },
-    { hanja: '峻', hangul: '준', jawon: 'metal', strokes: 10, gender: 'male', meaning: { en: 'high, steep', ko: '높다', es: 'alto, empinado' }, keywords: { en: ['strength', 'principle'], ko: ['강인함', '원칙'], es: ['fuerza', 'principio'] } },
-    { hanja: '錫', hangul: '석', jawon: 'metal', strokes: 16, gender: 'male', meaning: { en: 'to bestow, tin', ko: '주석, 하사하다', es: 'otorgar, estaño' }, keywords: { en: ['granting', 'value'], ko: ['수여', '가치'], es: ['concesión', 'valor'] } },
-    { hanja: '玲', hangul: '령', jawon: 'metal', strokes: 9, gender: 'female', meaning: { en: 'sound of jade', ko: '옥 소리', es: 'sonido de jade' }, keywords: { en: ['clarity', 'bright'], ko: ['명료함', '밝음'], es: ['claridad', 'brillante'] } },
-    { hanja: '鉉', hangul: '현', jawon: 'metal', strokes: 13, gender: 'male', meaning: { en: 'tripod lug, wise', ko: '솥귀, 지혜', es: 'asa de trípode, sabio' }, keywords: { en: ['wisdom', 'support'], ko: ['지혜', '지지'], es: ['sabiduría', 'apoyo'] } },
-    { hanja: '銀', hangul: '은', jawon: 'metal', strokes: 14, gender: 'female', meaning: { en: 'silver', ko: '은', es: 'plata' }, keywords: { en: ['value', 'purity'], ko: ['가치', '순수'], es: ['valor', 'pureza'] } },
-    { hanja: '鍾', hangul: '종', jawon: 'metal', strokes: 17, gender: 'male', meaning: { en: 'bell, cup', ko: '쇠북, 잔', es: 'campana, copa' }, keywords: { en: ['gathering', 'center'], ko: ['모임', '중심'], es: ['reunión', 'centro'] } },
-    { hanja: '剛', hangul: '강', jawon: 'metal', strokes: 10, gender: 'male', meaning: { en: 'strong, firm', ko: '굳세다', es: 'fuerte, firme' }, keywords: { en: ['courage', 'integrity'], ko: ['용기', '청렴'], es: ['coraje', 'integridad'] } },
-    { hanja: '創', hangul: '창', jawon: 'metal', strokes: 12, gender: 'neutral', meaning: { en: 'to create, begin', ko: '비롯하다, 만들다', es: 'crear, comenzar' }, keywords: { en: ['innovation', 'initiative'], ko: ['혁신', '진취'], es: ['innovación', 'iniciativa'] } },
-    { hanja: '純', hangul: '순', jawon: 'metal', strokes: 10, gender: 'female', meaning: { en: 'pure', ko: '순수하다', es: 'puro' }, keywords: { en: ['sincerity', 'clarity'], ko: ['진실함', '명료함'], es: ['sinceridad', 'claridad'] } },
-    { hanja: '鈴', hangul: '령', jawon: 'metal', strokes: 13, gender: 'female', meaning: { en: 'bell', ko: '방울', es: 'campana' }, keywords: { en: ['alertness', 'sound'], ko: ['기민함', '소리'], es: ['alerta', 'sonido'] } },
-    { hanja: '鈺', hangul: '옥', jawon: 'metal', strokes: 13, gender: 'female', meaning: { en: 'treasure', ko: '보물', es: 'tesoro' }, keywords: { en: ['precious', 'hardness'], ko: ['귀중함', '견고함'], es: ['precioso', 'dureza'] } },
-    { hanja: '錚', hangul: '쟁', jawon: 'metal', strokes: 16, gender: 'male', meaning: { en: 'sound of metal', ko: '쇳소리', es: 'sonido de metal' }, keywords: { en: ['excellent', 'sharp'], ko: ['뛰어남', '날카로움'], es: ['excelente', 'agudo'] } },
-    { hanja: '鎭', hangul: '진', jawon: 'metal', strokes: 18, gender: 'male', meaning: { en: 'to guard', ko: '진압하다', es: 'guardar' }, keywords: { en: ['stability', 'leadership'], ko: ['안정', '리더십'], es: ['estabilidad', 'liderazgo'] } },
-    { hanja: '鍊', hangul: '련', jawon: 'metal', strokes: 17, gender: 'neutral', meaning: { en: 'to refine, train', ko: '단련하다', es: 'refinar, entrenar' }, keywords: { en: ['discipline', 'perfection'], ko: ['단련', '완벽'], es: ['disciplina', 'perfección'] } },
-    { hanja: '宰', hangul: '재', jawon: 'metal', strokes: 10, gender: 'male', meaning: { en: 'to rule', ko: '재상', es: 'gobernar' }, keywords: { en: ['leadership', 'judgment'], ko: ['리더십', '판단력'], es: ['liderazgo', 'juicio'] } },
-    { hanja: '釗', hangul: '쇠', jawon: 'metal', strokes: 8, gender: 'male', meaning: { en: 'to encourage', ko: '힘쓰다', es: 'animar' }, keywords: { en: ['effort', 'sharpness'], ko: ['노력', '날카로움'], es: ['esfuerzo', 'agudeza'] } },
-    { hanja: '秀', hangul: '수', jawon: 'metal', strokes: 7, gender: 'neutral', meaning: { en: 'outstanding (can be metal)', ko: '빼어나다', es: 'sobresaliente' }, keywords: { en: ['excellence', 'harvest'], ko: ['탁월함', '수확'], es: ['excelencia', 'cosecha'] } },
-    { hanja: '承', hangul: '승', jawon: 'metal', strokes: 8, gender: 'male', meaning: { en: 'to inherit', ko: '잇다', es: 'heredar' }, keywords: { en: ['succession', 'support'], ko: ['계승', '지지'], es: ['sucesión', 'apoyo'] } },
-    { hanja: '申', hangul: '신', jawon: 'metal', strokes: 5, gender: 'neutral', meaning: { en: 'to state, report', ko: '펴다, 알리다', es: 'declarar, informar' }, keywords: { en: ['expression', 'intellect'], ko: ['표현', '지성'], es: ['expresión', 'intelecto'] } },
-    { hanja: '實', hangul: '실', jawon: 'metal', strokes: 14, gender: 'neutral', meaning: { en: 'fruit, truth', ko: '열매, 진실', es: 'fruto, verdad' }, keywords: { en: ['result', 'sincerity'], ko: ['결실', '성실'], es: ['resultado', 'sinceridad'] } },
-    { hanja: '正', hangul: '정', jawon: 'metal', strokes: 5, gender: 'male', meaning: { en: 'correct, right', ko: '바르다', es: 'correcto, justo' }, keywords: { en: ['justice', 'principle'], ko: ['정의', '원칙'], es: ['justicia', 'principio'] } },
-    { hanja: '貞', hangul: '정', jawon: 'metal', strokes: 9, gender: 'female', meaning: { en: 'chaste, loyal', ko: '곧다', es: 'casta, leal' }, keywords: { en: ['integrity', 'loyalty'], ko: ['절개', '충성'], es: ['integridad', 'lealtad'] } },
-    { hanja: '珠', hangul: '주', jawon: 'metal', strokes: 10, gender: 'female', meaning: { en: 'pearl, jewel', ko: '구슬', es: 'perla, joya' }, keywords: { en: ['precious', 'beauty'], ko: ['귀중함', '아름다움'], es: ['precioso', 'belleza'] } },
-    { hanja: '璨', hangul: '찬', jawon: 'metal', strokes: 17, gender: 'neutral', meaning: { en: 'brilliant (gem)', ko: '빛나다', es: 'brillante (gema)' }, keywords: { en: ['splendor', 'value'], ko: ['광채', '가치'], es: ['esplendor', 'valor'] } },
-    { hanja: '昌', hangul: '창', jawon: 'metal', strokes: 8, gender: 'male', meaning: { en: 'prosperous', ko: '창성하다', es: 'próspero' }, keywords: { en: ['success', 'brightness'], ko: ['성공', '밝음'], es: ['éxito', 'brillo'] } },
-    { hanja: '採', hangul: '채', jawon: 'metal', strokes: 11, gender: 'female', meaning: { en: 'to gather, select', ko: '캐다, 고르다', es: 'recoger, seleccionar' }, keywords: { en: ['choice', 'result'], ko: ['선택', '결실'], es: ['elección', 'resultado'] } },
-    { hanja: '鐵', hangul: '철', jawon: 'metal', strokes: 21, gender: 'male', meaning: { en: 'iron', ko: '쇠', es: 'hierro' }, keywords: { en: ['strength', 'determination'], ko: ['강인함', '결단력'], es: ['fuerza', 'determinación'] } },
-    { hanja: '秋', hangul: '추', jawon: 'metal', strokes: 9, gender: 'neutral', meaning: { en: 'autumn', ko: '가을', es: 'otoño' }, keywords: { en: ['harvest', 'maturity'], ko: ['수확', '성숙'], es: ['cosecha', 'madurez'] } },
-    { hanja: '仙', hangul: '선', jawon: 'metal', strokes: 5, gender: 'female', meaning: { en: 'immortal, transcendent', ko: '신선', es: 'inmortal, trascendente' }, keywords: { en: ['purity', 'otherworldly'], ko: ['순수', '탈속'], es: ['pureza', 'trascendente'] } }
-].map(h => ({...h, good: true }));
+    // ㅇ
+    { hanja: '娥', meaning: { en: 'pretty, beautiful', ko: '예쁘다', es: 'bonita, hermosa' } },
+    { hanja: '雅', meaning: { en: 'elegant, graceful', ko: '우아하다, 맑다', es: 'elegante, graciosa' } },
+    { hanja: '兒', meaning: { en: 'child', ko: '아이', es: 'niño/a' } },
+    { hanja: '安', meaning: { en: 'peaceful, quiet', ko: '편안하다', es: 'pacífico, tranquilo' } },
+    { hanja: '晏', meaning: { en: 'late, peaceful', ko: '늦다, 편안하다', es: 'tarde, pacífico' } },
+    { hanja: '悟', meaning: { en: 'to realize, awaken', ko: '깨닫다', es: 'darse cuenta, despertar' } },
+    { hanja: '溫', meaning: { en: 'warm, gentle', ko: '따뜻하다, 온화하다', es: 'cálido, gentil' } },
+    { hanja: '榮', meaning: { en: 'glory, honor', ko: '영광, 번영하다', es: 'gloria, honor' } },
+    { hanja: '永', meaning: { en: 'eternal, long', ko: '길다, 영원하다', es: 'eterno, largo' } },
+    { hanja: '泳', meaning: { en: 'to swim', ko: '헤엄치다', es: 'nadar' } },
+    { hanja: '英', meaning: { en: 'flower, hero', ko: '꽃부리, 뛰어나다', es: 'flor, héroe' } },
+    { hanja: '叡', meaning: { en: 'wise, profound', ko: '지혜롭다, 밝다', es: 'sabio, profundo' } },
+    { hanja: '藝', meaning: { en: 'art, skill', ko: '재주, 예술', es: 'arte, habilidad' } },
+    { hanja: '祐', meaning: { en: 'divine help, blessing', ko: '도움, 복', es: 'ayuda divina, bendición' } },
+    { hanja: '宇', meaning: { en: 'house, universe', ko: '집, 우주', es: 'casa, universo' } },
+    { hanja: '雨', meaning: { en: 'rain', ko: '비', es: 'lluvia' } },
+    { hanja: '旭', meaning: { en: 'rising sun, brilliant', ko: '아침 해, 빛나다', es: 'sol naciente, brillante' } },
+    { hanja: '恩', meaning: { en: 'grace, favor', ko: '은혜', es: 'gracia, favor' } },
+    { hanja: '銀', meaning: { en: 'silver', ko: '은', es: 'plata' } },
+    { hanja: '怡', meaning: { en: 'joyful, pleasant', ko: '기쁘다, 화목하다', es: 'alegre, agradable' } },
+    { hanja: '仁', meaning: { en: 'benevolence, kindness', ko: '어질다', es: 'benevolencia, amabilidad' } },
+    { hanja: '認', meaning: { en: 'to recognize, acknowledge', ko: '알다, 인정하다', es: 'reconocer, admitir' } },
+    { hanja: '伊', meaning: { en: 'that person', ko: '저 사람', es: 'esa persona' } },
+    { hanja: '潤', meaning: { en: 'to moisten, enrich', ko: '윤택하다, 적시다', es: 'humedecer, enriquecer' } },
+    { hanja: '允', meaning: { en: 'to permit, sincere', ko: '허락하다, 진실로', es: 'permitir, sincero' } },
+    { hanja: '悠', meaning: { en: 'far, long-lasting', ko: '멀다, 아득하다', es: 'lejano, duradero' } },
+    { hanja: '裕', meaning: { en: 'abundant, rich', ko: '넉넉하다', es: 'abundante, rico' } },
+    { hanja: '宥', meaning: { en: 'to forgive, soothe', ko: '용서하다, 달래다', es: 'perdonar, calmar' } },
+    { hanja: '有', meaning: { en: 'to have, exist', ko: '있다', es: 'tener, existir' } },
+    { hanja: '晶', meaning: { en: 'crystal, clear', ko: '수정, 맑다', es: 'cristal, claro' } },
+    
+
+    // ㅈ
+    { hanja: '在', meaning: { en: 'to exist, in', ko: '있다', es: 'existir, en' } },
+    { hanja: '宰', meaning: { en: 'to rule, to govern', ko: '재상, 주관하다', es: 'gobernar, regir' } },
+    { hanja: '栽', meaning: { en: 'to plant, cultivate', ko: '심다', es: 'plantar, cultivar' } },
+    { hanja: '貞', meaning: { en: 'chaste, virtuous', ko: '곧다, 정절', es: 'casta, virtuosa' } },
+    { hanja: '正', meaning: { en: 'correct, right', ko: '바르다', es: 'correcto, justo' } },
+    { hanja: '政', meaning: { en: 'government, politics', ko: '정사', es: 'gobierno, política' } },
+    { hanja: '庭', meaning: { en: 'courtyard, garden', ko: '뜰', es: 'patio, jardín' } },
+    { hanja: '周', meaning: { en: 'circumference, week', ko: '두루, 주위', es: 'circunferencia, semana' } },
+    { hanja: '珠', meaning: { en: 'pearl, jewel', ko: '구슬', es: 'perla, joya' } },
+    { hanja: '主', meaning: { en: 'master, owner', ko: '주인', es: 'maestro, dueño' } },
+    { hanja: '準', meaning: { en: 'standard, rule', ko: '준하다, 기준', es: 'estándar, regla' } },
+    { hanja: '俊', meaning: { en: 'talented, handsome', ko: '준수하다, 뛰어나다', es: 'talentoso, guapo' } },
+    { hanja: '祉', meaning: { en: 'blessing, happiness', ko: '복', es: 'bendición, felicidad' } },
+    { hanja: '志', meaning: { en: 'will, purpose', ko: '뜻', es: 'voluntad, propósito' } },
+    { hanja: '智', meaning: { en: 'wisdom, intelligence', ko: '지혜, 슬기', es: 'sabiduría, inteligencia' } },
+    { hanja: '芝', meaning: { en: 'iris, a type of mushroom', ko: '지초, 영지', es: 'iris, un tipo de hongo' } },
+    { hanja: '眞', meaning: { en: 'true, real', ko: '참', es: 'verdadero, real' } },
+    { hanja: '振', meaning: { en: 'to shake, to flourish', ko: '떨치다, 진동하다', es: 'sacudir, florecer' } },
+    { hanja: '鎭', meaning: { en: 'to guard, to press down', ko: '진압하다, 지키다', es: 'guardar, presionar' } },
+    { hanja: '珍', meaning: { en: 'precious, rare', ko: '보배', es: 'precioso, raro' } },
+    { hanja: '然', meaning: { en: 'so, yes, natural', ko: '그러하다, 자연', es: 'así, sí, natural' } },
+    { hanja: '映', meaning: { en: 'to reflect, shine', ko: '비치다, 빛나다', es: 'reflejar, brillar' } },
+    { hanja: '媛', meaning: { en: 'beautiful woman', ko: '아름다운 여자', es: 'mujer hermosa' } },
+    { hanja: '乙', meaning: { en: 'second, twist', ko: '둘째, 새', es: 'segundo, torcer' } },
+    { hanja: '雲', meaning: { en: 'cloud', ko: '구름', es: 'nube' } },
+    { hanja: '勇', meaning: { en: 'brave, courageous', ko: '용감하다', es: 'valiente' } },
+    { hanja: '燁', meaning: { en: 'glorious, fiery', ko: '빛나다, 불꽃', es: 'glorioso, ardiente' } },
+    { hanja: '讚', meaning: { en: 'to praise, commend', ko: '기리다, 칭찬하다', es: 'alabar, elogiar' } },
+    { hanja: '宗', meaning: { en: 'ancestor, clan, purpose', ko: '마루, 종갓집', es: 'ancestro, clan, propósito' } },
+    { hanja: '宙', meaning: { en: 'universe, time', ko: '우주, 시간', es: 'universo, tiempo' } },
+    
+    
+
+
+    // ㅊ
+    { hanja: '采', meaning: { en: 'to gather, colorful', ko: '캐다, 채색', es: 'recoger, colorido' } },
+    { hanja: '蔡', meaning: { en: 'a species of turtle', ko: '거북', es: 'una especie de tortuga' } },
+    { hanja: '燦', meaning: { en: 'brilliant, splendid', ko: '빛나다', es: 'brillante, espléndido' } },
+    { hanja: '暢', meaning: { en: 'smooth, free', ko: '화창하다, 막힘없다', es: 'suave, libre' } },
+    { hanja: '春', meaning: { en: 'spring', ko: '봄', es: 'primavera' } },
+
+    // ㅋ
+    { hanja: '謙', meaning: { en: 'humble, modest', ko: '겸손하다', es: 'humilde, modesto' } },
+
+    // ㅌ
+    { hanja: '泰', meaning: { en: 'great, peaceful', ko: '크다, 평화롭다', es: 'grande, pacífico' } },
+    
+    // ㅍ
+    { hanja: '平', meaning: { en: 'flat, peaceful', ko: '평평하다, 화목하다', es: 'plano, pacífico' } },
+    { hanja: '讚', meaning: { en: 'to praise, commend', ko: '기리다, 칭찬하다', es: 'alabar, elogiar' } },
+    { hanja: '宗', meaning: { en: 'ancestor, clan, purpose', ko: '마루, 종갓집', es: 'ancestro, clan, propósito' } },
+    { hanja: '宙', meaning: { en: 'universe, time', ko: '우주, 시간', es: 'universo, tiempo' } },
+    
+
+    // ㅎ
+    { hanja: '荷', meaning: { en: 'lotus', ko: '연꽃', es: 'loto' } },
+    { hanja: '夏', meaning: { en: 'summer', ko: '여름', es: 'verano' } },
+    { hanja: '河', meaning: { en: 'river', ko: '강', es: 'río' } },
+    { hanja: '漢', meaning: { en: 'Han Chinese, man', ko: '한나라, 사나이', es: 'chino Han, hombre' } },
+    { hanja: '海', meaning: { en: 'sea, ocean', ko: '바다', es: 'mar, océano' } },
+    { hanja: '赫', meaning: { en: 'bright, radiant', ko: '빛나다, 붉다', es: 'brillante, radiante' } },
+    { hanja: '賢', meaning: { en: 'wise, virtuous', ko: '어질다', es: 'sabio, virtuoso' } },
+    { hanja: '炫', meaning: { en: 'to shine, glitter', ko: '빛나다, 자랑하다', es: 'brillar, relucir' } },
+    { hanja: '泫', meaning: { en: 'to weep, shine', ko: '울다, 빛나다', es: 'llorar, brillar' } },
+    { hanja: '亨', meaning: { en: 'smooth, successful', ko: '형통하다', es: 'fluido, exitoso' } },
+    { hanja: '惠', meaning: { en: 'grace, benefit', ko: '은혜, 지혜', es: 'gracia, beneficio' } },
+    { hanja: '皓', meaning: { en: 'bright, luminous', ko: '희다, 밝다', es: 'brillante, luminoso' } },
+    { hanja: '浩', meaning: { en: 'vast, great', ko: '넓다, 크다', es: 'vasto, grande' } },
+    { hanja: '好', meaning: { en: 'good, to like', ko: '좋다, 좋아하다', es: 'bueno, gustar' } },
+    { hanja: '戶', meaning: { en: 'door, household', ko: '집', es: 'puerta, hogar' } },
+    { hanja: '豪', meaning: { en: 'heroic, grand', ko: '호걸, 뛰어나다', es: 'heroico, grandioso' } },
+    { hanja: '煥', meaning: { en: 'shining, brilliant', ko: '빛나다', es: 'brillante, reluciente' } },
+    { hanja: '勳', meaning: { en: 'meritorious deed', ko: '공', es: 'acto meritorio' } },
+    { hanja: '薰', meaning: { en: 'fragrant plant, aroma', ko: '향풀', es: 'planta fragante, aroma' } },
+    { hanja: '訓', meaning: { en: 'to teach, instruct', ko: '가르치다', es: 'enseñar, instruir' } },
+    { hanja: '熙', meaning: { en: 'bright, prosperous', ko: '빛나다, 번성하다', es: 'brillante, próspero' } },
+    { hanja: '希', meaning: { en: 'to hope, rare', ko: '바라다, 드물다', es: 'esperar, raro' } },
+    { hanja: '喜', meaning: { en: 'joy, happiness', ko: '기쁘다', es: 'alegría, felicidad' } },
+    { hanja: '咸', meaning: { en: 'all, together', ko: '모두, 다', es: 'todo, juntos' } },
+    { hanja: '韓', meaning: { en: 'Korea', ko: '나라 이름', es: 'Corea' } },
+    { hanja: '憲', meaning: { en: 'law, constitution', ko: '법', es: 'ley, constitución' } },
+    { hanja: '厚', meaning: { en: 'thick, kind, rich', ko: '두텁다, 후하다', es: 'grueso, amable, rico' } },
+    { hanja: '孝', meaning: { en: 'filial piety', ko: '효도', es: 'piedad filial' } }
+
+];
+
+
+const NameDB = [
+  // =======================================================================
+  // I. 남성 이름 (Male Names) - 300개
+  // =======================================================================
+  { hangul: '서준', gender: 'male', combinations: [{ hanja: ['瑞', '俊'], elements: ['metal', 'earth'] }, { hanja: ['書', '準'], elements: ['metal', 'earth'] }] },
+  { hangul: '도윤', gender: 'male', combinations: [{ hanja: ['道', '允'], elements: ['fire', 'earth'] }, { hanja: ['度', '潤'], elements: ['fire', 'water'] }] },
+  { hangul: '이준', gender: 'male', combinations: [{ hanja: ['李', '俊'], elements: ['wood', 'earth'] }, { hanja: ['伊', '準'], elements: ['earth', 'earth'] }] },
+  { hangul: '시우', gender: 'male', combinations: [{ hanja: ['時', '雨'], elements: ['metal', 'water'] }, { hanja: ['始', '祐'], elements: ['metal', 'earth'] }] },
+  { hangul: '하준', gender: 'male', combinations: [{ hanja: ['夏', '俊'], elements: ['fire', 'earth'] }, { hanja: ['河', '準'], elements: ['water', 'earth'] }] },
+  { hangul: '지호', gender: 'male', combinations: [{ hanja: ['志', '浩'], elements: ['fire', 'water'] }, { hanja: ['智', '皓'], elements: ['fire', 'fire'] }] },
+  { hangul: '주원', gender: 'male', combinations: [{ hanja: ['周', '元'], elements: ['metal', 'wood'] }, { hanja: ['炷', '源'], elements: ['fire', 'water'] }] },
+  { hangul: '은우', gender: 'male', combinations: [{ hanja: ['恩', '宇'], elements: ['earth', 'earth'] }, { hanja: ['銀', '祐'], elements: ['metal', 'earth'] }] },
+  { hangul: '유준', gender: 'male', combinations: [{ hanja: ['悠', '俊'], elements: ['earth', 'earth'] }, { hanja: ['裕', '準'], elements: ['metal', 'earth'] }] },
+  { hangul: '건우', gender: 'male', combinations: [{ hanja: ['建', '祐'], elements: ['wood', 'earth'] }, { hanja: ['健', '宇'], elements: ['wood', 'earth'] }] },
+  { hangul: '연우', gender: 'male', combinations: [{ hanja: ['然', '宇'], elements: ['fire', 'earth'] }, { hanja: ['蓮', '祐'], elements: ['wood', 'earth'] }] },
+  { hangul: '민준', gender: 'male', combinations: [{ hanja: ['旻', '俊'], elements: ['fire', 'earth'] }, { hanja: ['珉', '準'], elements: ['earth', 'earth'] }] },
+  { hangul: '선우', gender: 'male', combinations: [{ hanja: ['善', '祐'], elements: ['metal', 'earth'] }, { hanja: ['宣', '宇'], elements: ['metal', 'earth'] }] },
+  { hangul: '서진', gender: 'male', combinations: [{ hanja: ['瑞', '振'], elements: ['metal', 'fire'] }, { hanja: ['書', '鎭'], elements: ['metal', 'metal'] }] },
+  { hangul: '현우', gender: 'male', combinations: [{ hanja: ['賢', '祐'], elements: ['wood', 'earth'] }, { hanja: ['炫', '宇'], elements: ['fire', 'earth'] }] },
+  { hangul: '정우', gender: 'male', combinations: [{ hanja: ['政', '宇'], elements: ['fire', 'earth'] }, { hanja: ['正', '祐'], elements: ['metal', 'earth'] }] },
+  { hangul: '다온', gender: 'male', combinations: [{ hanja: ['多', '溫'], elements: ['fire', 'earth'] }] },
+  { hangul: '승우', gender: 'male', combinations: [{ hanja: ['承', '祐'], elements: ['metal', 'earth'] }] },
+  { hangul: '재원', gender: 'male', combinations: [{ hanja: ['宰', '源'], elements: ['metal', 'water'] }] },
+  { hangul: '유찬', gender: 'male', combinations: [{ hanja: ['宥', '讚'], elements: ['earth', 'metal'] }] },
+  { hangul: '지후', gender: 'male', combinations: [{ hanja: ['智', '厚'], elements: ['fire', 'earth'] }] },
+  { hangul: '준서', gender: 'male', combinations: [{ hanja: ['俊', '瑞'], elements: ['earth', 'metal'] }] },
+  { hangul: '예준', gender: 'male', combinations: [{ hanja: ['藝', '俊'], elements: ['wood', 'earth'] }] },
+  { hangul: '로운', gender: 'male', combinations: [{ hanja: ['路', '雲'], elements: ['earth', 'earth'] }] },
+  { hangul: '은호', gender: 'male', combinations: [{ hanja: ['恩', '浩'], elements: ['earth', 'water'] }] },
+  { hangul: '수호', gender: 'male', combinations: [{ hanja: ['秀', '浩'], elements: ['wood', 'water'] }] },
+  { hangul: '이안', gender: 'male', combinations: [{ hanja: ['李', '安'], elements: ['wood', 'earth'] }] },
+  { hangul: '강민', gender: 'male', combinations: [{ hanja: ['康', '民'], elements: ['wood', 'water'] }] },
+  { hangul: '윤우', gender: 'male', combinations: [{ hanja: ['允', '宇'], elements: ['earth', 'earth'] }] },
+  { hangul: '태민', gender: 'male', combinations: [{ hanja: ['泰', '民'], elements: ['water', 'water'] }] },
+  { hangul: '지한', gender: 'male', combinations: [{ hanja: ['智', '漢'], elements: ['fire', 'water'] }] },
+  { hangul: '재윤', gender: 'male', combinations: [{ hanja: ['宰', '允'], elements: ['metal', 'earth'] }] },
+  { hangul: '민재', gender: 'male', combinations: [{ hanja: ['敏', '宰'], elements: ['water', 'metal'] }] },
+  { hangul: '동현', gender: 'male', combinations: [{ hanja: ['東', '炫'], elements: ['wood', 'fire'] }] },
+  { hangul: '우진', gender: 'male', combinations: [{ hanja: ['祐', '鎭'], elements: ['earth', 'metal'] }] },
+  { hangul: '서우', gender: 'male', combinations: [{ hanja: ['瑞', '祐'], elements: ['metal', 'earth'] }] },
+  { hangul: '성민', gender: 'male', combinations: [{ hanja: ['晟', '敏'], elements: ['fire', 'water'] }] },
+  { hangul: '시윤', gender: 'male', combinations: [{ hanja: ['時', '潤'], elements: ['metal', 'water'] }] },
+  { hangul: '준영', gender: 'male', combinations: [{ hanja: ['俊', '永'], elements: ['earth', 'earth'] }] },
+  { hangul: '유건', gender: 'male', combinations: [{ hanja: ['裕', '建'], elements: ['metal', 'wood'] }] },
+  { hangul: '재민', gender: 'male', combinations: [{ hanja: ['在', '民'], elements: ['earth', 'water'] }] },
+  { hangul: '윤호', gender: 'male', combinations: [{ hanja: ['允', '浩'], elements: ['earth', 'water'] }] },
+  { hangul: '은성', gender: 'male', combinations: [{ hanja: ['恩', '誠'], elements: ['earth', 'metal'] }] },
+  { hangul: '지훈', gender: 'male', combinations: [{ hanja: ['志', '訓'], elements: ['fire', 'water'] }] },
+  { hangul: '태양', gender: 'male', combinations: [{ hanja: ['泰', '陽'], elements: ['water', 'earth'] }] },
+  { hangul: '태경', gender: 'male', combinations: [{ hanja: ['泰', '景'], elements: ['water', 'wood'] }] },
+  { hangul: '준혁', gender: 'male', combinations: [{ hanja: ['俊', '赫'], elements: ['earth', 'fire'] }] },
+  { hangul: '현준', gender: 'male', combinations: [{ hanja: ['賢', '俊'], elements: ['wood', 'earth'] }] },
+  { hangul: '승민', gender: 'male', combinations: [{ hanja: ['承', '珉'], elements: ['metal', 'earth'] }] },
+  { hangul: '민성', gender: 'male', combinations: [{ hanja: ['敏', '成'], elements: ['water', 'metal'] }] },
+  { hangul: '시원', gender: 'male', combinations: [{ hanja: ['始', '源'], elements: ['metal', 'water'] }] },
+  { hangul: '지석', gender: 'male', combinations: [{ hanja: ['智', '碩'], elements: ['fire', 'earth'] }] },
+  { hangul: '승현', gender: 'male', combinations: [{ hanja: ['昇', '炫'], elements: ['fire', 'fire'] }] },
+  { hangul: '성현', gender: 'male', combinations: [{ hanja: ['成', '賢'], elements: ['metal', 'wood'] }] },
+  { hangul: '재하', gender: 'male', combinations: [{ hanja: ['宰', '夏'], elements: ['metal', 'fire'] }] },
+  { hangul: '민혁', gender: 'male', combinations: [{ hanja: ['敏', '赫'], elements: ['water', 'fire'] }] },
+  { hangul: '지안', gender: 'male', combinations: [{ hanja: ['智', '安'], elements: ['fire', 'earth'] }] },
+  { hangul: '도현', gender: 'male', combinations: [{ hanja: ['道', '賢'], elements: ['fire', 'wood'] }] },
+  { hangul: '지민', gender: 'male', combinations: [{ hanja: ['智', '珉'], elements: ['fire', 'earth'] }] },
+  { hangul: '서율', gender: 'male', combinations: [{ hanja: ['瑞', '律'], elements: ['metal', 'fire'] }] },
+  { hangul: '민규', gender: 'male', combinations: [{ hanja: ['珉', '奎'], elements: ['earth', 'earth'] }] },
+  { hangul: '태현', gender: 'male', combinations: [{ hanja: ['泰', '賢'], elements: ['water', 'wood'] }] },
+  { hangul: '준우', gender: 'male', combinations: [{ hanja: ['俊', '宇'], elements: ['earth', 'earth'] }] },
+  { hangul: '윤재', gender: 'male', combinations: [{ hanja: ['允', '宰'], elements: ['earth', 'metal'] }] },
+  { hangul: '수현', gender: 'male', combinations: [{ hanja: ['秀', '賢'], elements: ['wood', 'wood'] }] },
+  { hangul: '우주', gender: 'male', combinations: [{ hanja: ['宇', '宙'], elements: ['earth', 'fire'] }] },
+  { hangul: '민결', gender: 'male', combinations: [{ hanja: ['敏', '潔'], elements: ['water', 'water'] }] },
+  { hangul: '시후', gender: 'male', combinations: [{ hanja: ['時', '厚'], elements: ['metal', 'earth'] }] },
+  { hangul: '이현', gender: 'male', combinations: [{ hanja: ['利', '賢'], elements: ['metal', 'wood'] }] },
+  { hangul: '지성', gender: 'male', combinations: [{ hanja: ['智', '星'], elements: ['fire', 'metal'] }] },
+  { hangul: '태윤', gender: 'male', combinations: [{ hanja: ['泰', '潤'], elements: ['water', 'water'] }] },
+  { hangul: '유민', gender: 'male', combinations: [{ hanja: ['裕', '民'], elements: ['metal', 'water'] }] },
+  { hangul: '성준', gender: 'male', combinations: [{ hanja: ['星', '俊'], elements: ['metal', 'earth'] }] },
+  { hangul: '재희', gender: 'male', combinations: [{ hanja: ['宰', '熙'], elements: ['metal', 'fire'] }] },
+  { hangul: '승준', gender: 'male', combinations: [{ hanja: ['承', '俊'], elements: ['metal', 'earth'] }] },
+  { hangul: '이안', gender: 'male', combinations: [{ hanja: ['理', '安'], elements: ['fire', 'earth'] }] },
+  { hangul: '은결', gender: 'male', combinations: [{ hanja: ['恩', '潔'], elements: ['earth', 'water'] }] },
+  { hangul: '지율', gender: 'male', combinations: [{ hanja: ['智', '律'], elements: ['fire', 'fire'] }] },
+  { hangul: '서원', gender: 'male', combinations: [{ hanja: ['瑞', '元'], elements: ['metal', 'wood'] }] },
+  { hangul: '지오', gender: 'male', combinations: [{ hanja: ['智', '悟'], elements: ['fire', 'wood'] }] },
+  { hangul: '재이', gender: 'male', combinations: [{ hanja: ['宰', '怡'], elements: ['metal', 'earth'] }] },
+  { hangul: '윤성', gender: 'male', combinations: [{ hanja: ['允', '成'], elements: ['earth', 'metal'] }] },
+  { hangul: '태준', gender: 'male', combinations: [{ hanja: ['泰', '俊'], elements: ['water', 'earth'] }] },
+  { hangul: '지용', gender: 'male', combinations: [{ hanja: ['志', '龍'], elements: ['fire', 'earth'] }] },
+  { hangul: '준수', gender: 'male', combinations: [{ hanja: ['俊', '秀'], elements: ['earth', 'wood'] }] },
+  { hangul: '민우', gender: 'male', combinations: [{ hanja: ['敏', '祐'], elements: ['water', 'earth'] }] },
+  { hangul: '영준', gender: 'male', combinations: [{ hanja: ['英', '俊'], elements: ['wood', 'earth'] }] },
+  { hangul: '도준', gender: 'male', combinations: [{ hanja: ['道', '俊'], elements: ['fire', 'earth'] }] },
+  { hangul: '재현', gender: 'male', combinations: [{ hanja: ['宰', '賢'], elements: ['metal', 'wood'] }] },
+  { hangul: '규민', gender: 'male', combinations: [{ hanja: ['奎', '民'], elements: ['earth', 'water'] }] },
+  { hangul: '성빈', gender: 'male', combinations: [{ hanja: ['晟', '彬'], elements: ['fire', 'wood'] }] },
+  { hangul: '지환', gender: 'male', combinations: [{ hanja: ['智', '煥'], elements: ['fire', 'fire'] }] },
+  { hangul: '우석', gender: 'male', combinations: [{ hanja: ['祐', '碩'], elements: ['earth', 'earth'] }] },
+  { hangul: '범준', gender: 'male', combinations: [{ hanja: ['凡', '俊'], elements: ['water', 'earth'] }] },
+  { hangul: '시현', gender: 'male', combinations: [{ hanja: ['時', '賢'], elements: ['metal', 'wood'] }] },
+  { hangul: '태율', gender: 'male', combinations: [{ hanja: ['泰', '律'], elements: ['water', 'fire'] }] },
+  { hangul: '하율', gender: 'male', combinations: [{ hanja: ['夏', '律'], elements: ['fire', 'fire'] }] },
+  { hangul: '승재', gender: 'male', combinations: [{ hanja: ['承', '宰'], elements: ['metal', 'metal'] }] },
+  { hangul: '유성', gender: 'male', combinations: [{ hanja: ['庾', '誠'], elements: ['wood', 'metal'] }] },
+  { hangul: '진우', gender: 'male', combinations: [{ hanja: ['鎭', '宇'], elements: ['metal', 'earth'] }] },
+  { hangul: '동하', gender: 'male', combinations: [{ hanja: ['東', '夏'], elements: ['wood', 'fire'] }] },
+  { hangul: '하민', gender: 'male', combinations: [{ hanja: ['夏', '旼'], elements: ['fire', 'fire'] }] },
+  { hangul: '준성', gender: 'male', combinations: [{ hanja: ['俊', '成'], elements: ['earth', 'metal'] }] },
+  { hangul: '은찬', gender: 'male', combinations: [{ hanja: ['恩', '燦'], elements: ['earth', 'metal'] }] },
+  { hangul: '하람', gender: 'male', combinations: [{ hanja: ['夏', '藍'], elements: ['fire', 'wood'] }] },
+  { hangul: '준희', gender: 'male', combinations: [{ hanja: ['俊', '熙'], elements: ['earth', 'fire'] }] },
+  { hangul: '민찬', gender: 'male', combinations: [{ hanja: ['珉', '燦'], elements: ['earth', 'metal'] }] },
+  { hangul: '경민', gender: 'male', combinations: [{ hanja: ['景', '民'], elements: ['wood', 'water'] }] },
+  { hangul: '서율', gender: 'male', combinations: [{ hanja: ['書', '律'], elements: ['metal', 'fire'] }] },
+  { hangul: '재준', gender: 'male', combinations: [{ hanja: ['宰', '俊'], elements: ['metal', 'earth'] }] },
+  { hangul: '현서', gender: 'male', combinations: [{ hanja: ['賢', '瑞'], elements: ['wood', 'metal'] }] },
+  { hangul: '승원', gender: 'male', combinations: [{ hanja: ['承', '源'], elements: ['metal', 'water'] }] },
+  { hangul: '윤찬', gender: 'male', combinations: [{ hanja: ['允', '燦'], elements: ['earth', 'metal'] }] },
+  { hangul: '강현', gender: 'male', combinations: [{ hanja: ['岡', '賢'], elements: ['earth', 'wood'] }] },
+  { hangul: '도경', gender: 'male', combinations: [{ hanja: ['道', '卿'], elements: ['fire', 'wood'] }] },
+  { hangul: '정훈', gender: 'male', combinations: [{ hanja: ['正', '訓'], elements: ['metal', 'water'] }] },
+  { hangul: '지완', gender: 'male', combinations: [{ hanja: ['智', '完'], elements: ['fire', 'earth'] }] },
+  { hangul: '태우', gender: 'male', combinations: [{ hanja: ['泰', '宇'], elements: ['water', 'earth'] }] },
+  { hangul: '민호', gender: 'male', combinations: [{ hanja: ['珉', '豪'], elements: ['earth', 'water'] }] },
+  { hangul: '성윤', gender: 'male', combinations: [{ hanja: ['成', '允'], elements: ['metal', 'earth'] }] },
+  { hangul: '지운', gender: 'male', combinations: [{ hanja: ['智', '雲'], elements: ['fire', 'earth'] }] },
+  { hangul: '시온', gender: 'male', combinations: [{ hanja: ['時', '溫'], elements: ['metal', 'earth'] }] },
+  { hangul: '준기', gender: 'male', combinations: [{ hanja: ['俊', '基'], elements: ['earth', 'earth'] }] },
+  { hangul: '현성', gender: 'male', combinations: [{ hanja: ['賢', '成'], elements: ['wood', 'metal'] }] },
+  { hangul: '민기', gender: 'male', combinations: [{ hanja: ['珉', '基'], elements: ['earth', 'earth'] }] },
+  { hangul: '동건', gender: 'male', combinations: [{ hanja: ['東', '建'], elements: ['wood', 'wood'] }] },
+  { hangul: '재훈', gender: 'male', combinations: [{ hanja: ['宰', '薰'], elements: ['metal', 'wood'] }] },
+  { hangul: '윤수', gender: 'male', combinations: [{ hanja: ['允', '秀'], elements: ['earth', 'wood'] }] },
+  { hangul: '우성', gender: 'male', combinations: [{ hanja: ['宇', '成'], elements: ['earth', 'metal'] }] },
+  { hangul: '이삭', gender: 'male', combinations: [{ hanja: ['李', '삭'], elements: ['wood', 'metal'] }] },
+  { hangul: '지섭', gender: 'male', combinations: [{ hanja: ['智', '燮'], elements: ['fire', 'fire'] }] },
+  { hangul: '태성', gender: 'male', combinations: [{ hanja: ['泰', '成'], elements: ['water', 'metal'] }] },
+  { hangul: '승호', gender: 'male', combinations: [{ hanja: ['承', '浩'], elements: ['metal', 'water'] }] },
+  { hangul: '재성', gender: 'male', combinations: [{ hanja: ['宰', '成'], elements: ['metal', 'metal'] }] },
+  { hangul: '하진', gender: 'male', combinations: [{ hanja: ['夏', '鎭'], elements: ['fire', 'metal'] }] },
+  { hangul: '민수', gender: 'male', combinations: [{ hanja: ['珉', '秀'], elements: ['earth', 'wood'] }] },
+  { hangul: '준형', gender: 'male', combinations: [{ hanja: ['俊', '亨'], elements: ['earth', 'water'] }] },
+  { hangul: '지해', gender: 'male', combinations: [{ hanja: ['智', '海'], elements: ['fire', 'water'] }] },
+  { hangul: '태원', gender: 'male', combinations: [{ hanja: ['泰', '源'], elements: ['water', 'water'] }] },
+  { hangul: '성호', gender: 'male', combinations: [{ hanja: ['晟', '浩'], elements: ['fire', 'water'] }] },
+  { hangul: '이수', gender: 'male', combinations: [{ hanja: ['利', '秀'], elements: ['metal', 'wood'] }] },
+  { hangul: '찬영', gender: 'male', combinations: [{ hanja: ['燦', '永'], elements: ['metal', 'earth'] }] },
+  { hangul: '도영', gender: 'male', combinations: [{ hanja: ['道', '英'], elements: ['fire', 'wood'] }] },
+  { hangul: '민석', gender: 'male', combinations: [{ hanja: ['珉', '碩'], elements: ['earth', 'earth'] }] },
+  { hangul: '진호', gender: 'male', combinations: [{ hanja: ['鎭', '浩'], elements: ['metal', 'water'] }] },
+  { hangul: '경수', gender: 'male', combinations: [{ hanja: ['暻', '秀'], elements: ['fire', 'wood'] }] },
+  { hangul: '상현', gender: 'male', combinations: [{ hanja: ['相', '賢'], elements: ['wood', 'wood'] }] },
+  { hangul: '우현', gender: 'male', combinations: [{ hanja: ['祐', '賢'], elements: ['earth', 'wood'] }] },
+  { hangul: '영진', gender: 'male', combinations: [{ hanja: ['英', '鎭'], elements: ['wood', 'metal'] }] },
+  { hangul: '성진', gender: 'male', combinations: [{ hanja: ['晟', '鎭'], elements: ['fire', 'metal'] }] },
+  { hangul: '도균', gender: 'male', combinations: [{ hanja: ['道', '均'], elements: ['fire', 'earth'] }] },
+  { hangul: '상우', gender: 'male', combinations: [{ hanja: ['相', '祐'], elements: ['wood', 'earth'] }] },
+  { hangul: '유진', gender: 'male', combinations: [{ hanja: ['裕', '鎭'], elements: ['metal', 'metal'] }] },
+  { hangul: '동준', gender: 'male', combinations: [{ hanja: ['東', '俊'], elements: ['wood', 'earth'] }] },
+  { hangul: '세현', gender: 'male', combinations: [{ hanja: ['世', '賢'], elements: ['metal', 'wood'] }] },
+  { hangul: '기현', gender: 'male', combinations: [{ hanja: ['基', '賢'], elements: ['earth', 'wood'] }] },
+  { hangul: '찬희', gender: 'male', combinations: [{ hanja: ['燦', '熙'], elements: ['metal', 'fire'] }] },
+  { hangul: '준호', gender: 'male', combinations: [{ hanja: ['俊', '皓'], elements: ['earth', 'fire'] }] },
+  { hangul: '종현', gender: 'male', combinations: [{ hanja: ['宗', '賢'], elements: ['metal', 'wood'] }] },
+  { hangul: '현수', gender: 'male', combinations: [{ hanja: ['賢', '秀'], elements: ['wood', 'wood'] }] },
+  { hangul: '민성', gender: 'male', combinations: [{ hanja: ['民', '星'], elements: ['water', 'metal'] }] },
+  { hangul: '강윤', gender: 'male', combinations: [{ hanja: ['康', '允'], elements: ['wood', 'earth'] }] },
+  { hangul: '이강', gender: 'male', combinations: [{ hanja: ['李', '康'], elements: ['wood', 'wood'] }] },
+  { hangul: '해준', gender: 'male', combinations: [{ hanja: ['海', '俊'], elements: ['water', 'earth'] }] },
+  { hangul: '세준', gender: 'male', combinations: [{ hanja: ['世', '俊'], elements: ['metal', 'earth'] }] },
+  { hangul: '지운', gender: 'male', combinations: [{ hanja: ['祉', '澐'], elements: ['fire', 'water'] }] },
+  { hangul: '규현', gender: 'male', combinations: [{ hanja: ['奎', '賢'], elements: ['earth', 'wood'] }] },
+  { hangul: '태인', gender: 'male', combinations: [{ hanja: ['泰', '仁'], elements: ['water', 'earth'] }] },
+  { hangul: '윤호', gender: 'male', combinations: [{ hanja: ['潤', '皓'], elements: ['water', 'fire'] }] },
+  { hangul: '재우', gender: 'male', combinations: [{ hanja: ['在', '祐'], elements: ['earth', 'earth'] }] },
+  { hangul: '승윤', gender: 'male', combinations: [{ hanja: ['承', '允'], elements: ['metal', 'earth'] }] },
+  { hangul: '영민', gender: 'male', combinations: [{ hanja: ['永', '民'], elements: ['earth', 'water'] }] },
+  { hangul: '하온', gender: 'male', combinations: [{ hanja: ['夏', '溫'], elements: ['fire', 'earth'] }] },
+  { hangul: '정민', gender: 'male', combinations: [{ hanja: ['正', '民'], elements: ['metal', 'water'] }] },
+  { hangul: '지안', gender: 'male', combinations: [{ hanja: ['芝', '安'], elements: ['wood', 'earth'] }] },
+  { hangul: '성원', gender: 'male', combinations: [{ hanja: ['成', '元'], elements: ['metal', 'wood'] }] },
+  { hangul: '현준', gender: 'male', combinations: [{ hanja: ['炫', '準'], elements: ['fire', 'earth'] }] },
+  { hangul: '동욱', gender: 'male', combinations: [{ hanja: ['東', '旭'], elements: ['wood', 'fire'] }] },
+  { hangul: '건호', gender: 'male', combinations: [{ hanja: ['建', '浩'], elements: ['wood', 'water'] }] },
+  { hangul: '윤서', gender: 'male', combinations: [{ hanja: ['允', '瑞'], elements: ['earth', 'metal'] }] },
+  { hangul: '은준', gender: 'male', combinations: [{ hanja: ['恩', '俊'], elements: ['earth', 'earth'] }] },
+  { hangul: '민결', gender: 'male', combinations: [{ hanja: ['旼', '決'], elements: ['fire', 'water'] }] },
+  { hangul: '도진', gender: 'male', combinations: [{ hanja: ['道', '鎭'], elements: ['fire', 'metal'] }] },
+  { hangul: '준영', gender: 'male', combinations: [{ hanja: ['準', '映'], elements: ['earth', 'fire'] }] },
+  { hangul: '태훈', gender: 'male', combinations: [{ hanja: ['泰', '勳'], elements: ['water', 'metal'] }] },
+  { hangul: '서호', gender: 'male', combinations: [{ hanja: ['瑞', '浩'], elements: ['metal', 'water'] }] },
+  { hangul: '시형', gender: 'male', combinations: [{ hanja: ['時', '亨'], elements: ['metal', 'water'] }] },
+  { hangul: '우찬', gender: 'male', combinations: [{ hanja: ['祐', '燦'], elements: ['earth', 'metal'] }] },
+  { hangul: '재율', gender: 'male', combinations: [{ hanja: ['宰', '律'], elements: ['metal', 'fire'] }] },
+  { hangul: '민상', gender: 'male', combinations: [{ hanja: ['珉', '相'], elements: ['earth', 'wood'] }] },
+  { hangul: '세진', gender: 'male', combinations: [{ hanja: ['世', '鎭'], elements: ['metal', 'metal'] }] },
+  { hangul: '현민', gender: 'male', combinations: [{ hanja: ['賢', '民'], elements: ['wood', 'water'] }] },
+  { hangul: '도운', gender: 'male', combinations: [{ hanja: ['道', '雲'], elements: ['fire', 'earth'] }] },
+  { hangul: '하늘', gender: 'male', combinations: [{ hanja: ['하', '늘'], elements: ['water', 'fire'] }] },
+  { hangul: '진성', gender: 'male', combinations: [{ hanja: ['鎭', '星'], elements: ['metal', 'metal'] }] },
+  { hangul: '유현', gender: 'male', combinations: [{ hanja: ['悠', '賢'], elements: ['earth', 'wood'] }] },
+  { hangul: '동윤', gender: 'male', combinations: [{ hanja: ['東', '潤'], elements: ['wood', 'water'] }] },
+  { hangul: '상윤', gender: 'male', combinations: [{ hanja: ['相', '潤'], elements: ['wood', 'water'] }] },
+  { hangul: '경호', gender: 'male', combinations: [{ hanja: ['景', '浩'], elements: ['wood', 'water'] }] },
+  { hangul: '주호', gender: 'male', combinations: [{ hanja: ['周', '皓'], elements: ['metal', 'fire'] }] },
+  { hangul: '민엽', gender: 'male', combinations: [{ hanja: ['珉', '燁'], elements: ['earth', 'fire'] }] },
+  { hangul: '도원', gender: 'male', combinations: [{ hanja: ['道', '源'], elements: ['fire', 'water'] }] },
+  { hangul: '지강', gender: 'male', combinations: [{ hanja: ['智', '江'], elements: ['fire', 'water'] }] },
+  { hangul: '선율', gender: 'male', combinations: [{ hanja: ['善', '律'], elements: ['metal', 'fire'] }] },
+  { hangul: '윤건', gender: 'male', combinations: [{ hanja: ['允', '建'], elements: ['earth', 'wood'] }] },
+  { hangul: '정현', gender: 'male', combinations: [{ hanja: ['正', '賢'], elements: ['metal', 'wood'] }] },
+  { hangul: '시준', gender: 'male', combinations: [{ hanja: ['時', '俊'], elements: ['metal', 'earth'] }] },
+  { hangul: '주한', gender: 'male', combinations: [{ hanja: ['周', '漢'], elements: ['metal', 'water'] }] },
+  { hangul: '성하', gender: 'male', combinations: [{ hanja: ['星', '夏'], elements: ['metal', 'fire'] }] },
+  { hangul: '은율', gender: 'male', combinations: [{ hanja: ['恩', '律'], elements: ['earth', 'fire'] }] },
+  { hangul: '준범', gender: 'male', combinations: [{ hanja: ['俊', '凡'], elements: ['earth', 'water'] }] },
+  { hangul: '지율', gender: 'male', combinations: [{ hanja: ['芝', '率'], elements: ['wood', 'metal'] }] },
+  { hangul: '진서', gender: 'male', combinations: [{ hanja: ['鎭', '瑞'], elements: ['metal', 'metal'] }] },
+  { hangul: '지환', gender: 'male', combinations: [{ hanja: ['芝', '煥'], elements: ['wood', 'fire'] }] },
+  { hangul: '태강', gender: 'male', combinations: [{ hanja: ['泰', '綱'], elements: ['water', 'wood'] }] },
+  { hangul: '세민', gender: 'male', combinations: [{ hanja: ['世', '珉'], elements: ['metal', 'earth'] }] },
+  { hangul: '현우', gender: 'male', combinations: [{ hanja: ['泫', '雨'], elements: ['water', 'water'] }] },
+  { hangul: '성우', gender: 'male', combinations: [{ hanja: ['晟', '祐'], elements: ['fire', 'earth'] }] },
+  { hangul: '윤상', gender: 'male', combinations: [{ hanja: ['允', '相'], elements: ['earth', 'wood'] }] },
+  { hangul: '재영', gender: 'male', combinations: [{ hanja: ['宰', '榮'], elements: ['metal', 'wood'] }] },
+  { hangul: '동민', gender: 'male', combinations: [{ hanja: ['東', '旻'], elements: ['wood', 'fire'] }] },
+  { hangul: '우영', gender: 'male', combinations: [{ hanja: ['祐', '榮'], elements: ['earth', 'wood'] }] },
+  { hangul: '승찬', gender: 'male', combinations: [{ hanja: ['承', '燦'], elements: ['metal', 'metal'] }] },
+  { hangul: '기윤', gender: 'male', combinations: [{ hanja: ['基', '允'], elements: ['earth', 'earth'] }] },
+  { hangul: '진우', gender: 'male', combinations: [{ hanja: ['眞', '祐'], elements: ['metal', 'earth'] }] },
+  { hangul: '하윤', gender: 'male', combinations: [{ hanja: ['河', '允'], elements: ['water', 'earth'] }] },
+  { hangul: '성재', gender: 'male', combinations: [{ hanja: ['成', '宰'], elements: ['metal', 'metal'] }] },
+  { hangul: '이안', gender: 'male', combinations: [{ hanja: ['怡', '安'], elements: ['earth', 'earth'] }] },
+  { hangul: '지평', gender: 'male', combinations: [{ hanja: ['智', '平'], elements: ['fire', 'water'] }] },
+  { hangul: '민준', gender: 'male', combinations: [{ hanja: ['閔', '俊'], elements: ['water', 'earth'] }] },
+  { hangul: '유신', gender: 'male', combinations: [{ hanja: ['庾', '信'], elements: ['wood', 'earth'] }] },
+  { hangul: '우람', gender: 'male', combinations: [{ hanja: ['宇', '藍'], elements: ['earth', 'wood'] }] },
+  { hangul: '재혁', gender: 'male', combinations: [{ hanja: ['宰', '赫'], elements: ['metal', 'fire'] }] },
+  { hangul: '주안', gender: 'male', combinations: [{ hanja: ['周', '安'], elements: ['metal', 'earth'] }] },
+  { hangul: '현승', gender: 'male', combinations: [{ hanja: ['賢', '昇'], elements: ['wood', 'earth'] }] },
+  { hangul: '세영', gender: 'male', combinations: [{ hanja: ['世', '榮'], elements: ['metal', 'wood'] }] },
+  { hangul: '태림', gender: 'male', combinations: [{ hanja: ['泰', '林'], elements: ['water', 'wood'] }] },
+  { hangul: '윤하', gender: 'male', combinations: [{ hanja: ['允', '夏'], elements: ['earth', 'fire'] }] },
+  { hangul: '지후', gender: 'male', combinations: [{ hanja: ['芝', '厚'], elements: ['wood', 'earth'] }] },
+  { hangul: '찬우', gender: 'male', combinations: [{ hanja: ['燦', '祐'], elements: ['metal', 'earth'] }] },
+  { hangul: '도율', gender: 'male', combinations: [{ hanja: ['道', '律'], elements: ['fire', 'fire'] }] },
+  { hangul: '한결', gender: 'male', combinations: [{ hanja: ['韓', '潔'], elements: ['wood', 'water'] }] },
+  { hangul: '성훈', gender: 'male', combinations: [{ hanja: ['成', '勳'], elements: ['metal', 'metal'] }] },
+  { hangul: '지용', gender: 'male', combinations: [{ hanja: ['知', '勇'], elements: ['fire', 'earth'] }] },
+  { hangul: '시헌', gender: 'male', combinations: [{ hanja: ['時', '憲'], elements: ['metal', 'water'] }] },
+  { hangul: '동하', gender: 'male', combinations: [{ hanja: ['桐', '夏'], elements: ['wood', 'fire'] }] },
+  { hangul: '민형', gender: 'male', combinations: [{ hanja: ['珉', '亨'], elements: ['earth', 'water'] }] },
+  { hangul: '영재', gender: 'male', combinations: [{ hanja: ['英', '宰'], elements: ['wood', 'metal'] }] },
+  { hangul: '은수', gender: 'male', combinations: [{ hanja: ['恩', '秀'], elements: ['earth', 'wood'] }] },
+  { hangul: '도겸', gender: 'male', combinations: [{ hanja: ['道', '謙'], elements: ['fire', 'wood'] }] },
+  { hangul: '진영', gender: 'male', combinations: [{ hanja: ['鎭', '永'], elements: ['metal', 'earth'] }] },
+  { hangul: '상준', gender: 'male', combinations: [{ hanja: ['相', '俊'], elements: ['wood', 'earth'] }] },
+  { hangul: '강훈', gender: 'male', combinations: [{ hanja: ['康', '訓'], elements: ['wood', 'water'] }] },
+  { hangul: '해찬', gender: 'male', combinations: [{ hanja: ['海', '燦'], elements: ['water', 'metal'] }] },
+  { hangul: '윤혁', gender: 'male', combinations: [{ hanja: ['允', '赫'], elements: ['earth', 'fire'] }] },
+  { hangul: '은기', gender: 'male', combinations: [{ hanja: ['恩', '起'], elements: ['earth', 'wood'] }] },
+  { hangul: '인우', gender: 'male', combinations: [{ hanja: ['仁', '祐'], elements: ['earth', 'earth'] }] },
+  { hangul: '우빈', gender: 'male', combinations: [{ hanja: ['祐', '彬'], elements: ['earth', 'wood'] }] },
+  { hangul: '민겸', gender: 'male', combinations: [{ hanja: ['珉', '謙'], elements: ['earth', 'wood'] }] },
+  { hangul: '정훈', gender: 'male', combinations: [{ hanja: ['政', '勳'], elements: ['fire', 'metal'] }] },
+  { hangul: '종윤', gender: 'male', combinations: [{ hanja: ['宗', '允'], elements: ['metal', 'earth'] }] },
+  { hangul: '효준', gender: 'male', combinations: [{ hanja: ['孝', '俊'], elements: ['wood', 'earth'] }] },
+  { hangul: '이안', gender: 'male', combinations: [{ hanja: ['利', '晏'], elements: ['metal', 'fire'] }] },
+  { hangul: '윤', gender: 'male', combinations: [{ hanja: ['潤'], elements: ['water'] }] },
+  { hangul: '진', gender: 'male', combinations: [{ hanja: ['眞'], elements: ['metal'] }] },
+  { hangul: '율', gender: 'male', combinations: [{ hanja: ['律'], elements: ['fire'] }] },
+  { hangul: '환', gender: 'male', combinations: [{ hanja: ['煥'], elements: ['fire'] }] },
+  { hangul: '준', gender: 'male', combinations: [{ hanja: ['俊'], elements: ['earth'] }] },
+
+  // =======================================================================
+  // II. 여성 이름 (Female Names) - 300개
+  // =======================================================================
+  { hangul: '서아', gender: 'female', combinations: [{ hanja: ['瑞', '娥'], elements: ['metal', 'earth'] }, { hanja: ['書', '雅'], elements: ['metal', 'wood'] }] },
+  { hangul: '이서', gender: 'female', combinations: [{ hanja: ['利', '瑞'], elements: ['metal', 'metal'] }, { hanja: ['理', '曙'], elements: ['fire', 'fire'] }] },
+  { hangul: '지안', gender: 'female', combinations: [{ hanja: ['智', '安'], elements: ['fire', 'earth'] }, { hanja: ['芷', '晏'], elements: ['wood', 'fire'] }] },
+  { hangul: '하윤', gender: 'female', combinations: [{ hanja: ['夏', '潤'], elements: ['fire', 'water'] }, { hanja: ['河', '允'], elements: ['water', 'earth'] }] },
+  { hangul: '서윤', gender: 'female', combinations: [{ hanja: ['瑞', '允'], elements: ['metal', 'earth'] }, { hanja: ['書', '潤'], elements: ['metal', 'water'] }] },
+  { hangul: '아윤', gender: 'female', combinations: [{ hanja: ['雅', '允'], elements: ['wood', 'earth'] }, { hanja: ['娥', '潤'], elements: ['earth', 'water'] }] },
+  { hangul: '시아', gender: 'female', combinations: [{ hanja: ['詩', '雅'], elements: ['metal', 'wood'] }, { hanja: ['時', '兒'], elements: ['metal', 'earth'] }] },
+  { hangul: '지유', gender: 'female', combinations: [{ hanja: ['智', '宥'], elements: ['fire', 'earth'] }, { hanja: ['志', '裕'], elements: ['fire', 'metal'] }] },
+  { hangul: '나은', gender: 'female', combinations: [{ hanja: ['娜', '恩'], elements: ['fire', 'earth'] }] },
+  { hangul: '서연', gender: 'female', combinations: [{ hanja: ['瑞', '姸'], elements: ['metal', 'earth'] }, { hanja: ['書', '然'], elements: ['metal', 'fire'] }] },
+  { hangul: '하은', gender: 'female', combinations: [{ hanja: ['夏', '恩'], elements: ['fire', 'earth'] }, { hanja: ['河', '恩'], elements: ['water', 'earth'] }] },
+  { hangul: '수아', gender: 'female', combinations: [{ hanja: ['秀', '雅'], elements: ['wood', 'wood'] }, { hanja: ['壽', '兒'], elements: ['metal', 'earth'] }] },
+  { hangul: '지우', gender: 'female', combinations: [{ hanja: ['智', '雨'], elements: ['fire', 'water'] }, { hanja: ['志', '宇'], elements: ['fire', 'earth'] }] },
+  { hangul: '아린', gender: 'female', combinations: [{ hanja: ['雅', '麟'], elements: ['wood', 'fire'] }] },
+  { hangul: '소율', gender: 'female', combinations: [{ hanja: ['昭', '律'], elements: ['fire', 'fire'] }] },
+  { hangul: '다은', gender: 'female', combinations: [{ hanja: ['多', '恩'], elements: ['fire', 'earth'] }] },
+  { hangul: '채원', gender: 'female', combinations: [{ hanja: ['采', '源'], elements: ['wood', 'water'] }] },
+  { hangul: '예나', gender: 'female', combinations: [{ hanja: ['睿', '娜'], elements: ['earth', 'fire'] }] },
+  { hangul: '나연', gender: 'female', combinations: [{ hanja: ['娜', '璉'], elements: ['fire', 'fire'] }] },
+  { hangul: '유나', gender: 'female', combinations: [{ hanja: ['有', '娜'], elements: ['earth', 'fire'] }] },
+  { hangul: '예린', gender: 'female', combinations: [{ hanja: ['睿', '麟'], elements: ['earth', 'fire'] }] },
+  { hangul: '가은', gender: 'female', combinations: [{ hanja: ['佳', '恩'], elements: ['wood', 'earth'] }] },
+  { hangul: '주아', gender: 'female', combinations: [{ hanja: ['珠', '雅'], elements: ['metal', 'wood'] }] },
+  { hangul: '윤서', gender: 'female', combinations: [{ hanja: ['允', '瑞'], elements: ['earth', 'metal'] }] },
+  { hangul: '지아', gender: 'female', combinations: [{ hanja: ['智', '雅'], elements: ['fire', 'wood'] }] },
+  { hangul: '하린', gender: 'female', combinations: [{ hanja: ['夏', '璘'], elements: ['fire', 'fire'] }] },
+  { hangul: '서현', gender: 'female', combinations: [{ hanja: ['瑞', '賢'], elements: ['metal', 'wood'] }] },
+  { hangul: '다인', gender: 'female', combinations: [{ hanja: ['多', '仁'], elements: ['fire', 'earth'] }] },
+  { hangul: '민서', gender: 'female', combinations: [{ hanja: ['珉', '瑞'], elements: ['earth', 'metal'] }] },
+  { hangul: '소은', gender: 'female', combinations: [{ hanja: ['昭', '恩'], elements: ['fire', 'earth'] }] },
+  { hangul: '서하', gender: 'female', combinations: [{ hanja: ['瑞', '夏'], elements: ['metal', 'fire'] }] },
+  { hangul: '지민', gender: 'female', combinations: [{ hanja: ['智', '珉'], elements: ['fire', 'earth'] }] },
+  { hangul: '유주', gender: 'female', combinations: [{ hanja: ['裕', '珠'], elements: ['metal', 'metal'] }] },
+  { hangul: '예서', gender: 'female', combinations: [{ hanja: ['睿', '瑞'], elements: ['earth', 'metal'] }] },
+  { hangul: '예원', gender: 'female', combinations: [{ hanja: ['睿', '源'], elements: ['earth', 'water'] }] },
+  { hangul: '다현', gender: 'female', combinations: [{ hanja: ['多', '賢'], elements: ['fire', 'wood'] }] },
+  { hangul: '라온', gender: 'female', combinations: [{ hanja: ['羅', '溫'], elements: ['fire', 'earth'] }] },
+  { hangul: '지윤', gender: 'female', combinations: [{ hanja: ['智', '允'], elements: ['fire', 'earth'] }] },
+  { hangul: '채아', gender: 'female', combinations: [{ hanja: ['采', '兒'], elements: ['wood', 'earth'] }] },
+  { hangul: '은서', gender: 'female', combinations: [{ hanja: ['恩', '瑞'], elements: ['earth', 'metal'] }] },
+  { hangul: '수민', gender: 'female', combinations: [{ hanja: ['秀', '敏'], elements: ['wood', 'water'] }] },
+  { hangul: '예은', gender: 'female', combinations: [{ hanja: ['睿', '恩'], elements: ['earth', 'earth'] }] },
+  { hangul: '세아', gender: 'female', combinations: [{ hanja: ['世', '雅'], elements: ['metal', 'wood'] }] },
+  { hangul: '유진', gender: 'female', combinations: [{ hanja: ['裕', '珍'], elements: ['metal', 'metal'] }] },
+  { hangul: '효주', gender: 'female', combinations: [{ hanja: ['孝', '珠'], elements: ['wood', 'metal'] }] },
+  { hangul: '서영', gender: 'female', combinations: [{ hanja: ['瑞', '英'], elements: ['metal', 'wood'] }] },
+  { hangul: '나경', gender: 'female', combinations: [{ hanja: ['娜', '炅'], elements: ['fire', 'fire'] }] },
+  { hangul: '연서', gender: 'female', combinations: [{ hanja: ['姸', '瑞'], elements: ['earth', 'metal'] }] },
+  { hangul: '다연', gender: 'female', combinations: [{ hanja: ['多', '姸'], elements: ['fire', 'earth'] }] },
+  { hangul: '지은', gender: 'female', combinations: [{ hanja: ['智', '恩'], elements: ['fire', 'earth'] }] },
+  { hangul: '윤아', gender: 'female', combinations: [{ hanja: ['潤', '雅'], elements: ['water', 'wood'] }] },
+  { hangul: '세은', gender: 'female', combinations: [{ hanja: ['世', '恩'], elements: ['metal', 'earth'] }] },
+  { hangul: '채은', gender: 'female', combinations: [{ hanja: ['采', '恩'], elements: ['wood', 'earth'] }] },
+  { hangul: '하율', gender: 'female', combinations: [{ hanja: ['夏', '律'], elements: ['fire', 'fire'] }] },
+  { hangul: '가윤', gender: 'female', combinations: [{ hanja: ['佳', '允'], elements: ['wood', 'earth'] }] },
+  { hangul: '나윤', gender: 'female', combinations: [{ hanja: ['娜', '潤'], elements: ['fire', 'water'] }] },
+  { hangul: '예진', gender: 'female', combinations: [{ hanja: ['睿', '眞'], elements: ['earth', 'metal'] }] },
+  { hangul: '주은', gender: 'female', combinations: [{ hanja: ['主', '恩'], elements: ['metal', 'earth'] }] },
+  { hangul: '태희', gender: 'female', combinations: [{ hanja: ['泰', '希'], elements: ['water', 'water'] }] },
+  { hangul: '혜원', gender: 'female', combinations: [{ hanja: ['惠', '媛'], elements: ['water', 'fire'] }] },
+  { hangul: '수빈', gender: 'female', combinations: [{ hanja: ['秀', '彬'], elements: ['wood', 'wood'] }] },
+  { hangul: '소윤', gender: 'female', combinations: [{ hanja: ['昭', '允'], elements: ['fire', 'earth'] }] },
+  { hangul: '사랑', gender: 'female', combinations: [{ hanja: ['思', '朗'], elements: ['metal', 'fire'] }] },
+  { hangul: '유하', gender: 'female', combinations: [{ hanja: ['裕', '夏'], elements: ['metal', 'fire'] }] },
+  { hangul: '다혜', gender: 'female', combinations: [{ hanja: ['多', '惠'], elements: ['fire', 'water'] }] },
+  { hangul: '유리', gender: 'female', combinations: [{ hanja: ['琉', '璃'], elements: ['fire', 'fire'] }] },
+  { hangul: '서우', gender: 'female', combinations: [{ hanja: ['瑞', '雨'], elements: ['metal', 'water'] }] },
+  { hangul: '예지', gender: 'female', combinations: [{ hanja: ['睿', '智'], elements: ['earth', 'fire'] }] },
+  { hangul: '지혜', gender: 'female', combinations: [{ hanja: ['智', '慧'], elements: ['fire', 'water'] }] },
+  { hangul: '윤지', gender: 'female', combinations: [{ hanja: ['允', '智'], elements: ['earth', 'fire'] }] },
+  { hangul: '소미', gender: 'female', combinations: [{ hanja: ['昭', '美'], elements: ['fire', 'water'] }] },
+  { hangul: '서희', gender: 'female', combinations: [{ hanja: ['瑞', '希'], elements: ['metal', 'water'] }] },
+  { hangul: '민지', gender: 'female', combinations: [{ hanja: ['珉', '智'], elements: ['earth', 'fire'] }] },
+  { hangul: '은지', gender: 'female', combinations: [{ hanja: ['恩', '智'], elements: ['earth', 'fire'] }] },
+  { hangul: '보민', gender: 'female', combinations: [{ hanja: ['寶', '珉'], elements: ['fire', 'earth'] }] },
+  { hangul: '가람', gender: 'female', combinations: [{ hanja: ['佳', '藍'], elements: ['wood', 'wood'] }] },
+  { hangul: '연아', gender: 'female', combinations: [{ hanja: ['妍', '兒'], elements: ['earth', 'earth'] }] },
+  { hangul: '아영', gender: 'female', combinations: [{ hanja: ['雅', '英'], elements: ['wood', 'wood'] }] },
+  { hangul: '서은', gender: 'female', combinations: [{ hanja: ['瑞', '恩'], elements: ['metal', 'earth'] }] },
+  { hangul: '세빈', gender: 'female', combinations: [{ hanja: ['世', '彬'], elements: ['metal', 'wood'] }] },
+  { hangul: '지수', gender: 'female', combinations: [{ hanja: ['智', '秀'], elements: ['fire', 'wood'] }] },
+  { hangul: '예림', gender: 'female', combinations: [{ hanja: ['藝', '琳'], elements: ['wood', 'wood'] }] },
+  { hangul: '다솜', gender: 'female', combinations: [{ hanja: ['多', '솜'], elements: ['fire', 'metal'] }] },
+  { hangul: '소연', gender: 'female', combinations: [{ hanja: ['昭', '然'], elements: ['fire', 'fire'] }] },
+  { hangul: '지우', gender: 'female', combinations: [{ hanja: ['芝', '祐'], elements: ['wood', 'earth'] }] },
+  { hangul: '효린', gender: 'female', combinations: [{ hanja: ['孝', '璘'], elements: ['wood', 'fire'] }] },
+  { hangul: '윤아', gender: 'female', combinations: [{ hanja: ['允', '兒'], elements: ['earth', 'earth'] }] },
+  { hangul: '혜인', gender: 'female', combinations: [{ hanja: ['惠', '仁'], elements: ['water', 'earth'] }] },
+  { hangul: '유정', gender: 'female', combinations: [{ hanja: ['裕', '貞'], elements: ['metal', 'metal'] }] },
+  { hangul: '보라', gender: 'female', combinations: [{ hanja: ['寶', '羅'], elements: ['fire', 'fire'] }] },
+  { hangul: '진아', gender: 'female', combinations: [{ hanja: ['眞', '雅'], elements: ['metal', 'wood'] }] },
+  { hangul: '은채', gender: 'female', combinations: [{ hanja: ['恩', '采'], elements: ['earth', 'wood'] }] },
+  { hangul: '솔비', gender: 'female', combinations: [{ hanja: ['率', '悲'], elements: ['metal', 'water'] }] },
+  { hangul: '가현', gender: 'female', combinations: [{ hanja: ['佳', '賢'], elements: ['wood', 'wood'] }] },
+  { hangul: '세희', gender: 'female', combinations: [{ hanja: ['世', '希'], elements: ['metal', 'water'] }] },
+  { hangul: '송아', gender: 'female', combinations: [{ hanja: ['松', '雅'], elements: ['wood', 'wood'] }] },
+  { hangul: '아라', gender: 'female', combinations: [{ hanja: ['雅', '羅'], elements: ['wood', 'fire'] }] },
+  { hangul: '유빈', gender: 'female', combinations: [{ hanja: ['裕', '彬'], elements: ['metal', 'wood'] }] },
+  { hangul: '채린', gender: 'female', combinations: [{ hanja: ['采', '麟'], elements: ['wood', 'fire'] }] },
+  { hangul: '다미', gender: 'female', combinations: [{ hanja: ['多', '美'], elements: ['fire', 'water'] }] },
+  { hangul: '혜윤', gender: 'female', combinations: [{ hanja: ['惠', '允'], elements: ['water', 'earth'] }] },
+  { hangul: '주연', gender: 'female', combinations: [{ hanja: ['珠', '姸'], elements: ['metal', 'earth'] }] },
+  { hangul: '세연', gender: 'female', combinations: [{ hanja: ['世', '姸'], elements: ['metal', 'earth'] }] },
+  { hangul: '아진', gender: 'female', combinations: [{ hanja: ['雅', '珍'], elements: ['wood', 'metal'] }] },
+  { hangul: '보경', gender: 'female', combinations: [{ hanja: ['寶', '鏡'], elements: ['fire', 'metal'] }] },
+  { hangul: '수연', gender: 'female', combinations: [{ hanja: ['秀', '娟'], elements: ['wood', 'fire'] }] },
+  { hangul: '하영', gender: 'female', combinations: [{ hanja: ['夏', '泳'], elements: ['fire', 'water'] }] },
+  { hangul: '유라', gender: 'female', combinations: [{ hanja: ['裕', '羅'], elements: ['metal', 'fire'] }] },
+  { hangul: '채윤', gender: 'female', combinations: [{ hanja: ['采', '允'], elements: ['wood', 'earth'] }] },
+  { hangul: '예슬', gender: 'female', combinations: [{ hanja: ['睿', '睿'], elements: ['earth', 'metal'] }] },
+  { hangul: '은영', gender: 'female', combinations: [{ hanja: ['恩', '英'], elements: ['earth', 'wood'] }] },
+  { hangul: '지효', gender: 'female', combinations: [{ hanja: ['智', '孝'], elements: ['fire', 'wood'] }] },
+  { hangul: '윤하', gender: 'female', combinations: [{ hanja: ['潤', '夏'], elements: ['water', 'fire'] }] },
+  { hangul: '선아', gender: 'female', combinations: [{ hanja: ['善', '雅'], elements: ['metal', 'wood'] }] },
+  { hangul: '수정', gender: 'female', combinations: [{ hanja: ['水', '晶'], elements: ['metal', 'fire'] }] },
+  { hangul: '정민', gender: 'female', combinations: [{ hanja: ['貞', '珉'], elements: ['metal', 'earth'] }] },
+  { hangul: '나래', gender: 'female', combinations: [{ hanja: ['娜', '來'], elements: ['fire', 'fire'] }] },
+  { hangul: '혜진', gender: 'female', combinations: [{ hanja: ['惠', '珍'], elements: ['water', 'metal'] }] },
+  { hangul: '유경', gender: 'female', combinations: [{ hanja: ['裕', '景'], elements: ['metal', 'wood'] }] },
+  { hangul: '다온', gender: 'female', combinations: [{ hanja: ['多', '溫'], elements: ['fire', 'earth'] }] },
+  { hangul: '소희', gender: 'female', combinations: [{ hanja: ['昭', '希'], elements: ['fire', 'water'] }] },
+  { hangul: '세령', gender: 'female', combinations: [{ hanja: ['世', '玲'], elements: ['metal', 'metal'] }] },
+  { hangul: '가영', gender: 'female', combinations: [{ hanja: ['佳', '英'], elements: ['wood', 'wood'] }] },
+  { hangul: '채령', gender: 'female', combinations: [{ hanja: ['采', '玲'], elements: ['wood', 'metal'] }] },
+  { hangul: '보미', gender: 'female', combinations: [{ hanja: ['普', '美'], elements: ['water', 'water'] }] },
+  { hangul: '아름', gender: 'female', combinations: [{ hanja: ['아', '름'], elements: ['earth', 'fire'] }] },
+  { hangul: '유미', gender: 'female', combinations: [{ hanja: ['裕', '美'], elements: ['metal', 'water'] }] },
+  { hangul: '나영', gender: 'female', combinations: [{ hanja: ['娜', '英'], elements: ['fire', 'wood'] }] },
+  { hangul: '지연', gender: 'female', combinations: [{ hanja: ['智', '然'], elements: ['fire', 'fire'] }] },
+  { hangul: '주미', gender: 'female', combinations: [{ hanja: ['珠', '美'], elements: ['metal', 'water'] }] },
+  { hangul: '하리', gender: 'female', combinations: [{ hanja: ['夏', '莉'], elements: ['fire', 'wood'] }] },
+  { hangul: '서진', gender: 'female', combinations: [{ hanja: ['瑞', '眞'], elements: ['metal', 'metal'] }] },
+  { hangul: '도아', gender: 'female', combinations: [{ hanja: ['度', '雅'], elements: ['fire', 'wood'] }] },
+  { hangul: '은솔', gender: 'female', combinations: [{ hanja: ['恩', '率'], elements: ['earth', 'metal'] }] },
+  { hangul: '예주', gender: 'female', combinations: [{ hanja: ['睿', '珠'], elements: ['earth', 'metal'] }] },
+  { hangul: '시연', gender: 'female', combinations: [{ hanja: ['詩', '娟'], elements: ['metal', 'fire'] }] },
+  { hangul: '채희', gender: 'female', combinations: [{ hanja: ['采', '希'], elements: ['wood', 'water'] }] },
+  { hangul: '도연', gender: 'female', combinations: [{ hanja: ['度', '然'], elements: ['fire', 'fire'] }] },
+  { hangul: '유설', gender: 'female', combinations: [{ hanja: ['有', '雪'], elements: ['earth', 'water'] }] },
+  { hangul: '다예', gender: 'female', combinations: [{ hanja: ['多', '睿'], elements: ['fire', 'earth'] }] },
+  { hangul: '지현', gender: 'female', combinations: [{ hanja: ['智', '賢'], elements: ['fire', 'wood'] }] },
+  { hangul: '윤슬', gender: 'female', combinations: [{ hanja: ['潤', '슬'], elements: ['water', 'metal'] }] },
+  { hangul: '수진', gender: 'female', combinations: [{ hanja: ['秀', '珍'], elements: ['wood', 'metal'] }] },
+  { hangul: '가희', gender: 'female', combinations: [{ hanja: ['佳', '希'], elements: ['wood', 'water'] }] },
+  { hangul: '유림', gender: 'female', combinations: [{ hanja: ['裕', '琳'], elements: ['metal', 'wood'] }] },
+  { hangul: '세미', gender: 'female', combinations: [{ hanja: ['世', '美'], elements: ['metal', 'water'] }] },
+  { hangul: '선우', gender: 'female', combinations: [{ hanja: ['善', '雨'], elements: ['metal', 'water'] }] },
+  { hangul: '시은', gender: 'female', combinations: [{ hanja: ['時', '恩'], elements: ['metal', 'earth'] }] },
+  { hangul: '보윤', gender: 'female', combinations: [{ hanja: ['普', '允'], elements: ['water', 'earth'] }] },
+  { hangul: '연주', gender: 'female', combinations: [{ hanja: ['娟', '珠'], elements: ['fire', 'metal'] }] },
+  { hangul: '해인', gender: 'female', combinations: [{ hanja: ['海', '仁'], elements: ['water', 'earth'] }] },
+  { hangul: '채아', gender: 'female', combinations: [{ hanja: ['蔡', '娥'], elements: ['wood', 'earth'] }] },
+  { hangul: '보경', gender: 'female', combinations: [{ hanja: ['甫', '卿'], elements: ['water', 'wood'] }] },
+  { hangul: '지예', gender: 'female', combinations: [{ hanja: ['智', '藝'], elements: ['fire', 'wood'] }] },
+  { hangul: '민아', gender: 'female', combinations: [{ hanja: ['珉', '雅'], elements: ['earth', 'wood'] }] },
+  { hangul: '은혜', gender: 'female', combinations: [{ hanja: ['恩', '惠'], elements: ['earth', 'water'] }] },
+  { hangul: '유선', gender: 'female', combinations: [{ hanja: ['裕', '善'], elements: ['metal', 'metal'] }] },
+  { hangul: '소현', gender: 'female', combinations: [{ hanja: ['昭', '賢'], elements: ['fire', 'wood'] }] },
+  { hangul: '슬아', gender: 'female', combinations: [{ hanja: ['슬', '雅'], elements: ['metal', 'wood'] }] },
+  { hangul: '주희', gender: 'female', combinations: [{ hanja: ['珠', '熙'], elements: ['metal', 'fire'] }] },
+  { hangul: '다희', gender: 'female', combinations: [{ hanja: ['多', '喜'], elements: ['fire', 'water'] }] },
+  { hangul: '세림', gender: 'female', combinations: [{ hanja: ['世', '琳'], elements: ['metal', 'wood'] }] },
+  { hangul: '혜리', gender: 'female', combinations: [{ hanja: ['惠', '利'], elements: ['water', 'metal'] }] },
+  { hangul: '정원', gender: 'female', combinations: [{ hanja: ['庭', '園'], elements: ['fire', 'earth'] }] },
+  { hangul: '지영', gender: 'female', combinations: [{ hanja: ['智', '英'], elements: ['fire', 'wood'] }] },
+  { hangul: '가을', gender: 'female', combinations: [{ hanja: ['佳', '乙'], elements: ['wood', 'wood'] }] },
+  { hangul: '해윤', gender: 'female', combinations: [{ hanja: ['海', '允'], elements: ['water', 'earth'] }] },
+  { hangul: '아영', gender: 'female', combinations: [{ hanja: ['娥', '煐'], elements: ['earth', 'fire'] }] },
+  { hangul: '은유', gender: 'female', combinations: [{ hanja: ['恩', '裕'], elements: ['earth', 'metal'] }] },
+  { hangul: '효정', gender: 'female', combinations: [{ hanja: ['孝', '貞'], elements: ['wood', 'metal'] }] },
+  { hangul: '소정', gender: 'female', combinations: [{ hanja: ['昭', '貞'], elements: ['fire', 'metal'] }] },
+  { hangul: '서정', gender: 'female', combinations: [{ hanja: ['瑞', '貞'], elements: ['metal', 'metal'] }] },
+  { hangul: '봄', gender: 'female', combinations: [{ hanja: ['春'], elements: ['wood'] }] },
+  { hangul: '송이', gender: 'female', combinations: [{ hanja: ['松', '伊'], elements: ['wood', 'earth'] }] },
+  { hangul: '단아', gender: 'female', combinations: [{ hanja: ['丹', '雅'], elements: ['fire', 'wood'] }] },
+  { hangul: '하나', gender: 'female', combinations: [{ hanja: ['荷', '娜'], elements: ['wood', 'fire'] }] },
+  { hangul: '미소', gender: 'female', combinations: [{ hanja: ['美', '笑'], elements: ['water', 'wood'] }] },
+  { hangul: '혜나', gender: 'female', combinations: [{ hanja: ['惠', '娜'], elements: ['water', 'fire'] }] },
+  { hangul: '보나', gender: 'female', combinations: [{ hanja: ['寶', '娜'], elements: ['fire', 'fire'] }] },
+  { hangul: '유화', gender: 'female', combinations: [{ hanja: ['庾', '花'], elements: ['wood', 'wood'] }] },
+  { hangul: '아인', gender: 'female', combinations: [{ hanja: ['雅', '仁'], elements: ['wood', 'earth'] }] },
+  { hangul: '시호', gender: 'female', combinations: [{ hanja: ['詩', '好'], elements: ['metal', 'earth'] }] },
+  { hangul: '지아', gender: 'female', combinations: [{ hanja: ['芝', '娥'], elements: ['wood', 'earth'] }] },
+  { hangul: '연우', gender: 'female', combinations: [{ hanja: ['娟', '雨'], elements: ['fire', 'water'] }] },
+  { hangul: '예슬', gender: 'female', combinations: [{ hanja: ['藝', '瑟'], elements: ['wood', 'metal'] }] },
+  { hangul: '다윤', gender: 'female', combinations: [{ hanja: ['多', '允'], elements: ['fire', 'earth'] }] },
+  { hangul: '세라', gender: 'female', combinations: [{ hanja: ['世', '羅'], elements: ['metal', 'fire'] }] },
+  { hangul: '재인', gender: 'female', combinations: [{ hanja: ['才', '仁'], elements: ['metal', 'earth'] }] },
+  { hangul: '소민', gender: 'female', combinations: [{ hanja: ['昭', '旻'], elements: ['fire', 'fire'] }] },
+  { hangul: '가온', gender: 'female', combinations: [{ hanja: ['佳', '溫'], elements: ['wood', 'earth'] }] },
+  { hangul: '유주', gender: 'female', combinations: [{ hanja: ['侑', '珠'], elements: ['earth', 'metal'] }] },
+  { hangul: '리나', gender: 'female', combinations: [{ hanja: ['莉', '娜'], elements: ['wood', 'fire'] }] },
+  { hangul: '정아', gender: 'female', combinations: [{ hanja: ['貞', '雅'], elements: ['metal', 'wood'] }] },
+  { hangul: '서율', gender: 'female', combinations: [{ hanja: ['瑞', '燏'], elements: ['metal', 'fire'] }] },
+  { hangul: '다함', gender: 'female', combinations: [{ hanja: ['多', '咸'], elements: ['fire', 'water'] }] },
+  { hangul: '해나', gender: 'female', combinations: [{ hanja: ['海', '娜'], elements: ['water', 'fire'] }] },
+  { hangul: '윤슬', gender: 'female', combinations: [{ hanja: ['潤', '瑟'], elements: ['water', 'metal'] }] },
+  { hangul: '채하', gender: 'female', combinations: [{ hanja: ['采', '夏'], elements: ['wood', 'fire'] }] },
+  { hangul: '이솔', gender: 'female', combinations: [{ hanja: ['怡', '率'], elements: ['earth', 'metal'] }] },
+  { hangul: '유채', gender: 'female', combinations: [{ hanja: ['裕', '采'], elements: ['metal', 'wood'] }] },
+  { hangul: '소이', gender: 'female', combinations: [{ hanja: ['昭', '怡'], elements: ['fire', 'earth'] }] },
+  { hangul: '은재', gender: 'female', combinations: [{ hanja: ['恩', '栽'], elements: ['earth', 'wood'] }] },
+  { hangul: '지담', gender: 'female', combinations: [{ hanja: ['智', '潭'], elements: ['fire', 'water'] }] },
+  { hangul: '이현', gender: 'female', combinations: [{ hanja: ['怡', '賢'], elements: ['earth', 'wood'] }] },
+  { hangul: '가이', gender: 'female', combinations: [{ hanja: ['佳', '怡'], elements: ['wood', 'earth'] }] },
+  { hangul: '재이', gender: 'female', combinations: [{ hanja: ['才', '怡'], elements: ['metal', 'earth'] }] },
+  { hangul: '하랑', gender: 'female', combinations: [{ hanja: ['夏', '朗'], elements: ['fire', 'fire'] }] },
+  { hangul: '여진', gender: 'female', combinations: [{ hanja: ['麗', '珍'], elements: ['fire', 'metal'] }] },
+  { hangul: '은성', gender: 'female', combinations: [{ hanja: ['恩', '星'], elements: ['earth', 'metal'] }] },
+  { hangul: '혜주', gender: 'female', combinations: [{ hanja: ['惠', '珠'], elements: ['water', 'metal'] }] },
+  { hangul: '단비', gender: 'female', combinations: [{ hanja: ['丹', '雨'], elements: ['fire', 'water'] }] },
+  { hangul: '윤진', gender: 'female', combinations: [{ hanja: ['允', '眞'], elements: ['earth', 'metal'] }] },
+  { hangul: '별', gender: 'female', combinations: [{ hanja: ['星'], elements: ['metal'] }] },
+  { hangul: '슬', gender: 'female', combinations: [{ hanja: ['瑟'], elements: ['metal'] }] },
+  { hangul: '린', gender: 'female', combinations: [{ hanja: ['麟'], elements: ['fire'] }] },
+  { hangul: '솔', gender: 'female', combinations: [{ hanja: ['率'], elements: ['metal'] }] },
+  { hangul: '솜', gender: 'female', combinations: [{ hanja: ['솜'], elements: ['metal'] }] },
+];
 
 
 const translations = {
@@ -360,10 +922,10 @@ const translations = {
                 '甲': "This represents a tall, sturdy Tree...", '乙': "This embodies a flexible Flower or Vine...", '丙': "You are like the brilliant Sun...", '丁': "This is the warm, gentle light of a Candle...", '戊': "You represent a vast, immovable Mountain...", '己': "This is fertile, nurturing Earth...", '庚': "You embody strong, unrefined Metal...", '辛': "You are like a precious, polished Gem...", '壬': "This represents a great Ocean or River...", '癸': "This is the gentle Rain or Dew..."
             },
             sajuBalance: (s, b) => `Analysis shows your Day Master is <strong>${s}</strong>... your Saju benefits from <strong>${b.join(' and ')}</strong>.`,
-            nameIntro: (n) => `We recommend <strong>${n.roman} (${n.hangul}, <span class="hanja">${n.hanja}</span>)</strong>. Here’s why:`,
-            firstHanja: (h, e) => `The character <span class="hanja">${h.hanja}</span> means '<strong>${h.meaning.en}</strong>'. Its essence is <strong>${e}</strong>...`,
-            secondHanja: (h, e) => `The character <span class="hanja">${h.hanja}</span> signifies '<strong>${h.meaning.en}</strong>'. It resonates with <strong>${e}</strong> energy...`,
-            together: (n, h1, h2) => `Together, <strong>${n.roman}</strong> creates "<em>${h1.keywords.en[0]} and ${h2.keywords.en[1]}</em>"...`
+            nameIntro: (n, c) => `We recommend <strong>${n} (${c.roman}, <span class="hanja">${c.hanja.join('')}</span>)</strong>. Here’s why:`,
+            firstHanja: (h, e, m) => `The character <span class="hanja">${h}</span> means '<strong>${m.en}</strong>'. Its essence is <strong>${e}</strong>...`,
+            secondHanja: (h, e, m) => `The character <span class="hanja">${h}</span> signifies '<strong>${m.en}</strong>'. It resonates with <strong>${e}</strong> energy...`,
+            together: (n, c) => `This name, with its elements of ${c.elements.map(e => translations.en.elements[e]).join(' and ')}, is designed to bring balance and support to your life's journey.`
         }
     },
     ko: {
@@ -378,13 +940,13 @@ const translations = {
         sajuAnalysis: {
             dayMasterIntro: (d, e) => `당신의 "일간(日干)"은 <strong>${d} (${e})</strong> 입니다.`,
             dayMasterDesc: {
-                '甲': '크고 튼튼한 나무를 상징하며, 타고난 리더십과 진취적인 정신, 성장과 성취에 대한 열망을 의미합니다.', '乙': '유연한 꽃이나 덩굴을 상징하며, 뛰어난 적응력과 강한 생명력, 매력적이고 사교적인 성향을 나타냅니다.', '丙': '빛나는 태양과 같아, 열정과 관대함, 그리고 주변 모든 것을 비추는 밝은 에너지를 지녔습니다.', '丁': '따뜻하고 은은한 촛불이나 별빛으로, 깊은 통찰력과 온기를 지닌 섬세하고 감성적인 본성을 암시합니다.', '戊': '크고 움직이지 않는 산을 상징하여, 신뢰할 수 있고 안정적이며 다른 사람들을 지지할 수 있는 중심적인 인물임을 의미합니다.', '己': '만물을 키우는 비옥한 땅으로, 위대한 것을 일굴 수 있는 부드럽고 수용적이며 신중한 성격을 나타냅니다.', '庚': '강하고 제련되지 않은 금속이나 강력한 칼을 상징하며, 결단력 있고 의리 있으며 날카로운 정신을 가진 본성을 의미합니다.', '辛': '귀하고 잘 닦인 보석과 같아, 세련되고 미적 감각이 뛰어나며 완벽주의적인 성향을 암시합니다.', '壬': '거대한 바다나 강을 상징하며, 위대한 잠재력을 지닌 지혜롭고 유연하며 모든 것을 포용하는 본성을 나타냅니다.', '癸': '부드러운 비나 이슬을 상징하며, 지적이고 창의적이며 아이디어를 키우는 재능을 가진 섬세한 성격을 암시합니다.'
+                '甲': '크고 튼튼한 나무를 상징하며...', '乙': '유연한 꽃이나 덩굴을 상징하며...', '丙': '빛나는 태양과 같아...', '丁': '따뜻하고 은은한 촛불이나 별빛으로...', '戊': '크고 움직이지 않는 산을 상징하여...', '己': '만물을 키우는 비옥한 땅으로...', '庚': '강하고 제련되지 않은 금속이나 강력한 칼을 상징하며...', '辛': '귀하고 잘 닦인 보석과 같아...', '壬': '거대한 바다나 강을 상징하며...', '癸': '부드러운 비나 이슬을 상징하며...'
             },
             sajuBalance: (s, b) => `당신의 일간은 <strong>${s}</strong> 경향을 보입니다... <strong>${b.join('과 ')}</strong>의 기운이 가장 유용합니다.`,
-            nameIntro: (n) => `<strong>${n.hangul} (<span class="hanja">${n.hanja}</span>, ${n.roman})</strong>을 추천합니다. 이유는 다음과 같습니다:`,
-            firstHanja: (h, e) => `<span class="hanja">${h.hanja}</span>('${h.hangul}')은 '<strong>${h.meaning.ko}</strong>'을 의미하며 자원오행은 <strong>${e}</strong>으로...`,
-            secondHanja: (h, e) => `<span class="hanja">${h.hanja}</span>('${h.hangul}')은 '<strong>${h.meaning.ko}</strong>'을 의미하며 <strong>${e}</strong>의 기운과 공명합니다...`,
-            together: (n, h1, h2) => `<strong>'${n.hangul}'</strong>은 "<em>${h1.keywords.ko[0]}과 ${h2.keywords.ko[1]}</em>"이라는 이미지를 만듭니다...`
+            nameIntro: (n, c) => `<strong>${n}(<span class="hanja">${c.hanja.join('')}</span>)</strong> 이름을 추천합니다. 이유는 다음과 같습니다:`,
+            firstHanja: (h, e, m) => `첫 글자 <span class="hanja">${h}</span>은 '<strong>${m.ko}</strong>'을 의미하며, <strong>${e}</strong>의 기운을 가집니다.`,
+            secondHanja: (h, e, m) => `두 번째 글자 <span class="hanja">${h}</span>는 '<strong>${m.ko}</strong>'을 뜻하며 <strong>${e}</strong> 에너지와 공명합니다.`,
+            together: (n, c) => `이 이름은 ${c.elements.map(e => translations.ko.elements[e]).join('과 ')}의 요소를 통해 당신의 삶에 균형과 지원을 가져오도록 설계되었습니다.`
         }
     },
     es: {
@@ -402,10 +964,10 @@ const translations = {
                 '甲': "Representa un Árbol alto y robusto...", '乙': "Encarna una Flor o Enredadera flexible...", '丙': "Eres como el Sol brillante...", '丁': "Es la luz cálida y suave de una Vela...", '戊': "Representas una Montaña vasta e inamovible...", '己': "Es la Tierra fértil y nutritiva...", '庚': "Encarnas un Metal fuerte y sin refinar...", '辛': "Eres como una Gema preciosa y pulida...", '壬': "Representa un gran Océano o Río...", '癸': "Es la Lluvia o el Rocío suave..."
             },
             sajuBalance: (s, b) => `Tu Maestro del Día es <strong>${s}</strong>... tu Saju se beneficia de <strong>${b.join(' y ')}</strong>.`,
-            nameIntro: (n) => `Recomendamos <strong>${n.roman} (${n.hangul}, <span class="hanja">${n.hanja}</span>)</strong>. He aquí por qué:`,
-            firstHanja: (h, e) => `El carácter <span class="hanja">${h.hanja}</span> significa '<strong>${h.meaning.es}</strong>'. Su esencia es <strong>${e}</strong>...`,
-            secondHanja: (h, e) => `El carácter <span class="hanja">${h.hanja}</span> significa '<strong>${h.meaning.es}</strong>'. Resuena con la energía de <strong>${e}</strong>...`,
-            together: (n, h1, h2) => `Juntos, <strong>${n.roman}</strong> crea la imagen de "<em>${h1.keywords.es[0]} y ${h2.keywords.es[1]}</em>"...`
+            nameIntro: (n, c) => `Recomendamos el nombre <strong>${n} (${c.roman}, <span class="hanja">${c.hanja.join('')}</span>)</strong>. He aquí por qué:`,
+            firstHanja: (h, e, m) => `El carácter <span class="hanja">${h}</span> significa '<strong>${m.es}</strong>'. Su esencia es <strong>${e}</strong>...`,
+            secondHanja: (h, e, m) => `El carácter <span class="hanja">${h}</span> significa '<strong>${m.es}</strong>'. Resuena con la energía de <strong>${e}</strong>...`,
+            together: (n, c) => `Este nombre, con sus elementos de ${c.elements.map(e => translations.es.elements[e]).join(' y ')}, está diseñado para traer equilibrio y apoyo al viaje de tu vida.`
         }
     }
 };
@@ -447,43 +1009,91 @@ class SajuNamer {
         return { saju, dayMasterChar, dayMasterElement, strength, beneficialElements, elementCounts };
     }
 
-    generateNames(analysisResult, gender, count = 2) {
-        const { beneficialElements } = analysisResult;
-        const recommendedNames = [];
-        let usedHanjaPairs = new Set();
-        for (let i = 0; i < count; i++) {
-            const primaryElement = beneficialElements[i % beneficialElements.length];
-            const firstHanjaPool = HanjaInfo.filter(h => h.jawon === primaryElement && h.good && (h.gender === gender || h.gender === 'neutral'));
-            if (firstHanjaPool.length === 0) continue;
-            for(let j=0; j<20; j++) { // Increased attempts for better variety
-                const firstHanja = firstHanjaPool[Math.floor(Math.random() * firstHanjaPool.length)];
-                const secondElement = beneficialElements[(i + 1) % beneficialElements.length];
-                const secondHanjaPool = HanjaInfo.filter(h => (h.jawon === primaryElement || h.jawon === secondElement) && h.good && h.hanja !== firstHanja.hanja && (h.gender === gender || h.gender === 'neutral'));
-                if (secondHanjaPool.length === 0) continue;
-                const secondHanja = secondHanjaPool[Math.floor(Math.random() * secondHanjaPool.length)];
-                const pairKey = [firstHanja.hanja, secondHanja.hanja].sort().join('');
-                if (!usedHanjaPairs.has(pairKey)) {
-                     recommendedNames.push({ hangul: firstHanja.hangul + secondHanja.hangul, hanja: firstHanja.hanja + secondHanja.hanja, roman: this._romanize(firstHanja.hangul) + '-' + this._romanize(secondHanja.hangul), components: [firstHanja, secondHanja] });
-                     usedHanjaPairs.add(pairKey);
-                     break;
-                }
+ // SajuNamer 클래스 내 generateNames 함수를 아래 코드로 교체하세요.
+
+ generateNames(analysisResult, gender, count = 2) {
+    const { beneficialElements } = analysisResult;
+    
+    const genderFilteredNames = NameDB.filter(name => name.gender === gender);
+    
+    const perfectMatches = [];
+    const partialMatches = [];
+
+    for (const name of genderFilteredNames) {
+        for (const combination of name.combinations) {
+            const nameEntry = { hangul: name.hangul, combination: combination };
+            
+            // 이름의 오행이 부족한 오행과 '모두' 일치하는지 확인
+            const isPerfectMatch = combination.elements.every(el => beneficialElements.includes(el));
+            
+            // '일부'만 일치하는지 확인
+            const isPartialMatch = !isPerfectMatch && combination.elements.some(el => beneficialElements.includes(el));
+
+            if (isPerfectMatch) {
+                perfectMatches.push(nameEntry);
+            } else if (isPartialMatch) {
+                partialMatches.push(nameEntry);
             }
         }
-        return recommendedNames;
+    }
+    
+    // ✨ 완벽히 맞는 이름 우선, 그 다음 부분적으로 맞는 이름 순으로 정렬 ✨
+    const matchingNames = [...perfectMatches, ...partialMatches];
+    
+    // ✨ 같은 한글 이름이 중복 추천되지 않도록 고유한 이름 목록 생성 ✨
+    const uniqueNames = matchingNames.filter((name, index, self) =>
+        index === self.findIndex((n) => n.hangul === name.hangul)
+    );
+
+    const shuffled = uniqueNames.sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+}
+
+    // SajuNamer 클래스 내 generateExplanation 함수를 아래 코드로 교체하세요.
+
+generateExplanation(analysisResult, recommendedName, lang = 'en') {
+    const { dayMasterChar, dayMasterElement, strength, beneficialElements } = analysisResult;
+    
+    if (!recommendedName || !recommendedName.combination) {
+        return { analysisSummary: '', nameExplanation: '' }; // 이름 추천이 없는 경우를 대비
     }
 
-    generateExplanation(analysisResult, recommendedName, lang = 'en') {
-        const { dayMasterChar, dayMasterElement, strength, beneficialElements } = analysisResult;
-        const [h1, h2] = recommendedName.components;
-        const trans = translations[lang] || translations['en'];
-        const t = trans.sajuAnalysis;
-        const elToString = (el) => trans.elements[el];
-        const strengthToString = (str) => trans.strengths[str];
-        const analysisSummary = `<p>${t.dayMasterIntro(dayMasterChar, elToString(dayMasterElement))}</p><p>${t.dayMasterDesc[dayMasterChar]}</p><p>${t.sajuBalance(strengthToString(strength), beneficialElements.map(elToString))}</p>`;
-        const nameExplanation = `<p class="mb-2">${t.nameIntro(recommendedName)}</p><ul class="list-disc list-inside space-y-2 pl-2"><li>${t.firstHanja(h1, elToString(h1.jawon))}</li><li>${t.secondHanja(h2, elToString(h2.jawon))}</li></ul><p class="mt-3">${t.together(recommendedName, h1, h2)}</p>`;
-        return { analysisSummary, nameExplanation };
+    const { hangul, combination } = recommendedName;
+    const { hanja, elements } = combination;
+
+    const trans = translations[lang] || translations['en'];
+    const t = trans.sajuAnalysis;
+    const elToString = (el) => trans.elements[el] || el;
+    const strengthToString = (str) => trans.strengths[str];
+    
+    const analysisSummary = `<p>${t.dayMasterIntro(dayMasterChar, elToString(dayMasterElement))}</p><p>${t.dayMasterDesc[dayMasterChar]}</p><p>${t.sajuBalance(strengthToString(strength), beneficialElements.map(elToString))}</p>`;
+    
+    const hanjaDetails = hanja.map(char => HanjaInfo.find(info => info.hanja === char) || { meaning: { en: 'N/A', ko: '정보 없음', es: 'N/A' } });
+    const roman = this._romanize(hangul);
+
+    let explanationList = '';
+    // ✨ 한 글자 이름과 두 글자 이름을 모두 처리하는 로직 ✨
+    if (hanja.length === 1) {
+        // 이름이 한 글자일 경우
+        explanationList = `<li>${t.firstHanja(hanja[0], elToString(elements[0]), hanjaDetails[0].meaning)}</li>`;
+    } else if (hanja.length > 1) {
+        // 이름이 두 글자 이상일 경우
+        explanationList = `
+            <li>${t.firstHanja(hanja[0], elToString(elements[0]), hanjaDetails[0].meaning)}</li>
+            <li>${t.secondHanja(hanja[1], elToString(elements[1]), hanjaDetails[1].meaning)}</li>
+        `;
     }
 
+    const nameExplanation = `
+        <p class="mb-2">${t.nameIntro(hangul, {roman: roman, hanja: hanja})}</p>
+        <ul class="list-disc list-inside space-y-2 pl-2">
+            ${explanationList}
+        </ul>
+        <p class="mt-3">${t.together(hangul, {elements: elements})}</p>
+    `;
+
+    return { analysisSummary, nameExplanation };
+}
     _calculateSaju(year, month, day, hour) {
         const yearGanji = this.Ganji[(year - 1924 + 60) % 60];
         const solarMonthIndex = (month + 10) % 12;
@@ -575,18 +1185,15 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const trans = translations[currentLang];
 
-        // Reset errors
         [yearInput, dayInput].forEach(input => input.classList.remove('border-red-500'));
         [yearError, dayError].forEach(err => err.textContent = '');
 
-        // Validate Year
         if (isNaN(year) || year < 1940 || year > 2040) {
             yearInput.classList.add('border-red-500');
             yearError.textContent = trans.yearError;
             isValid = false;
         }
 
-        // Validate Day
         if (isNaN(day) || day < 1 || day > 31) {
             dayInput.classList.add('border-red-500');
             dayError.textContent = trans.dayError;
@@ -651,9 +1258,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (names.length > 0) {
             names.forEach((name, index) => {
                 const { nameExplanation } = sajuNamer.generateExplanation(analysis, name, currentLang);
+                const roman = sajuNamer._romanize(name.hangul);
                 const card = `
                     <div class="p-5 bg-blue-50 border border-blue-200 rounded-lg">
-                        <h4 class="text-lg font-semibold text-blue-800 mb-3">${trans.recommendation} #${index + 1}: ${name.roman} (${name.hangul} / <span class="hanja">${name.hanja}</span>)</h4>
+                        <h4 class="text-lg font-semibold text-blue-800 mb-3">${trans.recommendation} #${index + 1}: ${name.hangul} (${roman} / <span class="hanja">${name.combination.hanja.join('')}</span>)</h4>
                         <div class="text-gray-600 leading-relaxed space-y-2">${nameExplanation}</div>
                     </div>`;
                 namesContainer.innerHTML += card;
