@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoulName: Your K-Name Destiny</title>
     
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W6RFHC5P');</script>
+    <!-- End Google Tag Manager -->
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="생년월일시를 입력하고 사주에 맞는 최고의 한국 이름을 추천받으세요. 오행 분석을 통해 당신의 운명을 조화롭게 만들 이름을 찾아드립니다.">
     <meta name="keywords" content="작명, 이름짓기, 사주, 사주풀이, 한국 이름, 아기 이름, 개명, K-Name, Saju">
@@ -84,6 +92,10 @@
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W6RFHC5P"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <div class="container mx-auto p-4 md:p-8 max-w-4xl">
         
@@ -144,7 +156,7 @@
                     <div class="mb-8"><h3 class="text-xl font-bold mb-4 text-gray-800" data-lang="fiveElementsDistributionTitle">2. Five Elements Distribution</h3><div id="fiveElementsChart" class="grid grid-cols-5 gap-2 md:gap-4 items-end min-h-[160px] bg-gray-50 p-4 rounded-lg border border-gray-200"></div></div>
                     <div class="mb-8"><h3 class="text-xl font-bold mb-4 text-gray-800" data-lang="recommendedNamesTitle">3. Recommended Names to Harmonize Your Energy</h3><div id="recommendedNames" class="space-y-6"></div></div>
                     <div id="detailLinkContainer" class="mt-10 pt-6 border-t border-gray-200 text-center">
-                        <a href="https://t.me/your_saju_expert" target="_blank" class="text-blue-600 hover:text-blue-800 underline font-semibold pulsing-link" data-lang="detailLink">For a more detailed Saju reading, please click here!</a>
+                        <a href="https://soulsaju.com" target="_blank" class="text-blue-600 hover:text-blue-800 underline font-semibold pulsing-link" data-lang="detailLink">For a more detailed Saju reading, please click here!</a>
                     </div>
                     <p id="timeInfo" class="mt-6 text-sm text-center text-gray-500" data-lang="timeInfo"></p>
                 </div>
@@ -170,87 +182,166 @@
 // I. SAJU NAMER ENGINE - KNOWLEDGE BASE
 // ===================================================================================
 const HanjaInfo = [
-    // --- Water Element (水) --- 30
-    { hanja: '河', hangul: '하', jawon: 'water', meaning: { en: 'river', ko: '강', es: 'río' }, keywords: { en: ['flow', 'grand'], ko: ['흐름', '웅장함'], es: ['flujo', 'grandeza'] } },
-    { hanja: '潤', hangul: '윤', jawon: 'water', meaning: { en: 'to enrich', ko: '윤택하다', es: 'enriquecer' }, keywords: { en: ['prosperity', 'softness'], ko: ['번영', '부드러움'], es: ['prosperidad', 'suavidad'] } },
-    { hanja: '海', hangul: '해', jawon: 'water', meaning: { en: 'sea, ocean', ko: '바다', es: 'mar, océano' }, keywords: { en: ['vastness', 'potential'], ko: ['광활함', '잠재력'], es: ['inmensidad', 'potencial'] } },
-    { hanja: '澤', hangul: '택', jawon: 'water', meaning: { en: 'marsh, benefit', ko: '못, 혜택', es: 'pantano, beneficio' }, keywords: { en: ['grace', 'abundance'], ko: ['은혜', '풍요'], es: ['gracia', 'abundancia'] } },
-    { hanja: '泉', hangul: '천', jawon: 'water', meaning: { en: 'spring, fountain', ko: '샘', es: 'fuente, manantial' }, keywords: { en: ['freshness', 'origin'], ko: ['신선함', '근원'], es: ['frescura', 'origen'] } },
-    { hanja: '浩', hangul: '호', jawon: 'water', meaning: { en: 'vast, great', ko: '넓다, 크다', es: 'vasto, grande' }, keywords: { en: ['generosity', 'power'], ko: ['관대함', '힘'], es: ['generosidad', 'poder'] } },
-    { hanja: '源', hangul: '원', jawon: 'water', meaning: { en: 'source, origin', ko: '근원', es: 'fuente, origen' }, keywords: { en: ['beginning', 'wisdom'], ko: ['시작', '지혜'], es: ['comienzo', 'sabiduría'] } },
-    { hanja: '洛', hangul: '락', jawon: 'water', meaning: { en: 'river name', ko: '강 이름', es: 'nombre de río' }, keywords: { en: ['clarity', 'capital'], ko: ['명료함', '수도'], es: ['claridad', 'capital'] } },
-    { hanja: '泰', hangul: '태', jawon: 'water', meaning: { en: 'great, peaceful', ko: '크다, 평화롭다', es: 'grande, pacífico' }, keywords: { en: ['stability', 'calmness'], ko: ['안정', '평온'], es: ['estabilidad', 'calma'] } },
-    { hanja: '淳', hangul: '순', jawon: 'water', meaning: { en: 'pure, genuine', ko: '순수하다', es: 'puro, genuino' }, keywords: { en: ['sincerity', 'kindness'], ko: ['진실함', '친절'], es: ['sinceridad', 'amabilidad'] } },
-    { hanja: '淑', hangul: '숙', jawon: 'water', meaning: { en: 'pure, virtuous', ko: '맑다, 정숙하다', es: 'pura, virtuosa' }, keywords: { en: ['elegance', 'gentleness'], ko: ['우아함', '온화함'], es: ['elegancia', 'dulzura'] } },
-    { hanja: '涵', hangul: '함', jawon: 'water', meaning: { en: 'to contain, soak', ko: '포함하다, 젖다', es: 'contener, empapar' }, keywords: { en: ['tolerance', 'depth'], ko: ['관용', '깊이'], es: ['tolerancia', 'profundidad'] } },
-    { hanja: '淵', hangul: '연', jawon: 'water', meaning: { en: 'abyss, deep', ko: '못, 깊다', es: 'abismo, profundo' }, keywords: { en: ['wisdom', 'thoughtfulness'], ko: ['지혜', '사려깊음'], es: ['sabiduría', 'consideración'] } },
-    { hanja: '淇', hangul: '기', jawon: 'water', meaning: { en: 'river in China', ko: '강 이름', es: 'río en China' }, keywords: { en: ['vitality', 'cleanliness'], ko: ['활력', '깨끗함'], es: ['vitalidad', 'limpieza'] } },
-    { hanja: '洲', hangul: '주', jawon: 'water', meaning: { en: 'continent, island', ko: '대륙, 섬', es: 'continente, isla' }, keywords: { en: ['world', 'foundation'], ko: ['세계', '기반'], es: ['mundo', 'fundamento'] } },
-    // --- Wood Element (木) --- 30
-    { hanja: '林', hangul: '림', jawon: 'wood', meaning: { en: 'forest', ko: '숲', es: 'bosque' }, keywords: { en: ['growth', 'vitality'], ko: ['성장', '활력'], es: ['crecimiento', 'vitalidad'] } },
-    { hanja: '秀', hangul: '수', jawon: 'wood', meaning: { en: 'outstanding', ko: '빼어나다', es: 'sobresaliente' }, keywords: { en: ['excellence', 'beauty'], ko: ['탁월함', '아름다움'], es: ['excelencia', 'belleza'] } },
-    { hanja: '栽', hangul: '재', jawon: 'wood', meaning: { en: 'to plant', ko: '심다', es: 'plantar' }, keywords: { en: ['nurture', 'potential'], ko: ['양육', '잠재력'], es: ['nutrir', 'potencial'] } },
-    { hanja: '彬', hangul: '빈', jawon: 'wood', meaning: { en: 'refined', ko: '빛나다', es: 'refinado' }, keywords: { en: ['culture', 'harmony'], ko: ['문화', '조화'], es: ['cultura', 'armonía'] } },
-    { hanja: '根', hangul: '근', jawon: 'wood', meaning: { en: 'root', ko: '뿌리', es: 'raíz' }, keywords: { en: ['foundation', 'strength'], ko: ['기초', '힘'], es: ['fundamento', 'fuerza'] } },
-    { hanja: '植', hangul: '식', jawon: 'wood', meaning: { en: 'to plant', ko: '세우다', es: 'establecer' }, keywords: { en: ['establish', 'growth'], ko: ['설립', '성장'], es: ['establecer', 'crecimiento'] } },
-    { hanja: '材', hangul: '재', jawon: 'wood', meaning: { en: 'timber, talent', ko: '재목, 재능', es: 'madera, talento' }, keywords: { en: ['ability', 'resource'], ko: ['능력', '자원'], es: ['habilidad', 'recurso'] } },
-    { hanja: '東', hangul: '동', jawon: 'wood', meaning: { en: 'east', ko: '동쪽', es: 'este' }, keywords: { en: ['beginning', 'hope'], ko: ['시작', '희망'], es: ['comienzo', 'esperanza'] } },
-    { hanja: '采', hangul: '채', jawon: 'wood', meaning: { en: 'to gather, colorful', ko: '캐다, 채색', es: 'recoger, colorido' }, keywords: { en: ['art', 'variety'], ko: ['예술', '다채로움'], es: ['arte', 'variedad'] } },
-    { hanja: '芝', hangul: '지', jawon: 'wood', meaning: { en: 'iris', ko: '지초', es: 'iris' }, keywords: { en: ['beauty', 'nobility'], ko: ['아름다움', '고귀함'], es: ['belleza', 'nobleza'] } },
-    { hanja: '英', hangul: '영', jawon: 'wood', meaning: { en: 'flower, hero', ko: '꽃, 영웅', es: 'flor, héroe' }, keywords: { en: ['bravery', 'excellence'], ko: ['용기', '탁월함'], es: ['valentía', 'excelencia'] } },
-    { hanja: '蘭', hangul: '란', jawon: 'wood', meaning: { en: 'orchid', ko: '난초', es: 'orquídea' }, keywords: { en: ['elegance', 'purity'], ko: ['우아함', '순수'], es: ['elegancia', 'pureza'] } },
-    { hanja: '材', hangul: '채', jawon: 'wood', meaning: { en: 'talent', ko: '재능', es: 'talento' }, keywords: { en: ['skill', 'potential'], ko: ['기술', '잠재력'], es: ['habilidad', 'potencial'] } },
-    { hanja: '橋', hangul: '교', jawon: 'wood', meaning: { en: 'bridge', ko: '다리', es: 'puente' }, keywords: { en: ['connection', 'mediation'], ko: ['연결', '중재'], es: ['conexión', 'mediación'] } },
-    { hanja: '策', hangul: '책', jawon: 'wood', meaning: { en: 'plan, strategy', ko: '계책', es: 'plan, estrategia' }, keywords: { en: ['wisdom', 'planning'], ko: ['지혜', '계획'], es: ['sabiduría', 'planificación'] } },
-    // --- Fire Element (火) --- 30
-    { hanja: '煥', hangul: '환', jawon: 'fire', meaning: { en: 'shining', ko: '빛나다', es: 'brillante' }, keywords: { en: ['passion', 'brightness'], ko: ['열정', '밝음'], es: ['pasión', 'brillo'] } },
-    { hanja: '映', hangul: '영', jawon: 'fire', meaning: { en: 'to reflect', ko: '비추다', es: 'reflejar' }, keywords: { en: ['light', 'influence'], ko: ['빛', '영향력'], es: ['luz', 'influencia'] } },
-    { hanja: '旭', hangul: '욱', jawon: 'fire', meaning: { en: 'rising sun', ko: '아침 해', es: 'sol naciente' }, keywords: { en: ['hope', 'energy'], ko: ['희망', '에너지'], es: ['esperanza', 'energía'] } },
-    { hanja: '夏', hangul: '하', jawon: 'fire', meaning: { en: 'summer', ko: '여름', es: 'verano' }, keywords: { en: ['vitality', 'activity'], ko: ['활력', '활동'], es: ['vitalidad', 'actividad'] } },
-    { hanja: '光', hangul: '광', jawon: 'fire', meaning: { en: 'light, glory', ko: '빛, 영광', es: 'luz, gloria' }, keywords: { en: ['honor', 'brightness'], ko: ['명예', '밝음'], es: ['honor', 'brillo'] } },
-    { hanja: '烈', hangul: '렬', jawon: 'fire', meaning: { en: 'ardent, fiery', ko: '맵다, 뜨겁다', es: 'ardiente, fogoso' }, keywords: { en: ['passion', 'strength'], ko: ['열정', '힘'], es: ['pasión', 'fuerza'] } },
-    { hanja: '然', hangul: '연', jawon: 'fire', meaning: { en: 'to be so, yes', ko: '그러하다', es: 'ser así, sí' }, keywords: { en: ['nature', 'affirmation'], ko: ['자연', '긍정'], es: ['naturaleza', 'afirmación'] } },
-    { hanja: '熹', hangul: '희', jawon: 'fire', meaning: { en: 'bright, warm', ko: '밝다, 따뜻하다', es: 'brillante, cálido' }, keywords: { en: ['kindness', 'hope'], ko: ['친절', '희망'], es: ['amabilidad', 'esperanza'] } },
-    { hanja: '昶', hangul: '창', jawon: 'fire', meaning: { en: 'bright, long day', ko: '밝다, 해가 길다', es: 'brillante, día largo' }, keywords: { en: ['endurance', 'clarity'], ko: ['인내', '명확함'], es: ['resistencia', 'claridad'] } },
-    { hanja: '燮', hangul: '섭', jawon: 'fire', meaning: { en: 'to blend, harmonize', ko: '화합하다', es: 'mezclar, armonizar' }, keywords: { en: ['cooperation', 'balance'], ko: ['협력', '균형'], es: ['cooperación', 'equilibrio'] } },
-    { hanja: '燈', hangul: '등', jawon: 'fire', meaning: { en: 'lamp, light', ko: '등불', es: 'lámpara, luz' }, keywords: { en: ['guidance', 'wisdom'], ko: ['안내', '지혜'], es: ['guía', 'sabiduría'] } },
-    { hanja: '炫', hangul: '현', jawon: 'fire', meaning: { en: 'to shine, glitter', ko: '빛나다, 자랑하다', es: 'brillar, relucir' }, keywords: { en: ['talent', 'expression'], ko: ['재능', '표현'], es: ['talento', 'expresión'] } },
-    { hanja: '煇', hangul: '휘', jawon: 'fire', meaning: { en: 'brilliance', ko: '빛', es: 'brillo' }, keywords: { en: ['leadership', 'glory'], ko: ['리더십', '영광'], es: ['liderazgo', 'gloria'] } },
-    { hanja: '炳', hangul: '병', jawon: 'fire', meaning: { en: 'bright, glorious', ko: '빛나다', es: 'brillante, glorioso' }, keywords: { en: ['achievement', 'fame'], ko: ['성취', '명성'], es: ['logro', 'fama'] } },
-    { hanja: '暖', hangul: '난', jawon: 'fire', meaning: { en: 'warm', ko: '따뜻하다', es: 'cálido' }, keywords: { en: ['comfort', 'affection'], ko: ['편안함', '애정'], es: ['comodidad', 'afecto'] } },
-    // --- Earth Element (土) --- 30
-    { hanja: '均', hangul: '균', jawon: 'earth', meaning: { en: 'even, balanced', ko: '고르다', es: 'uniforme, equilibrado' }, keywords: { en: ['stability', 'fairness'], ko: ['안정성', '공정함'], es: ['estabilidad', 'justicia'] } },
-    { hanja: '祐', hangul: '우', jawon: 'earth', meaning: { en: 'divine help', ko: '도움', es: 'ayuda divina' }, keywords: { en: ['protection', 'fortune'], ko: ['보호', '행운'], es: ['protección', 'fortuna'] } },
-    { hanja: '信', hangul: '신', jawon: 'earth', meaning: { en: 'trust, faith', ko: '믿음', es: 'confianza, fe' }, keywords: { en: ['reliability', 'integrity'], ko: ['신뢰성', '성실'], es: ['fiabilidad', 'integridad'] } },
-    { hanja: '坤', hangul: '곤', jawon: 'earth', meaning: { en: 'earth principle', ko: '땅', es: 'principio de la tierra' }, keywords: { en: ['nurturing', 'receptivity'], ko: ['양육', '수용성'], es: ['crianza', 'receptividad'] } },
-    { hanja: '在', hangul: '재', jawon: 'earth', meaning: { en: 'to exist, in', ko: '있다', es: 'existir, en' }, keywords: { en: ['presence', 'foundation'], ko: ['존재', '기반'], es: ['presencia', 'fundamento'] } },
-    { hanja: '圭', hangul: '규', jawon: 'earth', meaning: { en: 'jade tablet', ko: '규', es: 'tableta de jade' }, keywords: { en: ['standard', 'nobility'], ko: ['표준', '고귀함'], es: ['estándar', 'nobleza'] } },
-    { hanja: '城', hangul: '성', jawon: 'earth', meaning: { en: 'castle, wall', ko: '성', es: 'castillo, muralla' }, keywords: { en: ['protection', 'sturdiness'], ko: ['보호', '견고함'], es: ['protección', 'robustez'] } },
-    { hanja: '垠', hangul: '은', jawon: 'earth', meaning: { en: 'boundary, bank', ko: '언덕, 경계', es: 'límite, orilla' }, keywords: { en: ['stability', 'expanse'], ko: ['안정', '광활함'], es: ['estabilidad', 'extensión'] } },
-    { hanja: '基', hangul: '기', jawon: 'earth', meaning: { en: 'foundation, base', ko: '기초, 터', es: 'fundamento, base' }, keywords: { en: ['principle', 'potential'], ko: ['원칙', '잠재력'], es: ['principio', 'potencial'] } },
-    { hanja: '培', hangul: '배', jawon: 'earth', meaning: { en: 'to cultivate', ko: '북돋우다', es: 'cultivar' }, keywords: { en: ['nurture', 'growth'], ko: ['양육', '성장'], es: ['nutrir', 'crecimiento'] } },
-    { hanja: '庸', hangul: '용', jawon: 'earth', meaning: { en: 'common, to use', ko: '쓰다, 평범하다', es: 'común, usar' }, keywords: { en: ['harmony', 'steadiness'], ko: ['조화', '꾸준함'], es: ['armonía', 'constancia'] } },
-    { hanja: '垣', hangul: '원', jawon: 'earth', meaning: { en: 'wall, fence', ko: '담', es: 'muro, valla' }, keywords: { en: ['support', 'protection'], ko: ['지원', '보호'], es: ['apoyo', 'protección'] } },
-    { hanja: '譽', hangul: '예', jawon: 'earth', meaning: { en: 'fame, reputation', ko: '명예', es: 'fama, reputación' }, keywords: { en: ['honor', 'respect'], ko: ['명예', '존경'], es: ['honor', 'respeto'] } },
-    { hanja: '陞', hangul: '승', jawon: 'earth', meaning: { en: 'to rise, advance', ko: '오르다', es: 'ascender, avanzar' }, keywords: { en: ['promotion', 'success'], ko: ['승진', '성공'], es: ['ascenso', 'éxito'] } },
-    { hanja: '亞', hangul: '아', jawon: 'earth', meaning: { en: 'second, Asia', ko: '버금, 아시아', es: 'segundo, Asia' }, keywords: { en: ['center', 'foundation'], ko: ['중심', '기반'], es: ['centro', 'fundamento'] } },
-    // --- Metal Element (金) --- 30
-    { hanja: '瑞', hangul: '서', jawon: 'metal', meaning: { en: 'auspicious', ko: '상서롭다', es: 'auspicioso' }, keywords: { en: ['blessing', 'precious'], ko: ['축복', '귀중함'], es: ['bendición', 'precioso'] } },
-    { hanja: '峻', hangul: '준', jawon: 'metal', meaning: { en: 'high mountain', ko: '높은 산', es: 'montaña alta' }, keywords: { en: ['strength', 'principle'], ko: ['강인함', '원칙'], es: ['fuerza', 'principio'] } },
-    { hanja: '錫', hangul: '석', jawon: 'metal', meaning: { en: 'to bestow, tin', ko: '주석, 하사하다', es: 'otorgar, estaño' }, keywords: { en: ['granting', 'value'], ko: ['수여', '가치'], es: ['concesión', 'valor'] } },
-    { hanja: '玲', hangul: '령', jawon: 'metal', meaning: { en: 'sound of jade', ko: '옥 소리', es: 'sonido de jade' }, keywords: { en: ['clarity', 'bright'], ko: ['명료함', '밝음'], es: ['claridad', 'brillante'] } },
-    { hanja: '鈴', hangul: '령', jawon: 'metal', meaning: { en: 'bell', ko: '방울', es: 'campana' }, keywords: { en: ['alertness', 'sound'], ko: ['기민함', '소리'], es: ['alerta', 'sonido'] } },
-    { hanja: '鈺', hangul: '옥', jawon: 'metal', meaning: { en: 'treasure', ko: '보물', es: 'tesoro' }, keywords: { en: ['precious', 'hardness'], ko: ['귀중함', '견고함'], es: ['precioso', 'dureza'] } },
-    { hanja: '錚', hangul: '쟁', jawon: 'metal', meaning: { en: 'sound of metal', ko: '쇳소리', es: 'sonido de metal' }, keywords: { en: ['excellent', 'sharp'], ko: ['뛰어남', '날카로움'], es: ['excelente', 'agudo'] } },
-    { hanja: '鎭', hangul: '진', jawon: 'metal', meaning: { en: 'to guard', ko: '진압하다', es: 'guardar' }, keywords: { en: ['stability', 'leadership'], ko: ['안정', '리더십'], es: ['estabilidad', 'liderazgo'] } },
-    { hanja: '鉉', hangul: '현', jawon: 'metal', meaning: { en: 'tripod lug, wise', ko: '솥귀, 지혜', es: 'asa de trípode, sabio' }, keywords: { en: ['wisdom', 'support'], ko: ['지혜', '지지'], es: ['sabiduría', 'apoyo'] } },
-    { hanja: '銀', hangul: '은', jawon: 'metal', meaning: { en: 'silver', ko: '은', es: 'plata' }, keywords: { en: ['value', 'purity'], ko: ['가치', '순수'], es: ['valor', 'pureza'] } },
-    { hanja: '鍾', hangul: '종', jawon: 'metal', meaning: { en: 'bell, cup', ko: '쇠북, 잔', es: 'campana, copa' }, keywords: { en: ['gathering', 'center'], ko: ['모임', '중심'], es: ['reunión', 'centro'] } },
-    { hanja: '鍊', hangul: '련', jawon: 'metal', meaning: { en: 'to refine, train', ko: '단련하다', es: 'refinar, entrenar' }, keywords: { en: ['discipline', 'perfection'], ko: ['단련', '완벽'], es: ['disciplina', 'perfección'] } },
-    { hanja: '宰', hangul: '재', jawon: 'metal', meaning: { en: 'to rule', ko: '재상', es: 'gobernar' }, keywords: { en: ['leadership', 'judgment'], ko: ['리더십', '판단력'], es: ['liderazgo', 'juicio'] } },
-    { hanja: '剛', hangul: '강', jawon: 'metal', meaning: { en: 'strong, firm', ko: '굳세다', es: 'fuerte, firme' }, keywords: { en: ['courage', 'integrity'], ko: ['용기', '청렴'], es: ['coraje', 'integridad'] } },
-    { hanja: '創', hangul: '창', jawon: 'metal', meaning: { en: 'to create, begin', ko: '비롯하다, 만들다', es: 'crear, comenzar' }, keywords: { en: ['innovation', 'initiative'], ko: ['혁신', '진취'], es: ['innovación', 'iniciativa'] } }
-].map(h => ({...h, good: true, strokes: h.strokes || 10 }));
+    // --- Water Element (水) - 30 ---
+    { hanja: '河', hangul: '하', jawon: 'water', strokes: 8, gender: 'male', meaning: { en: 'river', ko: '강', es: 'río' }, keywords: { en: ['flow', 'grand'], ko: ['흐름', '웅장함'], es: ['flujo', 'grandeza'] } },
+    { hanja: '潤', hangul: '윤', jawon: 'water', strokes: 15, gender: 'female', meaning: { en: 'to enrich', ko: '윤택하다', es: 'enriquecer' }, keywords: { en: ['prosperity', 'softness'], ko: ['번영', '부드러움'], es: ['prosperidad', 'suavidad'] } },
+    { hanja: '海', hangul: '해', jawon: 'water', strokes: 10, gender: 'neutral', meaning: { en: 'sea, ocean', ko: '바다', es: 'mar, océano' }, keywords: { en: ['vastness', 'potential'], ko: ['광활함', '잠재력'], es: ['inmensidad', 'potencial'] } },
+    { hanja: '澤', hangul: '택', jawon: 'water', strokes: 16, gender: 'male', meaning: { en: 'marsh, benefit', ko: '못, 혜택', es: 'pantano, beneficio' }, keywords: { en: ['grace', 'abundance'], ko: ['은혜', '풍요'], es: ['gracia', 'abundancia'] } },
+    { hanja: '泉', hangul: '천', jawon: 'water', strokes: 9, gender: 'female', meaning: { en: 'spring, fountain', ko: '샘', es: 'fuente, manantial' }, keywords: { en: ['freshness', 'origin'], ko: ['신선함', '근원'], es: ['frescura', 'origen'] } },
+    { hanja: '浩', hangul: '호', jawon: 'water', strokes: 10, gender: 'male', meaning: { en: 'vast, great', ko: '넓다, 크다', es: 'vasto, grande' }, keywords: { en: ['generosity', 'power'], ko: ['관대함', '힘'], es: ['generosidad', 'poder'] } },
+    { hanja: '源', hangul: '원', jawon: 'water', strokes: 13, gender: 'neutral', meaning: { en: 'source, origin', ko: '근원', es: 'fuente, origen' }, keywords: { en: ['beginning', 'wisdom'], ko: ['시작', '지혜'], es: ['comienzo', 'sabiduría'] } },
+    { hanja: '洛', hangul: '락', jawon: 'water', strokes: 9, gender: 'neutral', meaning: { en: 'river name', ko: '강 이름', es: 'nombre de río' }, keywords: { en: ['clarity', 'capital'], ko: ['명료함', '수도'], es: ['claridad', 'capital'] } },
+    { hanja: '泰', hangul: '태', jawon: 'water', strokes: 10, gender: 'male', meaning: { en: 'great, peaceful', ko: '크다, 평화롭다', es: 'grande, pacífico' }, keywords: { en: ['stability', 'calmness'], ko: ['안정', '평온'], es: ['estabilidad', 'calma'] } },
+    { hanja: '淳', hangul: '순', jawon: 'water', strokes: 11, gender: 'female', meaning: { en: 'pure, genuine', ko: '순수하다', es: 'puro, genuino' }, keywords: { en: ['sincerity', 'kindness'], ko: ['진실함', '친절'], es: ['sinceridad', 'amabilidad'] } },
+    { hanja: '淑', hangul: '숙', jawon: 'water', strokes: 11, gender: 'female', meaning: { en: 'pure, virtuous', ko: '맑다, 정숙하다', es: 'pura, virtuosa' }, keywords: { en: ['elegance', 'gentleness'], ko: ['우아함', '온화함'], es: ['elegancia', 'dulzura'] } },
+    { hanja: '涵', hangul: '함', jawon: 'water', strokes: 11, gender: 'female', meaning: { en: 'to contain, soak', ko: '포함하다, 젖다', es: 'contener, empapar' }, keywords: { en: ['tolerance', 'depth'], ko: ['관용', '깊이'], es: ['tolerancia', 'profundidad'] } },
+    { hanja: '淵', hangul: '연', jawon: 'water', strokes: 12, gender: 'neutral', meaning: { en: 'abyss, deep', ko: '못, 깊다', es: 'abismo, profundo' }, keywords: { en: ['wisdom', 'thoughtfulness'], ko: ['지혜', '사려깊음'], es: ['sabiduría', 'consideración'] } },
+    { hanja: '淇', hangul: '기', jawon: 'water', strokes: 11, gender: 'female', meaning: { en: 'river in China', ko: '강 이름', es: 'río en China' }, keywords: { en: ['vitality', 'cleanliness'], ko: ['활력', '깨끗함'], es: ['vitalidad', 'limpieza'] } },
+    { hanja: '洲', hangul: '주', jawon: 'water', strokes: 9, gender: 'male', meaning: { en: 'continent, island', ko: '대륙, 섬', es: 'continente, isla' }, keywords: { en: ['world', 'foundation'], ko: ['세계', '기반'], es: ['mundo', 'fundamento'] } },
+    { hanja: '波', hangul: '파', jawon: 'water', strokes: 8, gender: 'neutral', meaning: { en: 'wave', ko: '물결', es: 'ola' }, keywords: { en: ['influence', 'movement'], ko: ['영향력', '움직임'], es: ['influencia', 'movimiento'] } },
+    { hanja: '沛', hangul: '패', jawon: 'water', strokes: 7, gender: 'male', meaning: { en: 'abundant', ko: '성대하다', es: 'abundante' }, keywords: { en: ['energy', 'vigor'], ko: ['에너지', '활기'], es: ['energía', 'vigor'] } },
+    { hanja: '沃', hangul: '옥', jawon: 'water', strokes: 7, gender: 'neutral', meaning: { en: 'fertile', ko: '기름지다', es: 'fértil' }, keywords: { en: ['abundance', 'richness'], ko: ['풍요', '부유함'], es: ['abundancia', 'riqueza'] } },
+    { hanja: '泳', hangul: '영', jawon: 'water', strokes: 8, gender: 'neutral', meaning: { en: 'to swim', ko: '헤엄치다', es: 'nadar' }, keywords: { en: ['freedom', 'skill'], ko: ['자유', '기술'], es: ['libertad', 'habilidad'] } },
+    { hanja: '汛', hangul: '신', jawon: 'water', strokes: 6, gender: 'neutral', meaning: { en: 'high tide', ko: '조수', es: 'marea alta' }, keywords: { en: ['power', 'opportunity'], ko: ['힘', '기회'], es: ['poder', 'oportunidad'] } },
+    { hanja: '洗', hangul: '세', jawon: 'water', strokes: 9, gender: 'neutral', meaning: { en: 'to wash', ko: '씻다', es: 'lavar' }, keywords: { en: ['purity', 'renewal'], ko: ['순수', '쇄신'], es: ['pureza', 'renovación'] } },
+    { hanja: '法', hangul: '법', jawon: 'water', strokes: 8, gender: 'neutral', meaning: { en: 'law, method', ko: '법', es: 'ley, método' }, keywords: { en: ['principle', 'wisdom'], ko: ['원칙', '지혜'], es: ['principio', 'sabiduría'] } },
+    { hanja: '活', hangul: '활', jawon: 'water', strokes: 9, gender: 'male', meaning: { en: 'life, activity', ko: '살다, 활동', es: 'vida, actividad' }, keywords: { en: ['energy', 'liveliness'], ko: ['에너지', '활기'], es: ['energía', 'vivacidad'] } },
+    { hanja: '流', hangul: '류', jawon: 'water', strokes: 10, gender: 'neutral', meaning: { en: 'to flow', ko: '흐르다', es: 'fluir' }, keywords: { en: ['change', 'flexibility'], ko: ['변화', '유연성'], es: ['cambio', 'flexibilidad'] } },
+    { hanja: '濟', hangul: '제', jawon: 'water', strokes: 17, gender: 'male', meaning: { en: 'to save, cross', ko: '건너다, 구제하다', es: 'salvar, cruzar' }, keywords: { en: ['helpfulness', 'success'], ko: ['도움', '성공'], es: ['ayuda', 'éxito'] } },
+    { hanja: '漫', hangul: '만', jawon: 'water', strokes: 14, gender: 'neutral', meaning: { en: 'overflowing', ko: '넘치다', es: 'desbordante' }, keywords: { en: ['freedom', 'art'], ko: ['자유', '예술'], es: ['libertad', 'arte'] } },
+    { hanja: '漸', hangul: '점', jawon: 'water', strokes: 14, gender: 'neutral', meaning: { en: 'gradually', ko: '점차', es: 'gradualmente' }, keywords: { en: ['progress', 'patience'], ko: ['진전', '인내'], es: ['progreso', 'paciencia'] } },
+    { hanja: '馮', hangul: '풍', jawon: 'water', strokes: 12, gender: 'male', meaning: { en: 'to rely on', ko: '의지하다', es: 'confiar en' }, keywords: { en: ['support', 'strength'], ko: ['지원', '힘'], es: ['apoyo', 'fuerza'] } },
+    { hanja: '玄', hangul: '현', jawon: 'water', strokes: 5, gender: 'neutral', meaning: { en: 'deep, profound', ko: '깊다, 오묘하다', es: 'profundo, misterioso' }, keywords: { en: ['mystery', 'wisdom'], ko: ['신비', '지혜'], es: ['misterio', 'sabiduría'] } },
+    { hanja: '亨', hangul: '형', jawon: 'water', strokes: 7, gender: 'male', meaning: { en: 'smoothly, success', ko: '형통하다', es: 'sin problemas, éxito' }, keywords: { en: ['success', 'progress'], ko: ['성공', '진보'], es: ['éxito', 'progreso'] } },
+
+    // --- Wood Element (木) - 30 ---
+    { hanja: '林', hangul: '림', jawon: 'wood', strokes: 8, gender: 'neutral', meaning: { en: 'forest', ko: '숲', es: 'bosque' }, keywords: { en: ['growth', 'vitality'], ko: ['성장', '활력'], es: ['crecimiento', 'vitalidad'] } },
+    { hanja: '秀', hangul: '수', jawon: 'wood', strokes: 7, gender: 'female', meaning: { en: 'outstanding', ko: '빼어나다', es: 'sobresaliente' }, keywords: { en: ['excellence', 'beauty'], ko: ['탁월함', '아름다움'], es: ['excelencia', 'belleza'] } },
+    { hanja: '栽', hangul: '재', jawon: 'wood', strokes: 10, gender: 'male', meaning: { en: 'to plant', ko: '심다', es: 'plantar' }, keywords: { en: ['nurture', 'potential'], ko: ['양육', '잠재력'], es: ['nutrir', 'potencial'] } },
+    { hanja: '彬', hangul: '빈', jawon: 'wood', strokes: 11, gender: 'male', meaning: { en: 'refined', ko: '빛나다', es: 'refinado' }, keywords: { en: ['culture', 'harmony'], ko: ['문화', '조화'], es: ['cultura', 'armonía'] } },
+    { hanja: '根', hangul: '근', jawon: 'wood', strokes: 10, gender: 'male', meaning: { en: 'root', ko: '뿌리', es: 'raíz' }, keywords: { en: ['foundation', 'strength'], ko: ['기초', '힘'], es: ['fundamento', 'fuerza'] } },
+    { hanja: '植', hangul: '식', jawon: 'wood', strokes: 12, gender: 'male', meaning: { en: 'to plant', ko: '세우다', es: 'establecer' }, keywords: { en: ['establish', 'growth'], ko: ['설립', '성장'], es: ['establecer', 'crecimiento'] } },
+    { hanja: '材', hangul: '재', jawon: 'wood', strokes: 7, gender: 'male', meaning: { en: 'timber, talent', ko: '재목, 재능', es: 'madera, talento' }, keywords: { en: ['ability', 'resource'], ko: ['능력', '자원'], es: ['habilidad', 'recurso'] } },
+    { hanja: '東', hangul: '동', jawon: 'wood', strokes: 8, gender: 'male', meaning: { en: 'east', ko: '동쪽', es: 'este' }, keywords: { en: ['beginning', 'hope'], ko: ['시작', '희망'], es: ['comienzo', 'esperanza'] } },
+    { hanja: '采', hangul: '채', jawon: 'wood', strokes: 8, gender: 'female', meaning: { en: 'to gather, colorful', ko: '캐다, 채색', es: 'recoger, colorido' }, keywords: { en: ['art', 'variety'], ko: ['예술', '다채로움'], es: ['arte', 'variedad'] } },
+    { hanja: '芝', hangul: '지', jawon: 'wood', strokes: 6, gender: 'female', meaning: { en: 'iris', ko: '지초', es: 'iris' }, keywords: { en: ['beauty', 'nobility'], ko: ['아름다움', '고귀함'], es: ['belleza', 'nobleza'] } },
+    { hanja: '英', hangul: '영', jawon: 'wood', strokes: 8, gender: 'neutral', meaning: { en: 'flower, hero', ko: '꽃, 영웅', es: 'flor, héroe' }, keywords: { en: ['bravery', 'excellence'], ko: ['용기', '탁월함'], es: ['valentía', 'excelencia'] } },
+    { hanja: '蘭', hangul: '란', jawon: 'wood', strokes: 19, gender: 'female', meaning: { en: 'orchid', ko: '난초', es: 'orquídea' }, keywords: { en: ['elegance', 'purity'], ko: ['우아함', '순수'], es: ['elegancia', 'pureza'] } },
+    { hanja: '橋', hangul: '교', jawon: 'wood', strokes: 16, gender: 'male', meaning: { en: 'bridge', ko: '다리', es: 'puente' }, keywords: { en: ['connection', 'mediation'], ko: ['연결', '중재'], es: ['conexión', 'mediación'] } },
+    { hanja: '策', hangul: '책', jawon: 'wood', strokes: 12, gender: 'male', meaning: { en: 'plan, strategy', ko: '계책', es: 'plan, estrategia' }, keywords: { en: ['wisdom', 'planning'], ko: ['지혜', '계획'], es: ['sabiduría', 'planificación'] } },
+    { hanja: '君', hangul: '군', jawon: 'wood', strokes: 7, gender: 'male', meaning: { en: 'ruler, gentleman', ko: '임금', es: 'gobernante' }, keywords: { en: ['leadership', 'dignity'], ko: ['리더십', '품위'], es: ['liderazgo', 'dignidad'] } },
+    { hanja: '建', hangul: '건', jawon: 'wood', strokes: 9, gender: 'male', meaning: { en: 'to build', ko: '세우다', es: 'construir' }, keywords: { en: ['creation', 'start'], ko: ['창조', '시작'], es: ['creación', 'inicio'] } },
+    { hanja: '景', hangul: '경', jawon: 'wood', strokes: 12, gender: 'neutral', meaning: { en: 'scenery, view', ko: '경치', es: 'paisaje, vista' }, keywords: { en: ['beauty', 'brightness'], ko: ['아름다움', '밝음'], es: ['belleza', 'brillo'] } },
+    { hanja: '揆', hangul: '규', jawon: 'wood', strokes: 12, gender: 'male', meaning: { en: 'to deliberate', ko: '헤아리다', es: 'deliberar' }, keywords: { en: ['wisdom', 'principle'], ko: ['지혜', '원칙'], es: ['sabiduría', 'principio'] } },
+    { hanja: '起', hangul: '기', jawon: 'wood', strokes: 10, gender: 'male', meaning: { en: 'to rise, start', ko: '일어나다', es: 'levantarse, empezar' }, keywords: { en: ['beginning', 'energy'], ko: ['시작', '에너지'], es: ['comienzo', 'energía'] } },
+    { hanja: '吉', hangul: '길', jawon: 'wood', strokes: 6, gender: 'neutral', meaning: { en: 'auspicious, lucky', ko: '길하다', es: 'auspicioso, afortunado' }, keywords: { en: ['fortune', 'goodness'], ko: ['행운', '선함'], es: ['fortuna', 'bondad'] } },
+    { hanja: '琳', hangul: '림', jawon: 'wood', strokes: 12, gender: 'female', meaning: { en: 'beautiful jade', ko: '아름다운 옥', es: 'hermoso jade' }, keywords: { en: ['beauty', 'precious'], ko: ['아름다움', '귀함'], es: ['belleza', 'precioso'] } },
+    { hanja: '茂', hangul: '무', jawon: 'wood', strokes: 8, gender: 'male', meaning: { en: 'luxuriant, lush', ko: '무성하다', es: 'exuberante, frondoso' }, keywords: { en: ['prosperity', 'growth'], ko: ['번영', '성장'], es: ['prosperidad', 'crecimiento'] } },
+    { hanja: '樸', hangul: '박', jawon: 'wood', strokes: 16, gender: 'male', meaning: { en: 'simple, plain', ko: '순박하다', es: 'simple, sencillo' }, keywords: { en: ['honesty', 'nature'], ko: ['정직', '자연'], es: ['honestidad', 'naturaleza'] } },
+    { hanja: '笙', hangul: '생', jawon: 'wood', strokes: 11, gender: 'neutral', meaning: { en: 'a reed instrument', ko: '생황', es: 'instrumento de lengüeta' }, keywords: { en: ['harmony', 'art'], ko: ['조화', '예술'], es: ['armonía', 'arte'] } },
+    { hanja: '杓', hangul: '표', jawon: 'wood', strokes: 7, gender: 'male', meaning: { en: 'ladle, handle', ko: '자루', es: 'cucharón, mango' }, keywords: { en: ['standard', 'guidance'], ko: ['표준', '안내'], es: ['estándar', 'guía'] } },
+    { hanja: '榮', hangul: '영', jawon: 'wood', strokes: 14, gender: 'neutral', meaning: { en: 'glory, honor', ko: '영광', es: 'gloria, honor' }, keywords: { en: ['success', 'prosperity'], ko: ['성공', '번영'], es: ['éxito', 'prosperidad'] } },
+    { hanja: '苑', hangul: '원', jawon: 'wood', strokes: 8, gender: 'female', meaning: { en: 'garden, park', ko: '동산', es: 'jardín, parque' }, keywords: { en: ['art', 'beauty'], ko: ['예술', '아름다움'], es: ['arte', 'belleza'] } },
+    { hanja: '桂', hangul: '계', jawon: 'wood', strokes: 10, gender: 'female', meaning: { en: 'cassia tree', ko: '계수나무', es: 'árbol de casia' }, keywords: { en: ['nobility', 'fragrance'], ko: ['고귀함', '향기'], es: ['nobleza', 'fragancia'] } },
+    { hanja: '權', hangul: '권', jawon: 'wood', strokes: 22, gender: 'male', meaning: { en: 'to advise', ko: '권하다', es: 'aconsejar' }, keywords: { en: ['wisdom', 'guidance'], ko: ['지혜', '안내'], es: ['sabiduría', 'guía'] } },
+    { hanja: '楠', hangul: '남', jawon: 'wood', strokes: 13, gender: 'male', meaning: { en: 'tree', ko: '나무', es: 'árbol' }, keywords: { en: ['strength', 'life'], ko: ['힘', '생명'], es: ['fuerza', 'vida'] } },
+
+    // --- Fire Element (火) --- 
+    { hanja: '煥', hangul: '환', jawon: 'fire', strokes: 13, gender: 'male', meaning: { en: 'shining', ko: '빛나다', es: 'brillante' }, keywords: { en: ['passion', 'brightness'], ko: ['열정', '밝음'], es: ['pasión', 'brillo'] } },
+    { hanja: '映', hangul: '영', jawon: 'fire', strokes: 9, gender: 'female', meaning: { en: 'to reflect', ko: '비추다', es: 'reflejar' }, keywords: { en: ['light', 'influence'], ko: ['빛', '영향력'], es: ['luz', 'influencia'] } },
+    { hanja: '旭', hangul: '욱', jawon: 'fire', strokes: 6, gender: 'male', meaning: { en: 'rising sun', ko: '아침 해', es: 'sol naciente' }, keywords: { en: ['hope', 'energy'], ko: ['희망', '에너지'], es: ['esperanza', 'energía'] } },
+    { hanja: '夏', hangul: '하', jawon: 'fire', strokes: 10, gender: 'female', meaning: { en: 'summer', ko: '여름', es: 'verano' }, keywords: { en: ['vitality', 'activity'], ko: ['활력', '활동'], es: ['vitalidad', 'actividad'] } },
+    { hanja: '光', hangul: '광', jawon: 'fire', strokes: 6, gender: 'male', meaning: { en: 'light, glory', ko: '빛, 영광', es: 'luz, gloria' }, keywords: { en: ['honor', 'brightness'], ko: ['명예', '밝음'], es: ['honor', 'brillo'] } },
+    { hanja: '烈', hangul: '렬', jawon: 'fire', strokes: 10, gender: 'male', meaning: { en: 'ardent, fiery', ko: '맵다, 뜨겁다', es: 'ardiente, fogoso' }, keywords: { en: ['passion', 'strength'], ko: ['열정', '힘'], es: ['pasión', 'fuerza'] } },
+    { hanja: '然', hangul: '연', jawon: 'fire', strokes: 12, gender: 'female', meaning: { en: 'to be so, yes', ko: '그러하다', es: 'ser así, sí' }, keywords: { en: ['nature', 'affirmation'], ko: ['자연', '긍정'], es: ['naturaleza', 'afirmación'] } },
+    { hanja: '熹', hangul: '희', jawon: 'fire', strokes: 16, gender: 'female', meaning: { en: 'bright, warm', ko: '밝다, 따뜻하다', es: 'brillante, cálido' }, keywords: { en: ['kindness', 'hope'], ko: ['친절', '희망'], es: ['amabilidad', 'esperanza'] } },
+    { hanja: '昶', hangul: '창', jawon: 'fire', strokes: 9, gender: 'male', meaning: { en: 'bright, long day', ko: '밝다, 해가 길다', es: 'brillante, día largo' }, keywords: { en: ['endurance', 'clarity'], ko: ['인내', '명확함'], es: ['resistencia', 'claridad'] } },
+    { hanja: '燮', hangul: '섭', jawon: 'fire', strokes: 17, gender: 'male', meaning: { en: 'to blend, harmonize', ko: '화합하다', es: 'mezclar, armonizar' }, keywords: { en: ['cooperation', 'balance'], ko: ['협력', '균형'], es: ['cooperación', 'equilibrio'] } },
+    { hanja: '燈', hangul: '등', jawon: 'fire', strokes: 16, gender: 'neutral', meaning: { en: 'lamp, light', ko: '등불', es: 'lámpara, luz' }, keywords: { en: ['guidance', 'wisdom'], ko: ['안내', '지혜'], es: ['guía', 'sabiduría'] } },
+    { hanja: '炫', hangul: '현', jawon: 'fire', strokes: 9, gender: 'neutral', meaning: { en: 'to shine, glitter', ko: '빛나다, 자랑하다', es: 'brillar, relucir' }, keywords: { en: ['talent', 'expression'], ko: ['재능', '표현'], es: ['talento', 'expresión'] } },
+    { hanja: '煇', hangul: '휘', jawon: 'fire', strokes: 13, gender: 'male', meaning: { en: 'brilliance', ko: '빛', es: 'brillo' }, keywords: { en: ['leadership', 'glory'], ko: ['리더십', '영광'], es: ['liderazgo', 'gloria'] } },
+    { hanja: '炳', hangul: '병', jawon: 'fire', strokes: 9, gender: 'male', meaning: { en: 'bright, glorious', ko: '빛나다', es: 'brillante, glorioso' }, keywords: { en: ['achievement', 'fame'], ko: ['성취', '명성'], es: ['logro', 'fama'] } },
+    { hanja: '暖', hangul: '난', jawon: 'fire', strokes: 13, gender: 'female', meaning: { en: 'warm', ko: '따뜻하다', es: 'cálido' }, keywords: { en: ['comfort', 'affection'], ko: ['편안함', '애정'], es: ['comodidad', 'afecto'] } },
+    { hanja: '炅', hangul: '경', jawon: 'fire', strokes: 8, gender: 'neutral', meaning: { en: 'brilliant, hot', ko: '빛나다, 뜨겁다', es: 'brillante, caliente' }, keywords: { en: ['passion', 'light'], ko: ['열정', '빛'], es: ['pasión', 'luz'] } },
+    { hanja: '丹', hangul: '단', jawon: 'fire', strokes: 4, gender: 'female', meaning: { en: 'cinnabar, sincerity', ko: '붉다, 정성', es: 'cinabrio, sinceridad' }, keywords: { en: ['sincerity', 'energy'], ko: ['진심', '에너지'], es: ['sinceridad', 'energía'] } },
+    { hanja: '曜', hangul: '요', jawon: 'fire', strokes: 18, gender: 'male', meaning: { en: 'to shine, day of week', ko: '빛나다, 요일', es: 'brillar, día de la semana' }, keywords: { en: ['brightness', 'honor'], ko: ['밝음', '명예'], es: ['brillo', 'honor'] } },
+    { hanja: '旻', hangul: '민', jawon: 'fire', strokes: 8, gender: 'neutral', meaning: { en: 'autumn sky', ko: '가을 하늘', es: 'cielo de otoño' }, keywords: { en: ['clarity', 'vastness'], ko: ['명료함', '광대함'], es: ['claridad', 'inmensidad'] } },
+    { hanja: '晶', hangul: '정', jawon: 'fire', strokes: 12, gender: 'female', meaning: { en: 'crystal, bright', ko: '수정, 밝다', es: 'cristal, brillante' }, keywords: { en: ['purity', 'brilliance'], ko: ['순수', '총명'], es: ['pureza', 'brillantez'] } },
+    { hanja: '晴', hangul: '청', jawon: 'fire', strokes: 12, gender: 'female', meaning: { en: 'clear weather', ko: '맑다', es: 'tiempo despejado' }, keywords: { en: ['cheerfulness', 'clarity'], ko: ['쾌활함', '명료함'], es: ['alegría', 'claridad'] } },
+    { hanja: '晟', hangul: '성', jawon: 'fire', strokes: 11, gender: 'male', meaning: { en: 'bright light, splendor', ko: '밝은 빛, 번성', es: 'luz brillante, esplendor' }, keywords: { en: ['prosperity', 'vigor'], ko: ['번성', '활기'], es: ['prosperidad', 'vigor'] } },
+    { hanja: '寧', hangul: '녕', jawon: 'fire', strokes: 14, gender: 'neutral', meaning: { en: 'peaceful, rather', ko: '편안하다', es: 'pacífico' }, keywords: { en: ['comfort', 'stability'], ko: ['편안함', '안정'], es: ['comodidad', 'estabilidad'] } },
+    { hanja: '多', hangul: '다', jawon: 'fire', strokes: 6, gender: 'female', meaning: { en: 'many, much', ko: '많다', es: 'mucho' }, keywords: { en: ['abundance', 'talent'], ko: ['풍요', '재능'], es: ['abundancia', 'talento'] } },
+    { hanja: '同', hangul: '동', jawon: 'fire', strokes: 6, gender: 'neutral', meaning: { en: 'same, together', ko: '함께', es: 'mismo, juntos' }, keywords: { en: ['harmony', 'community'], ko: ['조화', '공동체'], es: ['armonía', 'comunidad'] } },
+    { hanja: '來', hangul: '래', jawon: 'fire', strokes: 7, gender: 'neutral', meaning: { en: 'to come', ko: '오다', es: 'venir' }, keywords: { en: ['future', 'hope'], ko: ['미래', '희망'], es: ['futuro', 'esperanza'] } },
+    { hanja: '知', hangul: '지', jawon: 'fire', strokes: 8, gender: 'neutral', meaning: { en: 'to know, wisdom', ko: '알다, 지혜', es: 'saber, sabiduría' }, keywords: { en: ['intellect', 'insight'], ko: ['지성', '통찰력'], es: ['intelecto', 'perspicacia'] } },
+    { hanja: '愷', hangul: '개', jawon: 'fire', strokes: 13, gender: 'male', meaning: { en: 'joyful, kind', ko: '즐겁다', es: 'alegre, amable' }, keywords: { en: ['happiness', 'harmony'], ko: ['행복', '조화'], es: ['felicidad', 'armonía'] } },
+    { hanja: '暢', hangul: '창', jawon: 'fire', strokes: 14, gender: 'male', meaning: { en: 'smooth, free', ko: '화창하다, 막힘없다', es: 'suave, libre' }, keywords: { en: ['expression', 'vitality'], ko: ['표현', '활력'], es: ['expresión', 'vitalidad'] } },
+    { hanja: '之', hangul: '지', jawon: 'fire', strokes: 3, gender: 'neutral', meaning: { en: 'to go, of', ko: '가다, ~의', es: 'ir, de' }, keywords: { en: ['progress', 'connection'], ko: ['진보', '연결'], es: ['progreso', 'conexión'] } },
+    
+    // --- Earth Element (土) ---
+    { hanja: '均', hangul: '균', jawon: 'earth', strokes: 7, gender: 'male', meaning: { en: 'even, balanced', ko: '고르다', es: 'uniforme, equilibrado' }, keywords: { en: ['stability', 'fairness'], ko: ['안정성', '공정함'], es: ['estabilidad', 'justicia'] } },
+    { hanja: '祐', hangul: '우', jawon: 'earth', strokes: 9, gender: 'male', meaning: { en: 'divine help', ko: '도움', es: 'ayuda divina' }, keywords: { en: ['protection', 'fortune'], ko: ['보호', '행운'], es: ['protección', 'fortuna'] } },
+    { hanja: '信', hangul: '신', jawon: 'earth', strokes: 9, gender: 'neutral', meaning: { en: 'trust, faith', ko: '믿음', es: 'confianza, fe' }, keywords: { en: ['reliability', 'integrity'], ko: ['신뢰성', '성실'], es: ['fiabilidad', 'integridad'] } },
+    { hanja: '坤', hangul: '곤', jawon: 'earth', strokes: 8, gender: 'female', meaning: { en: 'earth principle', ko: '땅', es: 'principio de la tierra' }, keywords: { en: ['nurturing', 'receptivity'], ko: ['양육', '수용성'], es: ['crianza', 'receptividad'] } },
+    { hanja: '在', hangul: '재', jawon: 'earth', strokes: 6, gender: 'male', meaning: { en: 'to exist, in', ko: '있다', es: 'existir, en' }, keywords: { en: ['presence', 'foundation'], ko: ['존재', '기반'], es: ['presencia', 'fundamento'] } },
+    { hanja: '圭', hangul: '규', jawon: 'earth', strokes: 6, gender: 'male', meaning: { en: 'jade tablet', ko: '규', es: 'tableta de jade' }, keywords: { en: ['standard', 'nobility'], ko: ['표준', '고귀함'], es: ['estándar', 'nobleza'] } },
+    { hanja: '城', hangul: '성', jawon: 'earth', strokes: 9, gender: 'male', meaning: { en: 'castle, wall', ko: '성', es: 'castillo, muralla' }, keywords: { en: ['protection', 'sturdiness'], ko: ['보호', '견고함'], es: ['protección', 'robustez'] } },
+    { hanja: '垠', hangul: '은', jawon: 'earth', strokes: 9, gender: 'female', meaning: { en: 'boundary, bank', ko: '언덕, 경계', es: 'límite, orilla' }, keywords: { en: ['stability', 'expanse'], ko: ['안정', '광활함'], es: ['estabilidad', 'extensión'] } },
+    { hanja: '基', hangul: '기', jawon: 'earth', strokes: 11, gender: 'male', meaning: { en: 'foundation, base', ko: '기초, 터', es: 'fundamento, base' }, keywords: { en: ['principle', 'potential'], ko: ['원칙', '잠재력'], es: ['principio', 'potencial'] } },
+    { hanja: '培', hangul: '배', jawon: 'earth', strokes: 11, gender: 'male', meaning: { en: 'to cultivate', ko: '북돋우다', es: 'cultivar' }, keywords: { en: ['nurture', 'growth'], ko: ['양육', '성장'], es: ['nutrir', 'crecimiento'] } },
+    { hanja: '庸', hangul: '용', jawon: 'earth', strokes: 11, gender: 'neutral', meaning: { en: 'common, to use', ko: '쓰다, 평범하다', es: 'común, usar' }, keywords: { en: ['harmony', 'steadiness'], ko: ['조화', '꾸준함'], es: ['armonía', 'constancia'] } },
+    { hanja: '垣', hangul: '원', jawon: 'earth', strokes: 9, gender: 'male', meaning: { en: 'wall, fence', ko: '담', es: 'muro, valla' }, keywords: { en: ['support', 'protection'], ko: ['지원', '보호'], es: ['apoyo', 'protección'] } },
+    { hanja: '譽', hangul: '예', jawon: 'earth', strokes: 13, gender: 'female', meaning: { en: 'fame, reputation', ko: '명예', es: 'fama, reputación' }, keywords: { en: ['honor', 'respect'], ko: ['명예', '존경'], es: ['honor', 'respeto'] } },
+    { hanja: '陞', hangul: '승', jawon: 'earth', strokes: 8, gender: 'male', meaning: { en: 'to rise, advance', ko: '오르다', es: 'ascender, avanzar' }, keywords: { en: ['promotion', 'success'], ko: ['승진', '성공'], es: ['ascenso', 'éxito'] } },
+    { hanja: '亞', hangul: '아', jawon: 'earth', strokes: 8, gender: 'female', meaning: { en: 'second, Asia', ko: '버금, 아시아', es: 'segundo, Asia' }, keywords: { en: ['center', 'foundation'], ko: ['중심', '기반'], es: ['centro', 'fundamento'] } },
+    { hanja: '安', hangul: '안', jawon: 'earth', strokes: 6, gender: 'neutral', meaning: { en: 'peace, quiet', ko: '편안하다', es: 'paz, tranquilo' }, keywords: { en: ['safety', 'comfort'], ko: ['안전', '편안함'], es: ['seguridad', 'comodidad'] } },
+    { hanja: '恩', hangul: '은', jawon: 'earth', strokes: 10, gender: 'female', meaning: { en: 'grace, favor', ko: '은혜', es: 'gracia, favor' }, keywords: { en: ['kindness', 'gratitude'], ko: ['친절', '감사'], es: ['amabilidad', 'gratitud'] } },
+    { hanja: '完', hangul: '완', jawon: 'earth', strokes: 7, gender: 'male', meaning: { en: 'complete, whole', ko: '완전하다', es: 'completo, entero' }, keywords: { en: ['perfection', 'integrity'], ko: ['완벽', '온전함'], es: ['perfección', 'integridad'] } },
+    { hanja: '容', hangul: '용', jawon: 'earth', strokes: 10, gender: 'female', meaning: { en: 'to contain, appearance', ko: '얼굴, 담다', es: 'contener, apariencia' }, keywords: { en: ['tolerance', 'beauty'], ko: ['관용', '아름다움'], es: ['tolerancia', 'belleza'] } },
+    { hanja: '允', hangul: '윤', jawon: 'earth', strokes: 4, gender: 'neutral', meaning: { en: 'to permit, sincere', ko: '진실로', es: 'permitir, sincero' }, keywords: { en: ['sincerity', 'trust'], ko: ['진실', '신뢰'], es: ['sinceridad', 'confianza'] } },
+    { hanja: '懿', hangul: '의', jawon: 'earth', strokes: 22, gender: 'female', meaning: { en: 'virtuous, beautiful', ko: '아름답다', es: 'virtuoso, hermoso' }, keywords: { en: ['virtue', 'nobility'], ko: ['덕', '고귀함'], es: ['virtud', 'nobleza'] } },
+    { hanja: '仁', hangul: '인', jawon: 'earth', strokes: 4, gender: 'neutral', meaning: { en: 'benevolence', ko: '어질다', es: 'benevolencia' }, keywords: { en: ['kindness', 'humanity'], ko: ['친절', '인류애'], es: ['amabilidad', 'humanidad'] } },
+    { hanja: '廷', hangul: '정', jawon: 'earth', strokes: 7, gender: 'male', meaning: { en: 'royal court', ko: '조정', es: 'corte real' }, keywords: { en: ['justice', 'center'], ko: ['정의', '중심'], es: ['justicia', 'centro'] } },
+    { hanja: '準', hangul: '준', jawon: 'earth', strokes: 13, gender: 'male', meaning: { en: 'standard, to allow', ko: '준하다', es: 'estándar, permitir' }, keywords: { en: ['fairness', 'principle'], ko: ['공정', '원칙'], es: ['justicia', 'principio'] } },
+    { hanja: '中', hangul: '중', jawon: 'earth', strokes: 4, gender: 'male', meaning: { en: 'middle, center', ko: '가운데', es: 'medio, centro' }, keywords: { en: ['balance', 'harmony'], ko: ['균형', '조화'], es: ['equilibrio', 'armonía'] } },
+    { hanja: '山', hangul: '산', jawon: 'earth', strokes: 3, gender: 'male', meaning: { en: 'mountain', ko: '산', es: 'montaña' }, keywords: { en: ['stability', 'unwavering'], ko: ['안정', '굳건함'], es: ['estabilidad', 'firmeza'] } },
+    { hanja: '石', hangul: '석', jawon: 'earth', strokes: 5, gender: 'male', meaning: { en: 'stone', ko: '돌', es: 'piedra' }, keywords: { en: ['strength', 'foundation'], ko: ['힘', '기초'], es: ['fuerza', 'fundamento'] } },
+    { hanja: '田', hangul: '전', jawon: 'earth', strokes: 5, gender: 'neutral', meaning: { en: 'field', ko: '밭', es: 'campo' }, keywords: { en: ['abundance', 'production'], ko: ['풍요', '생산'], es: ['abundancia', 'producción'] } },
+    { hanja: '永', hangul: '영', jawon: 'earth', strokes: 5, gender: 'neutral', meaning: { en: 'eternal, long', ko: '길다', es: 'eterno, largo' }, keywords: { en: ['longevity', 'continuity'], ko: ['장수', '지속성'], es: ['longevidad', 'continuidad'] } },
+    { hanja: '玉', hangul: '옥', jawon: 'earth', strokes: 5, gender: 'female', meaning: { en: 'jade, gem', ko: '구슬', es: 'jade, gema' }, keywords: { en: ['precious', 'noble'], ko: ['귀함', '고귀함'], es: ['precioso', 'noble'] } },
+
+    // --- Metal Element (金) ---
+    { hanja: '瑞', hangul: '서', jawon: 'metal', strokes: 13, gender: 'female', meaning: { en: 'auspicious', ko: '상서롭다', es: 'auspicioso' }, keywords: { en: ['blessing', 'precious'], ko: ['축복', '귀중함'], es: ['bendición', 'precioso'] } },
+    { hanja: '峻', hangul: '준', jawon: 'metal', strokes: 10, gender: 'male', meaning: { en: 'high, steep', ko: '높다', es: 'alto, empinado' }, keywords: { en: ['strength', 'principle'], ko: ['강인함', '원칙'], es: ['fuerza', 'principio'] } },
+    { hanja: '錫', hangul: '석', jawon: 'metal', strokes: 16, gender: 'male', meaning: { en: 'to bestow, tin', ko: '주석, 하사하다', es: 'otorgar, estaño' }, keywords: { en: ['granting', 'value'], ko: ['수여', '가치'], es: ['concesión', 'valor'] } },
+    { hanja: '玲', hangul: '령', jawon: 'metal', strokes: 9, gender: 'female', meaning: { en: 'sound of jade', ko: '옥 소리', es: 'sonido de jade' }, keywords: { en: ['clarity', 'bright'], ko: ['명료함', '밝음'], es: ['claridad', 'brillante'] } },
+    { hanja: '鉉', hangul: '현', jawon: 'metal', strokes: 13, gender: 'male', meaning: { en: 'tripod lug, wise', ko: '솥귀, 지혜', es: 'asa de trípode, sabio' }, keywords: { en: ['wisdom', 'support'], ko: ['지혜', '지지'], es: ['sabiduría', 'apoyo'] } },
+    { hanja: '銀', hangul: '은', jawon: 'metal', strokes: 14, gender: 'female', meaning: { en: 'silver', ko: '은', es: 'plata' }, keywords: { en: ['value', 'purity'], ko: ['가치', '순수'], es: ['valor', 'pureza'] } },
+    { hanja: '鍾', hangul: '종', jawon: 'metal', strokes: 17, gender: 'male', meaning: { en: 'bell, cup', ko: '쇠북, 잔', es: 'campana, copa' }, keywords: { en: ['gathering', 'center'], ko: ['모임', '중심'], es: ['reunión', 'centro'] } },
+    { hanja: '剛', hangul: '강', jawon: 'metal', strokes: 10, gender: 'male', meaning: { en: 'strong, firm', ko: '굳세다', es: 'fuerte, firme' }, keywords: { en: ['courage', 'integrity'], ko: ['용기', '청렴'], es: ['coraje', 'integridad'] } },
+    { hanja: '創', hangul: '창', jawon: 'metal', strokes: 12, gender: 'neutral', meaning: { en: 'to create, begin', ko: '비롯하다, 만들다', es: 'crear, comenzar' }, keywords: { en: ['innovation', 'initiative'], ko: ['혁신', '진취'], es: ['innovación', 'iniciativa'] } },
+    { hanja: '純', hangul: '순', jawon: 'metal', strokes: 10, gender: 'female', meaning: { en: 'pure', ko: '순수하다', es: 'puro' }, keywords: { en: ['sincerity', 'clarity'], ko: ['진실함', '명료함'], es: ['sinceridad', 'claridad'] } },
+    { hanja: '鈴', hangul: '령', jawon: 'metal', strokes: 13, gender: 'female', meaning: { en: 'bell', ko: '방울', es: 'campana' }, keywords: { en: ['alertness', 'sound'], ko: ['기민함', '소리'], es: ['alerta', 'sonido'] } },
+    { hanja: '鈺', hangul: '옥', jawon: 'metal', strokes: 13, gender: 'female', meaning: { en: 'treasure', ko: '보물', es: 'tesoro' }, keywords: { en: ['precious', 'hardness'], ko: ['귀중함', '견고함'], es: ['precioso', 'dureza'] } },
+    { hanja: '錚', hangul: '쟁', jawon: 'metal', strokes: 16, gender: 'male', meaning: { en: 'sound of metal', ko: '쇳소리', es: 'sonido de metal' }, keywords: { en: ['excellent', 'sharp'], ko: ['뛰어남', '날카로움'], es: ['excelente', 'agudo'] } },
+    { hanja: '鎭', hangul: '진', jawon: 'metal', strokes: 18, gender: 'male', meaning: { en: 'to guard', ko: '진압하다', es: 'guardar' }, keywords: { en: ['stability', 'leadership'], ko: ['안정', '리더십'], es: ['estabilidad', 'liderazgo'] } },
+    { hanja: '鍊', hangul: '련', jawon: 'metal', strokes: 17, gender: 'neutral', meaning: { en: 'to refine, train', ko: '단련하다', es: 'refinar, entrenar' }, keywords: { en: ['discipline', 'perfection'], ko: ['단련', '완벽'], es: ['disciplina', 'perfección'] } },
+    { hanja: '宰', hangul: '재', jawon: 'metal', strokes: 10, gender: 'male', meaning: { en: 'to rule', ko: '재상', es: 'gobernar' }, keywords: { en: ['leadership', 'judgment'], ko: ['리더십', '판단력'], es: ['liderazgo', 'juicio'] } },
+    { hanja: '釗', hangul: '쇠', jawon: 'metal', strokes: 8, gender: 'male', meaning: { en: 'to encourage', ko: '힘쓰다', es: 'animar' }, keywords: { en: ['effort', 'sharpness'], ko: ['노력', '날카로움'], es: ['esfuerzo', 'agudeza'] } },
+    { hanja: '秀', hangul: '수', jawon: 'metal', strokes: 7, gender: 'neutral', meaning: { en: 'outstanding (can be metal)', ko: '빼어나다', es: 'sobresaliente' }, keywords: { en: ['excellence', 'harvest'], ko: ['탁월함', '수확'], es: ['excelencia', 'cosecha'] } },
+    { hanja: '承', hangul: '승', jawon: 'metal', strokes: 8, gender: 'male', meaning: { en: 'to inherit', ko: '잇다', es: 'heredar' }, keywords: { en: ['succession', 'support'], ko: ['계승', '지지'], es: ['sucesión', 'apoyo'] } },
+    { hanja: '申', hangul: '신', jawon: 'metal', strokes: 5, gender: 'neutral', meaning: { en: 'to state, report', ko: '펴다, 알리다', es: 'declarar, informar' }, keywords: { en: ['expression', 'intellect'], ko: ['표현', '지성'], es: ['expresión', 'intelecto'] } },
+    { hanja: '實', hangul: '실', jawon: 'metal', strokes: 14, gender: 'neutral', meaning: { en: 'fruit, truth', ko: '열매, 진실', es: 'fruto, verdad' }, keywords: { en: ['result', 'sincerity'], ko: ['결실', '성실'], es: ['resultado', 'sinceridad'] } },
+    { hanja: '正', hangul: '정', jawon: 'metal', strokes: 5, gender: 'male', meaning: { en: 'correct, right', ko: '바르다', es: 'correcto, justo' }, keywords: { en: ['justice', 'principle'], ko: ['정의', '원칙'], es: ['justicia', 'principio'] } },
+    { hanja: '貞', hangul: '정', jawon: 'metal', strokes: 9, gender: 'female', meaning: { en: 'chaste, loyal', ko: '곧다', es: 'casta, leal' }, keywords: { en: ['integrity', 'loyalty'], ko: ['절개', '충성'], es: ['integridad', 'lealtad'] } },
+    { hanja: '珠', hangul: '주', jawon: 'metal', strokes: 10, gender: 'female', meaning: { en: 'pearl, jewel', ko: '구슬', es: 'perla, joya' }, keywords: { en: ['precious', 'beauty'], ko: ['귀중함', '아름다움'], es: ['precioso', 'belleza'] } },
+    { hanja: '璨', hangul: '찬', jawon: 'metal', strokes: 17, gender: 'neutral', meaning: { en: 'brilliant (gem)', ko: '빛나다', es: 'brillante (gema)' }, keywords: { en: ['splendor', 'value'], ko: ['광채', '가치'], es: ['esplendor', 'valor'] } },
+    { hanja: '昌', hangul: '창', jawon: 'metal', strokes: 8, gender: 'male', meaning: { en: 'prosperous', ko: '창성하다', es: 'próspero' }, keywords: { en: ['success', 'brightness'], ko: ['성공', '밝음'], es: ['éxito', 'brillo'] } },
+    { hanja: '採', hangul: '채', jawon: 'metal', strokes: 11, gender: 'female', meaning: { en: 'to gather, select', ko: '캐다, 고르다', es: 'recoger, seleccionar' }, keywords: { en: ['choice', 'result'], ko: ['선택', '결실'], es: ['elección', 'resultado'] } },
+    { hanja: '鐵', hangul: '철', jawon: 'metal', strokes: 21, gender: 'male', meaning: { en: 'iron', ko: '쇠', es: 'hierro' }, keywords: { en: ['strength', 'determination'], ko: ['강인함', '결단력'], es: ['fuerza', 'determinación'] } },
+    { hanja: '秋', hangul: '추', jawon: 'metal', strokes: 9, gender: 'neutral', meaning: { en: 'autumn', ko: '가을', es: 'otoño' }, keywords: { en: ['harvest', 'maturity'], ko: ['수확', '성숙'], es: ['cosecha', 'madurez'] } },
+    { hanja: '仙', hangul: '선', jawon: 'metal', strokes: 5, gender: 'female', meaning: { en: 'immortal, transcendent', ko: '신선', es: 'inmortal, trascendente' }, keywords: { en: ['purity', 'otherworldly'], ko: ['순수', '탈속'], es: ['pureza', 'trascendente'] } }
+].map(h => ({...h, good: true }));
 
 
 const translations = {
@@ -260,23 +351,13 @@ const translations = {
         privacyText: "We do not collect, store, or share any personal information you enter. All data, including your birth date and time, is processed only within your browser and is never sent to our servers. Your privacy is fully protected.",
         termsText: "This service is provided for entertainment purposes only. The analyses and name recommendations are based on simplified principles of Saju Myeongrihak and should not be taken as professional advice. By using this service, you agree that the developers are not liable for any decisions made based on the information provided.",
         detailLink: "Already have a name? See how well it harmonizes with your Saju!",
-        yearError: "Please enter a year between 1940-2040.",
-        dayError: "Please enter a valid day.",
+        yearError: "Please enter a year between 1940-2040.", dayError: "Please enter a valid day.",
         elements: { wood: 'Wood', fire: 'Fire', earth: 'Earth', metal: 'Metal', water: 'Water' },
         strengths: { strong: 'strong', weak: 'weak' },
         sajuAnalysis: {
             dayMasterIntro: (d, e) => `Your Saju's core identity, the "Day Master," is <strong>${d} (${e})</strong>.`,
             dayMasterDesc: {
-                '甲': "This represents a tall, sturdy Tree, giving you natural leadership qualities, a progressive spirit, and a desire to grow and achieve.",
-                '乙': "This embodies a flexible Flower or Vine, indicating adaptability, strong vitality, and a charming, sociable nature.",
-                '丙': "You are like the brilliant Sun, full of passion, generosity, and a bright energy that illuminates everything around you.",
-                '丁': "This is the warm, gentle light of a Candle or the Stars, suggesting a refined, sensitive nature with deep insight and warmth.",
-                '戊': "You represent a vast, immovable Mountain, making you trustworthy, stable, and a central figure who can support others.",
-                '己': "This is fertile, nurturing Earth, indicating a gentle, receptive, and cautious personality that can cultivate great things.",
-                '庚': "You embody strong, unrefined Metal or a powerful Sword, giving you a decisive, loyal, and principled nature with a sharp mind.",
-                '辛': "You are like a precious, polished Gem, suggesting a sophisticated, aesthetically-minded, and perfectionistic personality.",
-                '壬': "This represents a great Ocean or River, indicating a wise, flexible, and all-embracing nature with great potential.",
-                '癸': "This is the gentle Rain or Dew, suggesting an intelligent, creative, and sensitive personality with a talent for nurturing ideas."
+                '甲': "This represents a tall, sturdy Tree...", '乙': "This embodies a flexible Flower or Vine...", '丙': "You are like the brilliant Sun...", '丁': "This is the warm, gentle light of a Candle...", '戊': "You represent a vast, immovable Mountain...", '己': "This is fertile, nurturing Earth...", '庚': "You embody strong, unrefined Metal...", '辛': "You are like a precious, polished Gem...", '壬': "This represents a great Ocean or River...", '癸': "This is the gentle Rain or Dew..."
             },
             sajuBalance: (s, b) => `Analysis shows your Day Master is <strong>${s}</strong>... your Saju benefits from <strong>${b.join(' and ')}</strong>.`,
             nameIntro: (n) => `We recommend <strong>${n.roman} (${n.hangul}, <span class="hanja">${n.hanja}</span>)</strong>. Here’s why:`,
@@ -291,23 +372,13 @@ const translations = {
         privacyText: "당사가 수집, 저장 또는 공유하는 개인 정보는 없습니다. 생년월일을 포함한 모든 데이터는 브라우저 내에서만 처리되며 서버로 전송되지 않습니다. 개인 정보는 완벽하게 보호됩니다.",
         termsText: "본 서비스는 오락 목적으로만 제공됩니다. 분석 및 이름 추천은 사주명리학의 단순화된 원칙에 근거하므로 전문적인 조언으로 간주되어서는 안 됩니다. 본 서비스를 사용함으로써 귀하는 제공된 정보를 기반으로 한 모든 결정에 대해 개발자가 책임을 지지 않는다는 데 동의하는 것입니다.",
         detailLink: "지금 만든 이름과 사주의 조화가 궁금하다면 클릭!",
-        yearError: "1940-2040년 사이의 연도를 입력해주세요.",
-        dayError: "유효한 날짜를 입력해주세요.",
+        yearError: "1940-2040년 사이의 연도를 입력해주세요.", dayError: "유효한 날짜를 입력해주세요.",
         elements: { wood: '목(木)', fire: '화(火)', earth: '토(土)', metal: '금(金)', water: '수(水)' },
         strengths: { strong: '강한', weak: '약한' },
         sajuAnalysis: {
             dayMasterIntro: (d, e) => `당신의 "일간(日干)"은 <strong>${d} (${e})</strong> 입니다.`,
             dayMasterDesc: {
-                '甲': '크고 튼튼한 나무를 상징하며, 타고난 리더십과 진취적인 정신, 성장과 성취에 대한 열망을 의미합니다.',
-                '乙': '유연한 꽃이나 덩굴을 상징하며, 뛰어난 적응력과 강한 생명력, 매력적이고 사교적인 성향을 나타냅니다.',
-                '丙': '빛나는 태양과 같아, 열정과 관대함, 그리고 주변 모든 것을 비추는 밝은 에너지를 지녔습니다.',
-                '丁': '따뜻하고 은은한 촛불이나 별빛으로, 깊은 통찰력과 온기를 지닌 섬세하고 감성적인 본성을 암시합니다.',
-                '戊': '크고 움직이지 않는 산을 상징하여, 신뢰할 수 있고 안정적이며 다른 사람들을 지지할 수 있는 중심적인 인물임을 의미합니다.',
-                '己': '만물을 키우는 비옥한 땅으로, 위대한 것을 일굴 수 있는 부드럽고 수용적이며 신중한 성격을 나타냅니다.',
-                '庚': '강하고 제련되지 않은 금속이나 강력한 칼을 상징하며, 결단력 있고 의리 있으며 날카로운 정신을 가진 본성을 의미합니다.',
-                '辛': '귀하고 잘 닦인 보석과 같아, 세련되고 미적 감각이 뛰어나며 완벽주의적인 성향을 암시합니다.',
-                '壬': '거대한 바다나 강을 상징하며, 위대한 잠재력을 지닌 지혜롭고 유연하며 모든 것을 포용하는 본성을 나타냅니다.',
-                '癸': '부드러운 비나 이슬을 상징하며, 지적이고 창의적이며 아이디어를 키우는 재능을 가진 섬세한 성격을 암시합니다.'
+                '甲': '크고 튼튼한 나무를 상징하며, 타고난 리더십과 진취적인 정신, 성장과 성취에 대한 열망을 의미합니다.', '乙': '유연한 꽃이나 덩굴을 상징하며, 뛰어난 적응력과 강한 생명력, 매력적이고 사교적인 성향을 나타냅니다.', '丙': '빛나는 태양과 같아, 열정과 관대함, 그리고 주변 모든 것을 비추는 밝은 에너지를 지녔습니다.', '丁': '따뜻하고 은은한 촛불이나 별빛으로, 깊은 통찰력과 온기를 지닌 섬세하고 감성적인 본성을 암시합니다.', '戊': '크고 움직이지 않는 산을 상징하여, 신뢰할 수 있고 안정적이며 다른 사람들을 지지할 수 있는 중심적인 인물임을 의미합니다.', '己': '만물을 키우는 비옥한 땅으로, 위대한 것을 일굴 수 있는 부드럽고 수용적이며 신중한 성격을 나타냅니다.', '庚': '강하고 제련되지 않은 금속이나 강력한 칼을 상징하며, 결단력 있고 의리 있으며 날카로운 정신을 가진 본성을 의미합니다.', '辛': '귀하고 잘 닦인 보석과 같아, 세련되고 미적 감각이 뛰어나며 완벽주의적인 성향을 암시합니다.', '壬': '거대한 바다나 강을 상징하며, 위대한 잠재력을 지닌 지혜롭고 유연하며 모든 것을 포용하는 본성을 나타냅니다.', '癸': '부드러운 비나 이슬을 상징하며, 지적이고 창의적이며 아이디어를 키우는 재능을 가진 섬세한 성격을 암시합니다.'
             },
             sajuBalance: (s, b) => `당신의 일간은 <strong>${s}</strong> 경향을 보입니다... <strong>${b.join('과 ')}</strong>의 기운이 가장 유용합니다.`,
             nameIntro: (n) => `<strong>${n.hangul} (<span class="hanja">${n.hanja}</span>, ${n.roman})</strong>을 추천합니다. 이유는 다음과 같습니다:`,
@@ -322,23 +393,13 @@ const translations = {
         privacyText: "No recopilamos, almacenamos ni compartimos ninguna información personal que ingrese. Todos los datos, incluida su fecha y hora de nacimiento, se procesan solo dentro de su navegador y nunca se envían a nuestros servidores. Su privacidad está totalmente protegida.",
         termsText: "Este servicio se proporciona únicamente con fines de entretenimiento. Los análisis y las recomendaciones de nombres se basan en principios simplificados de Saju Myeongrihak y no deben tomarse como un consejo profesional. Al utilizar este servicio, usted acepta que los desarrolladores no son responsables de ninguna decisión tomada en base a la información proporcionada.",
         detailLink: "¿Ya tienes un nombre? ¡Descubre qué tan bien armoniza con tu Saju!",
-        yearError: "Por favor, ingrese un año entre 1940-2040.",
-        dayError: "Por favor, ingrese un día válido.",
+        yearError: "Por favor, ingrese un año entre 1940-2040.", dayError: "Por favor, ingrese un día válido.",
         elements: { wood: 'Madera', fire: 'Fuego', earth: 'Tierra', metal: 'Metal', water: 'Agua' },
         strengths: { strong: 'fuerte', weak: 'débil' },
         sajuAnalysis: {
             dayMasterIntro: (d, e) => `Tu "Maestro del Día", es <strong>${d} (${e})</strong>.`,
             dayMasterDesc: {
-                '甲': "Representa un Árbol alto y robusto, dándote cualidades de liderazgo natural, un espíritu progresista y un deseo de crecer y alcanzar metas.",
-                '乙': "Encarna una Flor o Enredadera flexible, lo que indica adaptabilidad, gran vitalidad y una naturaleza encantadora y sociable.",
-                '丙': "Eres como el Sol brillante, lleno de pasión, generosidad y una energía radiante que ilumina todo a tu alrededor.",
-                '丁': "Es la luz cálida y suave de una Vela o las Estrellas, sugiriendo una naturaleza refinada y sensible con una profunda perspicacia y calidez.",
-                '戊': "Representas una Montaña vasta e inamovible, lo que te hace digno de confianza, estable y una figura central que puede apoyar a otros.",
-                '己': "Es la Tierra fértil y nutritiva, lo que indica una personalidad amable, receptiva y cautelosa que puede cultivar grandes cosas.",
-                '庚': "Encarnas un Metal fuerte y sin refinar o una Espada poderosa, lo que te da una naturaleza decidida, leal y de principios con una mente aguda.",
-                '辛': "Eres como una Gema preciosa y pulida, lo que sugiere una personalidad sofisticada, con mentalidad estética y perfeccionista.",
-                '壬': "Representa un gran Océano o Río, lo que indica una naturaleza sabia, flexible y que todo lo abarca con un gran potencial.",
-                '癸': "Es la Lluvia o el Rocío suave, lo que sugiere una personalidad inteligente, creativa y sensible con talento para nutrir ideas."
+                '甲': "Representa un Árbol alto y robusto...", '乙': "Encarna una Flor o Enredadera flexible...", '丙': "Eres como el Sol brillante...", '丁': "Es la luz cálida y suave de una Vela...", '戊': "Representas una Montaña vasta e inamovible...", '己': "Es la Tierra fértil y nutritiva...", '庚': "Encarnas un Metal fuerte y sin refinar...", '辛': "Eres como una Gema preciosa y pulida...", '壬': "Representa un gran Océano o Río...", '癸': "Es la Lluvia o el Rocío suave..."
             },
             sajuBalance: (s, b) => `Tu Maestro del Día es <strong>${s}</strong>... tu Saju se beneficia de <strong>${b.join(' y ')}</strong>.`,
             nameIntro: (n) => `Recomendamos <strong>${n.roman} (${n.hangul}, <span class="hanja">${n.hanja}</span>)</strong>. He aquí por qué:`,
@@ -386,18 +447,18 @@ class SajuNamer {
         return { saju, dayMasterChar, dayMasterElement, strength, beneficialElements, elementCounts };
     }
 
-    generateNames(analysisResult, count = 2) {
+    generateNames(analysisResult, gender, count = 2) {
         const { beneficialElements } = analysisResult;
         const recommendedNames = [];
         let usedHanjaPairs = new Set();
         for (let i = 0; i < count; i++) {
             const primaryElement = beneficialElements[i % beneficialElements.length];
-            const firstHanjaPool = HanjaInfo.filter(h => h.jawon === primaryElement && h.good);
+            const firstHanjaPool = HanjaInfo.filter(h => h.jawon === primaryElement && h.good && (h.gender === gender || h.gender === 'neutral'));
             if (firstHanjaPool.length === 0) continue;
-            for(let j=0; j<10; j++) {
+            for(let j=0; j<20; j++) { // Increased attempts for better variety
                 const firstHanja = firstHanjaPool[Math.floor(Math.random() * firstHanjaPool.length)];
                 const secondElement = beneficialElements[(i + 1) % beneficialElements.length];
-                const secondHanjaPool = HanjaInfo.filter(h => (h.jawon === primaryElement || h.jawon === secondElement) && h.good && h.hanja !== firstHanja.hanja);
+                const secondHanjaPool = HanjaInfo.filter(h => (h.jawon === primaryElement || h.jawon === secondElement) && h.good && h.hanja !== firstHanja.hanja && (h.gender === gender || h.gender === 'neutral'));
                 if (secondHanjaPool.length === 0) continue;
                 const secondHanja = secondHanjaPool[Math.floor(Math.random() * secondHanjaPool.length)];
                 const pairKey = [firstHanja.hanja, secondHanja.hanja].sort().join('');
@@ -548,13 +609,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const month = parseInt(document.getElementById('month').value);
         const day = parseInt(document.getElementById('day').value);
         const hour = parseInt(document.getElementById('hour').value);
+        const gender = document.querySelector('input[name="gender"]:checked').value;
         
         const loader = document.getElementById('loader');
         loader.style.display = 'flex';
         document.getElementById('submitButton').disabled = true;
         setTimeout(() => {
             const analysisResult = sajuNamer.analyze(year, month, day, hour);
-            const names = sajuNamer.generateNames(analysisResult, 2);
+            const names = sajuNamer.generateNames(analysisResult, gender, 2);
             displayResults(analysisResult, names, {year, month, day}, hour === -1);
             loader.style.display = 'none';
             document.getElementById('submitButton').disabled = false;
@@ -568,7 +630,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const trans = translations[currentLang] || translations['en'];
         document.getElementById('birthDateDisplay').textContent = `${birthDate.year}-${String(birthDate.month).padStart(2,'0')}-${String(birthDate.day).padStart(2,'0')}`;
         
-        const { analysisSummary } = sajuNamer.generateExplanation(analysis, names[0], currentLang);
+        const { analysisSummary } = sajuNamer.generateExplanation(analysis, names[0] || {}, currentLang);
         document.getElementById('sajuAnalysisReport').innerHTML = analysisSummary;
 
         const chartContainer = document.getElementById('fiveElementsChart');
@@ -586,15 +648,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const namesContainer = document.getElementById('recommendedNames');
         namesContainer.innerHTML = '';
-        names.forEach((name, index) => {
-            const { nameExplanation } = sajuNamer.generateExplanation(analysis, name, currentLang);
-            const card = `
-                <div class="p-5 bg-blue-50 border border-blue-200 rounded-lg">
-                    <h4 class="text-lg font-semibold text-blue-800 mb-3">${trans.recommendation} #${index + 1}: ${name.roman} (${name.hangul} / <span class="hanja">${name.hanja}</span>)</h4>
-                    <div class="text-gray-600 leading-relaxed space-y-2">${nameExplanation}</div>
-                </div>`;
-            namesContainer.innerHTML += card;
-        });
+        if (names.length > 0) {
+            names.forEach((name, index) => {
+                const { nameExplanation } = sajuNamer.generateExplanation(analysis, name, currentLang);
+                const card = `
+                    <div class="p-5 bg-blue-50 border border-blue-200 rounded-lg">
+                        <h4 class="text-lg font-semibold text-blue-800 mb-3">${trans.recommendation} #${index + 1}: ${name.roman} (${name.hangul} / <span class="hanja">${name.hanja}</span>)</h4>
+                        <div class="text-gray-600 leading-relaxed space-y-2">${nameExplanation}</div>
+                    </div>`;
+                namesContainer.innerHTML += card;
+            });
+        } else {
+            namesContainer.innerHTML = `<p>No suitable names could be generated with the current criteria. Please try again.</p>`;
+        }
         
         const timeInfo = document.getElementById('timeInfo');
         timeInfo.style.display = isTimeUnknown ? 'block' : 'none';
